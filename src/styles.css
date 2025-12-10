@@ -1,0 +1,413 @@
+/* Tailwind CSS Imports */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Google Fonts - Warmer, Friendlier Typography */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Nunito+Sans:wght@400;500;600;700&display=swap');
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Respect reduced motion preferences for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  font-family: 'Nunito Sans', 'Nunito', system-ui, -apple-system, sans-serif;
+}
+
+/* ===== ANIMATIONS ===== */
+
+/* Smooth fade-in animation */
+.fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* FAQ accordion animation */
+.faq-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.faq-content.open {
+  max-height: 500px;
+}
+
+/* Mobile menu animation */
+.mobile-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.mobile-menu.open {
+  max-height: 400px;
+}
+
+/* Counter animation */
+.counter {
+  transition: all 0.3s ease;
+}
+
+/* Scroll Progress Bar */
+.scroll-progress {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, #0d9488, #14b8a6);
+  z-index: 100;
+  transition: width 0.1s ease-out;
+}
+
+/* ===== DARK MODE - COMPREHENSIVE THEME ===== */
+
+/* Base dark mode variables */
+.dark {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-surface: #334155;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --border-color: #334155;
+  --border-subtle: #475569;
+}
+
+/* Body and background */
+.dark body,
+body.dark {
+  background-color: #0f172a;
+  color: #f1f5f9;
+}
+
+.dark .bg-background,
+body.dark .bg-background {
+  background-color: #0f172a;
+}
+
+/* White backgrounds become dark */
+.dark .bg-white,
+body.dark .bg-white {
+  background-color: #1e293b;
+}
+
+/* Light gradient backgrounds in Hero */
+.dark .bg-gradient-to-br.from-background,
+body.dark .bg-gradient-to-br.from-background {
+  background: linear-gradient(to bottom right, #0f172a, #1e293b);
+}
+
+/* All teal/indigo/amber/rose tinted backgrounds become dark surface */
+.dark .bg-teal-50,
+.dark .bg-indigo-50,
+.dark .bg-amber-50,
+.dark .bg-rose-50,
+.dark .bg-green-50,
+body.dark .bg-teal-50,
+body.dark .bg-indigo-50,
+body.dark .bg-amber-50,
+body.dark .bg-rose-50,
+body.dark .bg-green-50 {
+  background-color: #334155 !important;
+}
+
+/* Green gradient cards (featured testimonial) */
+.dark .bg-gradient-to-r.from-green-50,
+body.dark .bg-gradient-to-r.from-green-50 {
+  background: linear-gradient(to right, #1e293b, #1e293b) !important;
+  border-color: #334155 !important;
+}
+
+.dark .from-green-50.to-teal-50,
+body.dark .from-green-50.to-teal-50 {
+  background: #1e293b !important;
+}
+
+/* Primary gradient backgrounds */
+.dark .bg-gradient-to-r.from-primary,
+body.dark .bg-gradient-to-r.from-primary {
+  /* Keep primary gradients as they provide good contrast */
+}
+
+/* Primary/5 tinted backgrounds */
+.dark .from-primary\/5,
+body.dark .from-primary\/5 {
+  --tw-gradient-from: rgba(13, 148, 136, 0.15);
+}
+
+/* Text colors */
+.dark .text-text-primary,
+body.dark .text-text-primary {
+  color: #f1f5f9;
+}
+
+.dark .text-text-secondary,
+body.dark .text-text-secondary {
+  color: #94a3b8;
+}
+
+/* Muted text colors */
+.dark .text-text-secondary\/70,
+body.dark .text-text-secondary\/70 {
+  color: rgba(148, 163, 184, 0.7);
+}
+
+/* Border colors */
+.dark .border-gray-100,
+body.dark .border-gray-100 {
+  border-color: #334155;
+}
+
+.dark .border-gray-200,
+body.dark .border-gray-200 {
+  border-color: #475569;
+}
+
+.dark .border-green-200,
+body.dark .border-green-200 {
+  border-color: #334155;
+}
+
+.dark .border-primary\/10,
+body.dark .border-primary\/10 {
+  border-color: rgba(13, 148, 136, 0.2);
+}
+
+.dark .border-primary\/20,
+body.dark .border-primary\/20 {
+  border-color: rgba(13, 148, 136, 0.3);
+}
+
+/* Navbar */
+.dark nav,
+body.dark nav {
+  background-color: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(12px);
+  border-color: #334155;
+}
+
+.dark nav .bg-white\/80,
+body.dark nav .bg-white\/80 {
+  background-color: rgba(15, 23, 42, 0.95);
+}
+
+/* Hover states for links */
+.dark .hover\:bg-gray-100:hover,
+body.dark .hover\:bg-gray-100:hover {
+  background-color: #334155;
+}
+
+.dark .hover\:bg-gray-50:hover,
+body.dark .hover\:bg-gray-50:hover {
+  background-color: #1e293b;
+}
+
+/* Input fields */
+.dark input,
+.dark textarea,
+.dark select,
+body.dark input,
+body.dark textarea,
+body.dark select {
+  background-color: #1e293b;
+  border-color: #475569;
+  color: #f1f5f9;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder,
+body.dark input::placeholder,
+body.dark textarea::placeholder {
+  color: #64748b;
+}
+
+.dark input:focus,
+.dark textarea:focus,
+.dark select:focus,
+body.dark input:focus,
+body.dark textarea:focus,
+body.dark select:focus {
+  border-color: #14b8a6;
+  outline-color: #14b8a6;
+}
+
+/* Footer */
+.dark footer,
+body.dark footer {
+  background-color: #1e293b;
+  border-color: #334155;
+}
+
+/* Shadow adjustments for dark mode */
+.dark .shadow-sm,
+.dark .shadow-md,
+.dark .shadow-lg,
+.dark .shadow-xl,
+body.dark .shadow-sm,
+body.dark .shadow-md,
+body.dark .shadow-lg,
+body.dark .shadow-xl {
+  --tw-shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+.dark .shadow-primary\/20,
+body.dark .shadow-primary\/20 {
+  --tw-shadow-color: rgba(13, 148, 136, 0.15);
+}
+
+/* Gray backgrounds */
+.dark .bg-gray-100,
+body.dark .bg-gray-100 {
+  background-color: #334155;
+}
+
+.dark .bg-gray-50,
+body.dark .bg-gray-50 {
+  background-color: #1e293b;
+}
+
+/* Slider dots */
+.dark .bg-gray-300,
+body.dark .bg-gray-300 {
+  background-color: #475569;
+}
+
+/* White/90 overlay (photo badges) */
+.dark .bg-white\/90,
+body.dark .bg-white\/90 {
+  background-color: rgba(30, 41, 59, 0.95);
+}
+
+/* Hover states for cards */
+.dark .hover\:shadow-lg:hover,
+body.dark .hover\:shadow-lg:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+}
+
+.dark .hover\:shadow-md:hover,
+body.dark .hover\:shadow-md:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+}
+
+/* Border hover states */
+.dark .hover\:border-primary\/30:hover,
+body.dark .hover\:border-primary\/30:hover {
+  border-color: rgba(13, 148, 136, 0.4);
+}
+
+/* Step cards number badge - keep primary color */
+.dark .step-card .bg-primary,
+body.dark .step-card .bg-primary {
+  background-color: #0d9488;
+}
+
+/* Yellow stars remain visible */
+.dark .text-yellow-400,
+body.dark .text-yellow-400 {
+  color: #facc15;
+}
+
+/* Green success badge */
+.dark .bg-green-500,
+body.dark .bg-green-500 {
+  background-color: #22c55e;
+}
+
+/* ===== MOBILE STICKY CTA ===== */
+
+.mobile-cta {
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.mobile-cta.visible {
+  transform: translateY(0);
+}
+
+/* ===== STEP CARD ANIMATIONS ===== */
+
+.step-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Fade in animation for steps */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== PROGRAM CARD ANIMATIONS ===== */
+
+.program-card {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.program-card.hiding {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+/* ===== ACCESSIBILITY - FOCUS STATES ===== */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #0d9488;
+  outline-offset: 2px;
+}
+
+.filter-chip:focus-visible {
+  outline: 2px solid #0d9488;
+  outline-offset: 2px;
+}
+
+/* Hide scrollbar for testimonials but allow scroll */
+.testimonial-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.testimonial-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

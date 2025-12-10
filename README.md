@@ -1,61 +1,34 @@
-# Savaş Açıker - Matematik Koçluğu Website
+# Savaş Açıker - Premium Matematik Eğitimi
 
-Premium, responsive tek sayfa web sitesi.
+Modern Vite + Tailwind CSS teknolojisi ile geliştirilmiş web sitesi.
 
-## 🚀 Kullanım
+## 🚀 Kurulum ve Çalıştırma
 
-`index.html` dosyasını tarayıcınızda açın. Sunucu gerektirmez.
+1. **Bağımlılıkları Yükle:**
+   ```bash
+   npm install
+   ```
 
-## 🎨 Özelleştirme
+2. **Geliştirme Sunucusunu Başlat:**
+   ```bash
+   npm run dev
+   ```
+   Tarayıcıda `http://localhost:5173` adresini açın.
 
-### Metin Değişiklikleri
+3. **Yayına Hazır Build Al:**
+   ```bash
+   npm run build
+   ```
+   Çıktı `dist/` klasöründe oluşur.
 
-Tüm içerik Türkçedir ve `index.html` içinde doğrudan düzenlenebilir:
+## 📁 Proje Yapısı
 
-| Bölüm | Satır Aralığı | Açıklama |
-|-------|---------------|----------|
-| Hero | ~45-60 | Ana başlık ve alt metin |
-| İstatistikler | ~68-74 | Yıl, öğrenci sayısı, başarı oranı |
-| Hakkımda | ~79-90 | Biyografi ve özellikler |
-| Programlar | ~97-130 | Kurs kartları |
-| Yorumlar | ~137-165 | Öğrenci referansları |
-| SSS | ~173-195 | Soru-cevaplar |
-| İletişim | ~200-230 | Form ve telefon |
-
-### Renk Değişiklikleri
-
-`tailwind.config` içinde (satır 18-25):
-
-```javascript
-colors: {
-    'primary': '#0f172a',      // Arka plan
-    'accent': '#6366f1',       // Ana vurgu rengi
-    'accent-light': '#818cf8', // Hover rengi
-}
-```
-
-### Telefon Numarası
-
-Aşağıdaki satırlarda değiştirin:
-- Navbar: `tel:+905399270956`
-- Contact: `tel:+905399270956` ve `wa.me/905399270956`
-
-### Font Değişiklikleri
-
-Google Fonts linkini (satır 10) ve `fontFamily` config'ini güncelleyin.
-
-## 📱 Responsive
-
-- **Mobil**: < 768px (hamburger menü aktif)
-- **Tablet**: 768px - 1024px
-- **Desktop**: > 1024px
+- `src/main.js`: Tüm JavaScript mantığı
+- `src/styles.css`: Global CSS ve Tailwind direktifleri
+- `index.html`: Ana HTML dosyası (temizlenmiş)
+- `tailwind.config.js`: Renk ve font ayarları
 
 ## 🔧 Teknolojiler
-
-- HTML5
-- TailwindCSS (CDN)
-- Vanilla JavaScript (menü ve FAQ)
-
----
-
-© 2025 Savaş Açıker
+- Vite
+- Tailwind CSS (PostCSS)
+- Vanilla JavaScript (Modüler)

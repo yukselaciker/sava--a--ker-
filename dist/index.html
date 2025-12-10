@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savaş Açıker - Premium Matematik Eğitimi</title>
+    <meta name="description"
+        content="LGS, TYT, AYT ve okul desteği için bireysel matematik dersleri. Kavramsal öğrenme, kişiye özel program ve düzenli takip.">
+
+    <!-- Security: Referrer policy for safer link navigation -->
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <!--
+        SECURITY NOTE FOR VERCEL DEPLOYMENT:
+        For production, configure these headers in vercel.json or Vercel dashboard:
+        - Content-Security-Policy (CSP)
+        - X-Frame-Options: DENY
+        - X-Content-Type-Options: nosniff
+        - Strict-Transport-Security (HSTS)
+        These cannot be set via HTML meta tags effectively.
+    -->
+
+    <!-- Open Graph (OG) Meta - URL ve görseli yayına alırken kendine göre güncelle -->
+    <meta property="og:title" content="Savaş Açıker - Premium Matematik Eğitimi">
+    <meta property="og:description"
+        content="LGS, TYT, AYT ve okul desteği için bireysel matematik dersleri. Kavramsal öğrenme ve kişiye özel program.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://savasaciker.com">
+    <meta property="og:image" content="https://savasaciker.com/og-image.jpg">
+
+    <!-- JSON-LD Schema.org (Person + Service) – URL'leri yayına alırken düzenleyebilirsin -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "@id": "#savas-aciker",
+      "name": "Savaş Açıker",
+      "jobTitle": "Matematik Öğretmeni",
+      "description": "LGS, TYT, AYT ve okul desteği için bireysel matematik dersleri.",
+      "url": "https://savasaciker.com",
+      "knowsAbout": ["Matematik", "LGS", "TYT", "AYT", "Özel ders"],
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "TR"
+      }
+    }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Vite Entry Point - Loads CSS and initializes JS -->
+  <script type="module" crossorigin src="/assets/index-BLrx0rfm.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DGfIX5PJ.css">
+</head>
+
+<body class="bg-background text-text-primary">
+
+    <!-- Scroll Progress Bar -->
+    <div id="scrollProgress" class="scroll-progress"></div>
+
+    <!-- ==================== NAVBAR ==================== -->
+    <nav id="navbar"
+        class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 transition-shadow">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo (text only, no icon) -->
+                <a href="#hero" class="font-heading text-xl sm:text-2xl font-bold text-primary">
+                    Savaş Açıker
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#hakkinda"
+                        class="text-text-secondary hover:text-primary transition text-sm font-medium">Hakkında</a>
+                    <a href="#programlar"
+                        class="text-text-secondary hover:text-primary transition text-sm font-medium">Programlar</a>
+                    <a href="#sonuclar"
+                        class="text-text-secondary hover:text-primary transition text-sm font-medium">Sonuçlar</a>
+                    <a href="#sss" class="text-text-secondary hover:text-primary transition text-sm font-medium">SSS</a>
+                    <a href="#iletisim"
+                        class="bg-primary hover:bg-primary-dark text-white px-5 py-2.5 rounded-full text-sm font-semibold transition shadow-sm">
+                        Deneme Dersi Al
+                    </a>
+                    <!-- Dark Mode Toggle -->
+                    <button id="darkModeToggle"
+                        class="p-2 text-text-secondary hover:text-primary transition rounded-lg hover:bg-gray-100"
+                        aria-label="Karanlık mod aç/kapat">
+                        <span id="darkModeIcon" class="text-lg">🌙</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="menuBtn" class="md:hidden p-2 text-text-secondary hover:text-primary"
+                    aria-label="Menüyü aç/kapat" aria-expanded="false">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="mobile-menu md:hidden" aria-hidden="true">
+                <div class="py-4 space-y-3 border-t border-gray-100">
+                    <a href="#hakkinda" class="block text-text-secondary hover:text-primary py-2">Hakkında</a>
+                    <a href="#programlar" class="block text-text-secondary hover:text-primary py-2">Programlar</a>
+                    <a href="#sonuclar" class="block text-text-secondary hover:text-primary py-2">Sonuçlar</a>
+                    <a href="#sss" class="block text-text-secondary hover:text-primary py-2">SSS</a>
+                    <!-- Mobile Dark Mode Toggle -->
+                    <button id="darkModeToggleMobile"
+                        class="w-full text-left py-2 text-text-secondary hover:text-primary flex items-center gap-2"
+                        aria-label="Karanlık mod aç/kapat">
+                        <span id="darkModeIconMobile" class="text-lg">🌙</span>
+                        <span>Karanlık Mod</span>
+                    </button>
+                    <a href="#iletisim"
+                        class="block bg-primary text-white px-4 py-3 rounded-xl text-center font-semibold mt-4">
+                        Deneme Dersi Al
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section id="hero"
+        class="pt-28 pb-16 lg:pt-36 lg:pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-background via-white to-teal-50/30">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <!-- Left: Content -->
+                <div class="fade-in">
+                    <h1
+                        class="font-heading text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-text-primary mb-6">
+                        Savaş Açıker ile<br>
+                        <span class="text-primary">Premium Matematik</span> Eğitimi
+                    </h1>
+                    <p class="text-lg text-text-secondary mb-8 max-w-xl leading-relaxed">
+                        LGS, TYT, AYT ve okul desteği için bireysel dersler. Kavramsal öğrenme, kişiye özel çalışma
+                        planı ve düzenli veli bilgilendirmesi ile fark yaratan sonuçlar.
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                        <a href="#iletisim"
+                            class="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full font-semibold text-center transition shadow-lg shadow-primary/20">
+                            Ücretsiz 20 Dk Deneme Dersi
+                        </a>
+                        <a href="#programlar"
+                            class="border-2 border-gray-200 hover:border-primary text-text-primary hover:text-primary px-8 py-4 rounded-full font-semibold text-center transition">
+                            Programları İncele
+                        </a>
+                    </div>
+
+                    <!-- Trust Badges -->
+                    <div class="flex flex-wrap gap-6 text-sm text-text-secondary">
+                        <span class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <strong class="text-text-primary">500+</strong> öğrenciye mentorluk
+                        </span>
+                        <span class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            Ortalama <strong class="text-text-primary">+25</strong> puan artışı
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Right: Visual Card -->
+                <div class="fade-in" style="animation-delay: 0.2s">
+                    <div class="bg-white rounded-3xl p-8 shadow-xl shadow-gray-200/50 border border-gray-100">
+                        <div
+                            class="aspect-video bg-gradient-to-br from-teal-50 to-indigo-50 rounded-2xl flex items-center justify-center relative overflow-hidden">
+                            <!-- Math symbols decoration -->
+                            <div class="absolute inset-0 opacity-10">
+                                <div class="absolute top-4 left-4 text-4xl">∫</div>
+                                <div class="absolute top-8 right-8 text-3xl">π</div>
+                                <div class="absolute bottom-6 left-8 text-3xl">∑</div>
+                                <div class="absolute bottom-4 right-4 text-4xl">√</div>
+                            </div>
+                            <div class="text-center z-10">
+                                <div class="text-6xl mb-4">📐</div>
+                                <p class="text-text-secondary font-medium">Online & Yüz Yüze Dersler</p>
+                                <p class="text-sm text-text-secondary/70 mt-1">Zoom • Google Meet • Yüz Yüze</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== STATS STRIP ==================== -->
+    <section id="stats" class="py-12 bg-white border-y border-gray-100">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-3xl sm:text-4xl font-heading font-bold text-primary counter" data-target="26">0
+                    </div>
+                    <div class="text-text-secondary text-sm mt-1">Yıl Deneyim</div>
+                </div>
+                <div>
+                    <div class="text-3xl sm:text-4xl font-heading font-bold text-primary counter" data-target="500">0
+                    </div>
+                    <div class="text-text-secondary text-sm mt-1">Toplam Öğrenci</div>
+                </div>
+                <div>
+                    <div class="text-3xl sm:text-4xl font-heading font-bold text-primary counter" data-target="95">0
+                    </div>
+                    <div class="text-text-secondary text-sm mt-1">Başarı Oranı (%)</div>
+                </div>
+                <div>
+                    <div class="text-3xl sm:text-4xl font-heading font-bold text-primary counter" data-target="25">0
+                    </div>
+                    <div class="text-text-secondary text-sm mt-1">Ort. Puan Artışı</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ABOUT SECTION ==================== -->
+    <section id="hakkinda" class="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-background">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <!-- Left: Bio -->
+                <div>
+                    <h2 class="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
+                        Neden <span class="text-primary">Savaş Açıker?</span>
+                    </h2>
+                    <p class="text-text-secondary leading-relaxed mb-6">
+                        26 yılı aşkın deneyimimle, her öğrencinin benzersiz öğrenme stiline uygun kişiselleştirilmiş
+                        matematik eğitimi sunuyorum. Ezber değil, kavrayış odaklı yaklaşımım ile öğrencilerim kalıcı
+                        başarı elde ediyor.
+                    </p>
+                    <p class="text-text-secondary leading-relaxed">
+                        Düzenli ilerleme raporları ile velileri süreçte aktif tutarak, öğrencinin akademik yolculuğunda
+                        birlikte ilerliyoruz. Hedefim sadece sınav başarısı değil, matematiği sevdirmek ve özgüven
+                        kazandırmaktır.
+                    </p>
+                </div>
+
+                <!-- Right: Feature Cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition">
+                        <div class="w-12 h-12 bg-teal-50 rounded-xl flex items-center justify-center mb-4">
+                            <span class="text-2xl">🧠</span>
+                        </div>
+                        <h3 class="font-semibold text-text-primary mb-2">Kavramsal Öğrenme</h3>
+                        <p class="text-sm text-text-secondary">Ezber değil, anlayarak ve kalıcı olarak öğrenme</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition">
+                        <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center mb-4">
+                            <span class="text-2xl">🎯</span>
+                        </div>
+                        <h3 class="font-semibold text-text-primary mb-2">Sınav Stratejileri</h3>
+                        <p class="text-sm text-text-secondary">Soru çözüm teknikleri ve zaman yönetimi</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition">
+                        <div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center mb-4">
+                            <span class="text-2xl">📊</span>
+                        </div>
+                        <h3 class="font-semibold text-text-primary mb-2">Kişiye Özel Plan</h3>
+                        <p class="text-sm text-text-secondary">Size özel hazırlanmış çalışma programı</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition">
+                        <div class="w-12 h-12 bg-rose-50 rounded-xl flex items-center justify-center mb-4">
+                            <span class="text-2xl">👨‍👩‍👧</span>
+                        </div>
+                        <h3 class="font-semibold text-text-primary mb-2">Veli Takibi</h3>
+                        <p class="text-sm text-text-secondary">Düzenli ilerleme raporları ve geri bildirim</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PROGRAMS SECTION ==================== -->
+    <section id="programlar" class="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
+                    Eğitim <span class="text-primary">Programları</span>
+                </h2>
+                <p class="text-text-secondary max-w-2xl mx-auto">Her seviye ve hedef için özelleştirilmiş matematik
+                    programları</p>
+            </div>
+
+            <!-- Program Filter Chips -->
+            <div class="flex flex-wrap justify-center gap-3 mb-10" id="programFilters">
+                <button
+                    class="filter-chip active px-4 py-2 rounded-full text-sm font-medium bg-primary text-white transition"
+                    data-filter="all">Hepsi</button>
+                <button
+                    class="filter-chip px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-text-secondary hover:bg-primary hover:text-white transition"
+                    data-filter="lgs">LGS</button>
+                <button
+                    class="filter-chip px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-text-secondary hover:bg-primary hover:text-white transition"
+                    data-filter="tyt-ayt">TYT / AYT</button>
+                <button
+                    class="filter-chip px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-text-secondary hover:bg-primary hover:text-white transition"
+                    data-filter="okul">Okul Desteği</button>
+                <button
+                    class="filter-chip px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-text-secondary hover:bg-primary hover:text-white transition"
+                    data-filter="online">Online 1-1</button>
+            </div>
+
+            <!-- Program Count Label -->
+            <p id="programCount" class="text-center text-sm text-text-secondary mb-6">4 program listeleniyor</p>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" id="programCards">
+                <!-- LGS -->
+                <div class="program-card bg-background rounded-2xl p-6 border border-gray-100 hover:border-primary/30 hover:shadow-lg transition group"
+                    data-category="lgs">
+                    <div class="text-4xl mb-4">📚</div>
+                    <h3 class="font-heading font-semibold text-xl mb-2 text-text-primary">LGS Hazırlık</h3>
+                    <p class="text-sm text-text-secondary mb-4">8. sınıf öğrencileri için kapsamlı LGS hazırlık programı
+                    </p>
+                    <ul class="text-xs text-text-secondary space-y-2 mb-6">
+                        <li class="flex items-center gap-2"><span class="text-primary">✓</span> Haftalık ödev takibi
+                        </li>
+                        <li class="flex items-center gap-2"><span class="text-primary">✓</span> Deneme sınavları</li>
+                        <li class="flex items-center gap-2"><span class="text-primary">✓</span> WhatsApp destek</li>
+                    </ul>
+                    <a href="#iletisim" class="text-primary text-sm font-medium group-hover:underline">Detay Al →</a>
+                </div>
+
+                <!-- TYT/AYT -->
+                <div class="program-card bg-background rounded-2xl p-6 border border-gray-100 hover:border-primary/30 hover:shadow-lg transition group"
+                    data-category="tyt-ayt">
+                    <div class="text-4xl mb-4">🎓</div>
+                    <h3 class="font-heading font-semibold text-xl mb-2 text-text-primary">TYT / AYT</h3>
+                    <p class="text-sm text-text-secondary mb-4">Üniversite sınavına yönelik yoğun hazırlık programı</p>
+                    <ul class="text-xs text-text-secondary space-y-2 mb-6">
+                        <li class="flex items-center gap-2"><span class="text-primary">✓</span> Konu anlatımı</li>
+                        <li class="flex items-center gap-2"><span class="text-primary">✓</span> Soru kampları</li>
+                        <li class="flex items-center gap-2"><span class="text-primary">✓</span> Birebir takip</li>
+                    </ul>
+                    <a href="#iletisim" class="text-primary text-sm font-medium group-hover:underline">Detay Al →</a>
+                </div>
+
+                <!-- Okul Desteği -->
+                <div class="program-card bg-background rounded-2xl p-6 border border-gray-100 hover:border-primary/30 hover:shadow-lg transition group"
+                    data-category="okul">
+                    <div class="text-4xl mb-4">🏫</div>
+                    <h3 class="font-heading font-semibold text-xl mb-2 text-text-primary">Okul Desteği</h3>
+                    <p class="text-sm text-text-secondary mb-4">Ortaokul ve lise müfredatına paralel destek</p>
+                    <ul class="text-xs text-text-secondary space-y-2 mb-6">
+                        <li class="flex items-center gap-2"><span class="text-primary">✓</span> Sınav hazırlığı</li>
+                        <li class="flex items-center gap-2"><span class="text-primary">✓</span> Ödev yardımı</li>
+                        <li class="flex items-center gap-2"><span class="text-primary">✓</span> Eksik giderme</li>
+                    </ul>
+                    <a href="#iletisim" class="text-primary text-sm font-medium group-hover:underline">Detay Al →</a>
+                </div>
+
+                <!-- Online 1-1 -->
+                <div class="program-card bg-background rounded-2xl p-6 border border-gray-100 hover:border-primary/30 hover:shadow-lg transition group"
+                    data-category="online">
+                    <div class="text-4xl mb-4">💻</div>
+                    <h3 class="font-heading font-semibold text-xl mb-2 text-text-primary">Online 1-1</h3>
+                    <p class="text-sm text-text-secondary mb-4">Esnek saatlerle online birebir dersler</p>
+                    <ul class="text-xs text-text-secondary space-y-2 mb-6">
+                        <li class="flex items-center gap-2"><span class="text-primary">✓</span> Zoom / Meet</li>
+                        <li class="flex items-center gap-2"><span class="text-primary">✓</span> Kayıt imkanı</li>
+                        <li class="flex items-center gap-2"><span class="text-primary">✓</span> Esnek program</li>
+                    </ul>
+                    <a href="#iletisim" class="text-primary text-sm font-medium group-hover:underline">Detay Al →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== RESULTS / TESTIMONIALS ==================== -->
+    <section id="sonuclar" class="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-background">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
+                    Öğrenci <span class="text-primary">Başarıları</span>
+                </h2>
+                <p class="text-text-secondary">Gerçek sonuçlar, gerçek başarılar</p>
+            </div>
+
+            <!-- Featured Testimonials - Desktop grid, Mobile slider -->
+            <div class="relative">
+                <!-- Desktop View: Grid -->
+                <div class="hidden md:grid md:grid-cols-3 gap-6 mb-12">
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                        <div class="flex gap-1 mb-3 text-yellow-400">★★★★★</div>
+                        <p class="text-text-secondary italic mb-4">"Çok bilgili, kaliteli bir Hoca. Herkese tavsiye
+                            ediyorum. Calculus sınavımdan 100 aldım."</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <div class="font-semibold text-text-primary">Berat K.</div>
+                                <div class="text-xs text-text-secondary">Üniversite Öğrencisi</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-xs text-text-secondary">Calculus</div>
+                                <div class="font-heading font-bold text-primary">100</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                        <div class="flex gap-1 mb-3 text-yellow-400">★★★★★</div>
+                        <p class="text-text-secondary italic mb-4">"Sınavıma çok kısa bir süre kala özel ders aldım.
+                            Çalıştığım en iyi hocaydı."</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <div class="font-semibold text-text-primary">Dilara A.</div>
+                                <div class="text-xs text-text-secondary">Öğrenci</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-xs text-text-secondary">4. Kez Başarı</div>
+                                <div class="font-heading font-bold text-primary">✓</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                        <div class="flex gap-1 mb-3 text-yellow-400">★★★★★</div>
+                        <p class="text-text-secondary italic mb-4">"Aldığım hizmetten çok memnun kaldım. Hocamız çok
+                            ilgili
+                            ve çok fazla örnek sunuyor."</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <div class="font-semibold text-text-primary">Mehmet Kerem E.</div>
+                                <div class="text-xs text-text-secondary">Öğrenci</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile View: Slider -->
+                <div class="md:hidden mb-12" id="mobileTestimonialSlider">
+                    <div class="relative overflow-hidden">
+                        <!-- Slider Container -->
+                        <div class="testimonial-slides">
+                            <div
+                                class="testimonial-slide active bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                                <div class="flex gap-1 mb-3 text-yellow-400">★★★★★</div>
+                                <p class="text-text-secondary italic mb-4">"Çok bilgili, kaliteli bir Hoca. Herkese
+                                    tavsiye ediyorum. Calculus sınavımdan 100 aldım."</p>
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <div class="font-semibold text-text-primary">Berat K.</div>
+                                        <div class="text-xs text-text-secondary">Üniversite Öğrencisi</div>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="text-xs text-text-secondary">Calculus</div>
+                                        <div class="font-heading font-bold text-primary">100</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="testimonial-slide hidden bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                                <div class="flex gap-1 mb-3 text-yellow-400">★★★★★</div>
+                                <p class="text-text-secondary italic mb-4">"Sınavıma çok kısa bir süre kala özel ders
+                                    aldım. Çalıştığım en iyi hocaydı."</p>
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <div class="font-semibold text-text-primary">Dilara A.</div>
+                                        <div class="text-xs text-text-secondary">Öğrenci</div>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="text-xs text-text-secondary">4. Kez Başarı</div>
+                                        <div class="font-heading font-bold text-primary">✓</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="testimonial-slide hidden bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                                <div class="flex gap-1 mb-3 text-yellow-400">★★★★★</div>
+                                <p class="text-text-secondary italic mb-4">"Aldığım hizmetten çok memnun kaldım. Hocamız
+                                    çok ilgili ve çok fazla örnek sunuyor."</p>
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <div class="font-semibold text-text-primary">Mehmet Kerem E.</div>
+                                        <div class="text-xs text-text-secondary">Öğrenci</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slider Controls -->
+                        <div class="flex justify-center items-center gap-4 mt-6">
+                            <button id="prevTestimonial"
+                                class="w-10 h-10 rounded-full bg-gray-100 hover:bg-primary hover:text-white transition flex items-center justify-center"
+                                aria-label="Önceki yorum">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 19l-7-7 7-7" />
+                                </svg>
+                            </button>
+                            <div class="flex gap-2" id="sliderDots">
+                                <span class="w-2 h-2 rounded-full bg-primary"></span>
+                                <span class="w-2 h-2 rounded-full bg-gray-300"></span>
+                                <span class="w-2 h-2 rounded-full bg-gray-300"></span>
+                            </div>
+                            <button id="nextTestimonial"
+                                class="w-10 h-10 rounded-full bg-gray-100 hover:bg-primary hover:text-white transition flex items-center justify-center"
+                                aria-label="Sonraki yorum">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- More Testimonials Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="bg-white rounded-xl p-5 border border-gray-100">
+                    <p class="text-text-secondary text-sm italic mb-3">"Gönüllere girmeden kafalara giremezsiniz
+                        sözünün
+                        özeti bir öğretmen."</p>
+                    <div class="font-semibold text-sm text-text-primary">Efe</div>
+                </div>
+                <div class="bg-white rounded-xl p-5 border border-gray-100">
+                    <p class="text-text-secondary text-sm italic mb-3">"İşinin uzmanı... Kızıma matematiği
+                        sevdiren..
+                        Kırıkkale'de ender öğretmenlerden."</p>
+                    <div class="font-semibold text-sm text-text-primary">Mustafa</div>
+                </div>
+                <div class="bg-white rounded-xl p-5 border border-gray-100">
+                    <p class="text-text-secondary text-sm italic mb-3">"Bilgisi ve tecrübesi ile bana çok öğretici
+                        oldu."</p>
+                    <div class="font-semibold text-sm text-text-primary">Aysun</div>
+                </div>
+                <div class="bg-white rounded-xl p-5 border border-gray-100">
+                    <p class="text-text-secondary text-sm italic mb-3">"Savaş hocamdan ders alıyorum çok memnunum."
+                    </p>
+                    <div class="font-semibold text-sm text-text-primary">Halit</div>
+                </div>
+                <div class="bg-white rounded-xl p-5 border border-gray-100">
+                    <p class="text-text-secondary text-sm italic mb-3">"Konuları ayrıntısıyla anlatıyor, her konu
+                        sonunda soru yöneltiyor."</p>
+                    <div class="font-semibold text-sm text-text-primary">Eda</div>
+                </div>
+                <div class="bg-white rounded-xl p-5 border border-gray-100">
+                    <p class="text-text-secondary text-sm italic mb-3">"Matematiği formüllerle değil bir oyun gibi
+                        anlatan bir hoca."</p>
+                    <div class="font-semibold text-sm text-text-primary">Alev</div>
+                </div>
+            </div>
+
+            <!-- Even More Testimonials -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
+                <div class="bg-white rounded-xl p-5 border border-gray-100">
+                    <p class="text-text-secondary text-sm italic mb-3">"Kendisi gerçekten çok naif ve eğlenceli
+                        biri.
+                        Derslerde anlatım konusunda gayet başarılı."</p>
+                    <div class="font-semibold text-sm text-text-primary">Serdar</div>
+                </div>
+                <div class="bg-white rounded-xl p-5 border border-gray-100">
+                    <p class="text-text-secondary text-sm italic mb-3">"Üstün ilgi ve rehberliği ile sınav
+                        yolculuğunda
+                        oğluma eğitim koçluğu yaparak matematik becerilerinin artmasında yardımcı oldu."</p>
+                    <div class="font-semibold text-sm text-text-primary">Ertuğ <span
+                            class="text-xs text-text-secondary font-normal">• Veli</span></div>
+                </div>
+                <div class="bg-white rounded-xl p-5 border border-gray-100">
+                    <p class="text-text-secondary text-sm italic mb-3">"Oğlum derslerinize keyifle katılıyor. Çok
+                        memnunuz sizi tanımak ve ders almaktan."</p>
+                    <div class="font-semibold text-sm text-text-primary">Rıfat <span
+                            class="text-xs text-text-secondary font-normal">• Veli</span></div>
+                </div>
+                <div class="bg-white rounded-xl p-5 border border-gray-100">
+                    <p class="text-text-secondary text-sm italic mb-3">"Dersi anlatma ve öğrenciye yaklaşım
+                        tekniklerine
+                        çok güzel bence süper prof olması gerekir."</p>
+                    <div class="font-semibold text-sm text-text-primary">Alaaddin</div>
+                </div>
+                <div class="bg-white rounded-xl p-5 border border-gray-100">
+                    <p class="text-text-secondary text-sm italic mb-3">"Öğrencinin sıkılmasına müsaade etmeden
+                        dersini
+                        işliyor. Sevdiği işi yapan bir öğretici."</p>
+                    <div class="font-semibold text-sm text-text-primary">Sümeyra</div>
+                </div>
+                <div class="bg-white rounded-xl p-5 border border-gray-100">
+                    <p class="text-text-secondary text-sm italic mb-3">"Sınav stresimi yendirip sorulara farklı
+                        bakış
+                        açılarıyla bakmamı sağladı. Soruları ezbere değil mantığımla çözmeyi öğretti."</p>
+                    <div class="font-semibold text-sm text-text-primary">Sawyface</div>
+                </div>
+                <div class="bg-white rounded-xl p-5 border border-gray-100">
+                    <p class="text-text-secondary text-sm italic mb-3">"Kızım LGS'ye hazırlanırken hem stresini
+                        atmasına
+                        yardımcı oldu hem de matematiğe olan bakış açısını değiştirdi."</p>
+                    <div class="font-semibold text-sm text-text-primary">LGS Velisi <span
+                            class="text-xs text-text-secondary font-normal">• Veli</span></div>
+                </div>
+                <div class="bg-white rounded-xl p-5 border border-gray-100">
+                    <p class="text-text-secondary text-sm italic mb-3">"Matematikten korkan öğrencilere matematiği
+                        sevdiren, sevdirirken de öğreten bir hocadır."</p>
+                    <div class="font-semibold text-sm text-text-primary">Ahmet Galip</div>
+                </div>
+                <div class="bg-white rounded-xl p-5 border border-gray-100">
+                    <p class="text-text-secondary text-sm italic mb-3">"Dersi güzel anlatır güzel örnekler sunar
+                        başarılı bir öğretmen. Kendi çocuğumdan biliyorum."</p>
+                    <div class="font-semibold text-sm text-text-primary">Erol <span
+                            class="text-xs text-text-secondary font-normal">• Veli</span></div>
+                </div>
+                <div class="bg-white rounded-xl p-5 border border-gray-100">
+                    <p class="text-text-secondary text-sm italic mb-3">"Oğlumu tanıdığından beri en iyi arkadaşı
+                        oldu.
+                        Çocuğuma dersi sevdirdi, severek ders saatini bekliyordu."</p>
+                    <div class="font-semibold text-sm text-text-primary">Eymen Efe <span
+                            class="text-xs text-text-secondary font-normal">• Veli</span></div>
+                </div>
+                <div class="bg-white rounded-xl p-5 border border-gray-100">
+                    <p class="text-text-secondary text-sm italic mb-3">"Bana çok yardımcı oldu sıfırdan başladığım
+                        matematikte ve devam ediyoruz. Tavsiye ederim."</p>
+                    <div class="font-semibold text-sm text-text-primary">Mesut</div>
+                </div>
+                <div class="bg-white rounded-xl p-5 border border-gray-100">
+                    <p class="text-text-secondary text-sm italic mb-3">"Gerçekten çok iyi bir öğretmen. Çok iyi
+                        anlatıyor, ders programı hazırlıyor. Notlarım yükseldi."</p>
+                    <div class="font-semibold text-sm text-text-primary">Ahmet</div>
+                </div>
+            </div>
+
+            <!-- Akademisyen Referansları -->
+            <div class="mt-8 space-y-4">
+                <h4 class="text-center font-heading font-semibold text-lg text-text-primary">Akademisyen
+                    Referansları
+                </h4>
+                <div class="bg-white rounded-xl p-6 border-2 border-primary/20">
+                    <p class="text-text-secondary italic mb-4">"Kendisi çok gayretli ve başarılı bir matematikçidir.
+                        Matematiği muhataplarının seviyesine göre bir su kıvamında sunmayı becerebilen ender
+                        matematikçilerden birisidir. Tercih edenler memnun kalacaklardır."</p>
+                    <div class="font-semibold text-text-primary">Ahmet Bey <span
+                            class="text-xs text-primary font-medium ml-2">Matematikçi Akademisyen</span></div>
+                </div>
+                <div class="bg-white rounded-xl p-6 border-2 border-primary/20">
+                    <p class="text-text-secondary italic mb-4">"Savaş Beyi Karadeniz Teknik Üniversitesi Fatih
+                        Eğitim
+                        Fakültesi'nden tanırım. Kendilerine Analiz-3, Analiz-4 ve Kompleks Fonksiyonlar Teorisi adlı
+                        üç
+                        farklı ders okuttum. Savaş Bey bu derslerden sırası ile birbirini takip eden artan başarılı
+                        notlar alarak başarılı bir matematik öğretmeni olarak mezun olmuştur."</p>
+                    <div class="font-semibold text-text-primary">Abdullah Bey <span
+                            class="text-xs text-primary font-medium ml-2">KTÜ Öğretim Üyesi (Emekli)</span></div>
+                </div>
+            </div>
+
+            <!-- Exam Tags -->
+            <div class="flex justify-center gap-3 mt-10">
+                <span
+                    class="bg-white px-4 py-2 rounded-full text-sm border border-gray-200 text-text-secondary">LGS</span>
+                <span
+                    class="bg-white px-4 py-2 rounded-full text-sm border border-gray-200 text-text-secondary">TYT</span>
+                <span
+                    class="bg-white px-4 py-2 rounded-full text-sm border border-gray-200 text-text-secondary">AYT</span>
+                <span
+                    class="bg-white px-4 py-2 rounded-full text-sm border border-gray-200 text-text-secondary">Üniversite</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FAQ SECTION ==================== -->
+    <section id="sss" class="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
+                    Sıkça Sorulan <span class="text-primary">Sorular</span>
+                </h2>
+            </div>
+
+            <!-- FAQ Search Input -->
+            <div class="mb-8">
+                <label for="faqSearch" class="sr-only">Sorularda ara</label>
+                <input type="text" id="faqSearch" placeholder="Sorularda ara..."
+                    class="w-full bg-background border border-gray-200 rounded-xl px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition"
+                    aria-label="SSS içinde ara">
+            </div>
+            <p id="faqNoResults" class="hidden text-center text-text-secondary py-4">Aramanıza uygun soru bulunamadı.
+            </p>
+
+            <div class="space-y-4" id="faqContainer">
+                <div class="faq-item bg-background rounded-xl border border-gray-100 overflow-hidden">
+                    <button
+                        class="faq-btn w-full px-6 py-5 text-left font-medium flex justify-between items-center hover:bg-gray-50 transition">
+                        <span>Online dersler nasıl işliyor?</span>
+                        <span class="faq-icon text-primary text-xl transition-transform">+</span>
+                    </button>
+                    <div class="faq-content px-6 text-text-secondary text-sm">
+                        <p class="pb-5">Zoom veya Google Meet üzerinden canlı ders yapıyoruz. Ekran paylaşımı ile
+                            interaktif çözümler, ders sonrası kayıt gönderimi mevcut. İnternet bağlantınız olduğu her
+                            yerden derse katılabilirsiniz.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-background rounded-xl border border-gray-100 overflow-hidden">
+                    <button
+                        class="faq-btn w-full px-6 py-5 text-left font-medium flex justify-between items-center hover:bg-gray-50 transition">
+                        <span>Bir ders kaç dakika?</span>
+                        <span class="faq-icon text-primary text-xl transition-transform">+</span>
+                    </button>
+                    <div class="faq-content px-6 text-text-secondary text-sm">
+                        <p class="pb-5">Standart ders süresi 60 dakikadır. İhtiyaca göre 90 dakikalık oturumlar da
+                            planlanabilir. Deneme dersi 20 dakika ücretsizdir.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-background rounded-xl border border-gray-100 overflow-hidden">
+                    <button
+                        class="faq-btn w-full px-6 py-5 text-left font-medium flex justify-between items-center hover:bg-gray-50 transition">
+                        <span>Ödev ve takip yapıyor musunuz?</span>
+                        <span class="faq-icon text-primary text-xl transition-transform">+</span>
+                    </button>
+                    <div class="faq-content px-6 text-text-secondary text-sm">
+                        <p class="pb-5">Evet, her ders sonrası konu pekiştirme ödevleri veriliyor. WhatsApp üzerinden
+                            soru sorabilirsiniz. Haftalık ilerleme takibi yapılmaktadır.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-background rounded-xl border border-gray-100 overflow-hidden">
+                    <button
+                        class="faq-btn w-full px-6 py-5 text-left font-medium flex justify-between items-center hover:bg-gray-50 transition">
+                        <span>Veli bilgilendirmesi nasıl oluyor?</span>
+                        <span class="faq-icon text-primary text-xl transition-transform">+</span>
+                    </button>
+                    <div class="faq-content px-6 text-text-secondary text-sm">
+                        <p class="pb-5">Aylık ilerleme raporları ve gerektiğinde anlık bilgilendirmeler yapılmaktadır.
+                            WhatsApp grubu üzerinden velilerle sürekli iletişim halindeyiz.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== HOW WE WORK / STEPS SECTION ==================== -->
+    <!-- "Nasıl Çalışıyoruz?" - 4-step process explanation -->
+    <section id="nasil-calisiyoruz" class="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
+                    Nasıl <span class="text-primary">Çalışıyoruz?</span>
+                </h2>
+                <p class="text-text-secondary max-w-2xl mx-auto">Sizinle çalışmaya başlamak için sadece 4 adım</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Step 1 -->
+                <div
+                    class="step-card fade-in-up bg-background rounded-2xl p-6 text-center border border-gray-100 relative">
+                    <div
+                        class="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold">
+                        1</div>
+                    <div class="text-4xl mb-4 mt-2">💬</div>
+                    <h3 class="font-heading font-semibold text-lg mb-2 text-text-primary">İhtiyacınızı Paylaşın</h3>
+                    <p class="text-sm text-text-secondary">Form veya WhatsApp üzerinden hedefinizi ve mevcut durumunuzu
+                        anlatın.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div
+                    class="step-card fade-in-up bg-background rounded-2xl p-6 text-center border border-gray-100 relative">
+                    <div
+                        class="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold">
+                        2</div>
+                    <div class="text-4xl mb-4 mt-2">📊</div>
+                    <h3 class="font-heading font-semibold text-lg mb-2 text-text-primary">Seviyenizi Analiz Edelim</h3>
+                    <p class="text-sm text-text-secondary">Ücretsiz deneme dersinde mevcut seviyenizi ve eksiklerinizi
+                        belirleyelim.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div
+                    class="step-card fade-in-up bg-background rounded-2xl p-6 text-center border border-gray-100 relative">
+                    <div
+                        class="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold">
+                        3</div>
+                    <div class="text-4xl mb-4 mt-2">📝</div>
+                    <h3 class="font-heading font-semibold text-lg mb-2 text-text-primary">Size Özel Program</h3>
+                    <p class="text-sm text-text-secondary">Hedeflerinize uygun kişiselleştirilmiş ders planı
+                        oluşturalım.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div
+                    class="step-card fade-in-up bg-background rounded-2xl p-6 text-center border border-gray-100 relative">
+                    <div
+                        class="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold">
+                        4</div>
+                    <div class="text-4xl mb-4 mt-2">🚀</div>
+                    <h3 class="font-heading font-semibold text-lg mb-2 text-text-primary">Düzenli Takip</h3>
+                    <p class="text-sm text-text-secondary">Haftalık ödevler, deneme sınavları ve düzenli veli
+                        bilgilendirmesi ile ilerleme.</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-10">
+                <a href="#iletisim"
+                    class="inline-block bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full font-semibold transition shadow-lg shadow-primary/20">
+                    Hemen Başlayın →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT SECTION ==================== -->
+    <section id="iletisim" class="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-background">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Left: Info -->
+                <div>
+                    <h2 class="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
+                        Hemen <span class="text-primary">İletişime Geçin</span>
+                    </h2>
+                    <p class="text-text-secondary mb-8 leading-relaxed">
+                        Ücretsiz 20 dakikalık deneme dersi için formu doldurun. En geç 24 saat içinde size dönüş
+                        yapalım.
+                    </p>
+
+                    <div class="space-y-4 mb-8">
+                        <div class="bg-white rounded-xl p-5 border border-gray-100">
+                            <h3 class="font-semibold mb-2 flex items-center gap-2">
+                                <span>📞</span> Direkt Arayın
+                            </h3>
+                            <a href="tel:+905399270956" class="text-primary font-medium text-lg">+90 539 927 09 56</a>
+                        </div>
+                        <div class="bg-white rounded-xl p-5 border border-gray-100">
+                            <h3 class="font-semibold mb-2 flex items-center gap-2">
+                                <span>💬</span> WhatsApp
+                            </h3>
+                            <a href="https://wa.me/905399270956" class="text-green-600 font-medium text-lg">Mesaj
+                                Gönder</a>
+                        </div>
+                    </div>
+
+                    <p class="text-xs text-text-secondary">🔒 Bilgileriniz gizli tutulmaktadır.</p>
+                </div>
+
+                <!-- Right: Form -->
+                <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-gray-100">
+                    <!-- 
+                        FORM INTEGRATION: 
+                        Replace the action URL with your Formspree endpoint
+                        Example: https://formspree.io/f/xyzabcde
+                    -->
+                    <form id="contactForm" class="space-y-5">
+                        <!-- Honeypot field for bot protection (hidden from users) -->
+                        <div class="hidden" aria-hidden="true">
+                            <label for="website">Website (leave blank)</label>
+                            <input type="text" name="website" id="website" tabindex="-1" autocomplete="off">
+                        </div>
+
+                        <div>
+                            <label for="name" class="block text-sm text-text-secondary mb-2">Ad Soyad *</label>
+                            <input type="text" name="name" id="name" required autocomplete="name" minlength="2"
+                                class="w-full bg-background border border-gray-200 rounded-xl px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition">
+                        </div>
+
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm text-text-secondary mb-2">Öğrencinin Sınıfı</label>
+                                <select name="grade"
+                                    class="w-full bg-background border border-gray-200 rounded-xl px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition">
+                                    <option value="">Seçiniz</option>
+                                    <option>5. Sınıf</option>
+                                    <option>6. Sınıf</option>
+                                    <option>7. Sınıf</option>
+                                    <option>8. Sınıf</option>
+                                    <option>9. Sınıf</option>
+                                    <option>10. Sınıf</option>
+                                    <option>11. Sınıf</option>
+                                    <option>12. Sınıf</option>
+                                    <option>Üniversite</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm text-text-secondary mb-2">Hedef Sınav</label>
+                                <select name="exam"
+                                    class="w-full bg-background border border-gray-200 rounded-xl px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition">
+                                    <option>LGS</option>
+                                    <option>TYT</option>
+                                    <option>AYT</option>
+                                    <option>Okul Desteği</option>
+                                    <option>Üniversite</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="phone" class="block text-sm text-text-secondary mb-2">Telefon *</label>
+                            <input type="tel" name="phone" id="phone" required autocomplete="tel" inputmode="tel"
+                                pattern="[0-9\s\-\+\(\)]{10,}" minlength="10" placeholder="05xx xxx xx xx"
+                                class="w-full bg-background border border-gray-200 rounded-xl px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition">
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-sm text-text-secondary mb-2">E-posta</label>
+                            <input type="email" name="email" id="email" autocomplete="email"
+                                class="w-full bg-background border border-gray-200 rounded-xl px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm text-text-secondary mb-2">İletişim Tercihi</label>
+                            <select name="contact_preference"
+                                class="w-full bg-background border border-gray-200 rounded-xl px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition">
+                                <option>WhatsApp</option>
+                                <option>Telefon</option>
+                                <option>E-posta</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm text-text-secondary mb-2">Mesajınız (Opsiyonel)</label>
+                            <textarea name="message" rows="3"
+                                class="w-full bg-background border border-gray-200 rounded-xl px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" id="submitBtn"
+                            class="w-full bg-primary hover:bg-primary-dark text-white py-4 rounded-xl font-semibold transition disabled:opacity-50 disabled:cursor-not-allowed">
+                            Gönder ve Dönüş Al
+                        </button>
+
+                        <!-- Success/Error Messages -->
+                        <div id="formSuccess"
+                            class="hidden bg-green-50 text-green-700 px-4 py-3 rounded-xl text-sm text-center">
+                            ✓ Mesajınız başarıyla gönderildi! En kısa sürede dönüş yapacağız.
+                        </div>
+                        <div id="formError"
+                            class="hidden bg-red-50 text-red-700 px-4 py-3 rounded-xl text-sm text-center">
+                            Bir hata oluştu. Lütfen tekrar deneyin veya WhatsApp'tan ulaşın.
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FLOATING WHATSAPP BUTTON ==================== -->
+    <!-- 
+        WHATSAPP INTEGRATION:
+        Replace the phone number in the href below with the actual WhatsApp number.
+        Format: https://wa.me/COUNTRYCODE+NUMBER (no spaces, no dashes)
+        Example: https://wa.me/905399270956
+    -->
+    <a href="https://wa.me/905399270956" target="_blank" rel="noopener noreferrer"
+        class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group"
+        aria-label="WhatsApp ile iletişime geç">
+        <!-- WhatsApp Icon -->
+        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+        <!-- Tooltip -->
+        <span
+            class="absolute right-16 bg-gray-900 text-white text-sm px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+            WhatsApp'tan yazın
+        </span>
+    </a>
+
+    <!-- ==================== SCROLL TO TOP BUTTON ==================== -->
+    <!-- Shows after scrolling down 400px, smoothly scrolls to top on click -->
+    <button id="scrollToTop"
+        class="fixed bottom-24 right-6 z-50 w-12 h-12 bg-gray-800 hover:bg-gray-700 text-white rounded-full shadow-lg transition-all duration-300 flex items-center justify-center opacity-0 pointer-events-none group"
+        aria-label="Yukarı çık">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+        <!-- Tooltip -->
+        <span
+            class="absolute right-14 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+            Yukarı çık
+        </span>
+    </button>
+
+    <!-- ==================== MOBILE STICKY CTA ==================== -->
+    <!-- Shows on mobile only, hides when contact section is in view -->
+    <div id="mobileCTA"
+        class="mobile-cta fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-gray-200 px-4 py-3 md:hidden shadow-lg">
+        <div class="flex items-center justify-between gap-3 max-w-lg mx-auto">
+            <span class="text-sm text-text-secondary leading-tight">Deneme dersi için hemen iletişime geçin</span>
+            <a href="#iletisim"
+                class="bg-primary hover:bg-primary-dark text-white px-4 py-2.5 rounded-full text-sm font-semibold transition whitespace-nowrap flex-shrink-0">
+                Formu Aç
+            </a>
+        </div>
+    </div>
+
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="py-8 px-4 sm:px-6 bg-white border-t border-gray-100">
+        <div
+            class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-text-secondary">
+            <div>© 2025 Savaş Açıker. Tüm hakları saklıdır.</div>
+            <div class="flex gap-6">
+                <a href="https://wa.me/905399270956" class="hover:text-primary transition">WhatsApp</a>
+                <a href="#" class="hover:text-primary transition">Instagram</a>
+                <a href="#" class="hover:text-primary transition">YouTube</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

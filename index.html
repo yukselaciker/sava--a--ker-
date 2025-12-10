@@ -7,6 +7,12 @@
     <title>Savaş Açıker - Premium Matematik Eğitimi</title>
     <meta name="description"
         content="LGS, TYT, AYT ve okul desteği için bireysel matematik dersleri. Kavramsal öğrenme, kişiye özel program ve düzenli takip.">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <!-- Security: Referrer policy for safer link navigation -->
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+
 
     <!-- Open Graph (OG) Meta - URL ve görseli yayına alırken kendine göre güncelle -->
     <meta property="og:title" content="Savaş Açıker - Premium Matematik Eğitimi">
@@ -41,202 +47,8 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap"
         rel="stylesheet">
 
-
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        // Light, fresh color palette - easily customizable
-                        'primary': '#0d9488',      // Teal accent
-                        'primary-light': '#14b8a6',
-                        'primary-dark': '#0f766e',
-                        'secondary': '#6366f1',    // Soft indigo for subtle highlights
-                        'surface': '#ffffff',
-                        'background': '#f8fafc',   // Very light gray
-                        'background-alt': '#f1f5f9',
-                        'text-primary': '#1e293b',
-                        'text-secondary': '#64748b',
-                    },
-                    fontFamily: {
-                        'heading': ['Outfit', 'sans-serif'],
-                        'body': ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-
-        /* Smooth animations */
-        .fade-in {
-            animation: fadeIn 0.6s ease-out forwards;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* FAQ accordion animation */
-        .faq-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-        }
-
-        .faq-content.open {
-            max-height: 500px;
-        }
-
-        /* Mobile menu animation */
-        .mobile-menu {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-        }
-
-        .mobile-menu.open {
-            max-height: 400px;
-        }
-
-        /* Counter animation */
-        .counter {
-            transition: all 0.3s ease;
-        }
-
-        /* Scroll Progress Bar */
-        .scroll-progress {
-            position: fixed;
-            top: 64px;
-            /* Navbar height */
-            left: 0;
-            width: 0%;
-            height: 3px;
-            background: linear-gradient(90deg, #0d9488, #14b8a6);
-            z-index: 100;
-            transition: width 0.1s ease-out;
-        }
-
-        /* Dark Mode Styles */
-        .dark {
-            --bg-primary: #0f172a;
-            --bg-secondary: #1e293b;
-            --text-primary: #f1f5f9;
-            --text-secondary: #94a3b8;
-        }
-
-        .dark body,
-        body.dark {
-            background-color: #0f172a;
-            color: #f1f5f9;
-        }
-
-        .dark .bg-background,
-        body.dark .bg-background {
-            background-color: #0f172a;
-        }
-
-        .dark .bg-white,
-        body.dark .bg-white {
-            background-color: #1e293b;
-        }
-
-        .dark .bg-background-alt,
-        body.dark .bg-background-alt {
-            background-color: #1e293b;
-        }
-
-        .dark .text-text-primary,
-        body.dark .text-text-primary {
-            color: #f1f5f9;
-        }
-
-        .dark .text-text-secondary,
-        body.dark .text-text-secondary {
-            color: #94a3b8;
-        }
-
-        .dark .border-gray-100,
-        body.dark .border-gray-100 {
-            border-color: #334155;
-        }
-
-        .dark .border-gray-200,
-        body.dark .border-gray-200 {
-            border-color: #475569;
-        }
-
-        .dark nav,
-        body.dark nav {
-            background-color: rgba(15, 23, 42, 0.9);
-            border-color: #334155;
-        }
-
-        .dark footer,
-        body.dark footer {
-            background-color: #1e293b;
-            border-color: #334155;
-        }
-
-        /* Mobile Sticky CTA */
-        .mobile-cta {
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-        }
-
-        .mobile-cta.visible {
-            transform: translateY(0);
-        }
-
-        /* Step card hover animation */
-        .step-card {
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .step-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Fade in animation for steps */
-        .fade-in-up {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        .fade-in-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Program card animation */
-        .program-card {
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-
-        .program-card.hiding {
-            opacity: 0;
-            transform: scale(0.95);
-        }
-    </style>
+    <!-- Vite Entry Point - Loads CSS and initializes JS -->
+    <script type="module" src="/src/main.js"></script>
 </head>
 
 <body class="bg-background text-text-primary">
@@ -292,6 +104,13 @@
                     <a href="#programlar" class="block text-text-secondary hover:text-primary py-2">Programlar</a>
                     <a href="#sonuclar" class="block text-text-secondary hover:text-primary py-2">Sonuçlar</a>
                     <a href="#sss" class="block text-text-secondary hover:text-primary py-2">SSS</a>
+                    <!-- Mobile Dark Mode Toggle -->
+                    <button id="darkModeToggleMobile"
+                        class="w-full text-left py-2 text-text-secondary hover:text-primary flex items-center gap-2"
+                        aria-label="Karanlık mod aç/kapat">
+                        <span id="darkModeIconMobile" class="text-lg">🌙</span>
+                        <span>Karanlık Mod</span>
+                    </button>
                     <a href="#iletisim"
                         class="block bg-primary text-white px-4 py-3 rounded-xl text-center font-semibold mt-4">
                         Deneme Dersi Al
@@ -314,15 +133,15 @@
                         <span class="text-primary">Premium Matematik</span> Eğitimi
                     </h1>
                     <p class="text-lg text-text-secondary mb-8 max-w-xl leading-relaxed">
-                        LGS, TYT, AYT ve okul desteği için bireysel dersler. Kavramsal öğrenme, kişiye özel çalışma
-                        planı ve düzenli veli bilgilendirmesi ile fark yaratan sonuçlar.
+                        30 yıllık öğretmenlik ve 7 yıl Millî Eğitim Müfettişliği deneyimi. LGS, TYT, AYT ve üniversite
+                        matematiği için birebir dersler.
                     </p>
 
                     <!-- CTA Buttons -->
                     <div class="flex flex-col sm:flex-row gap-4 mb-8">
                         <a href="#iletisim"
                             class="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full font-semibold text-center transition shadow-lg shadow-primary/20">
-                            Ücretsiz 20 Dk Deneme Dersi
+                            Ücretsiz 60 Dk Deneme Dersi
                         </a>
                         <a href="#programlar"
                             class="border-2 border-gray-200 hover:border-primary text-text-primary hover:text-primary px-8 py-4 rounded-full font-semibold text-center transition">
@@ -338,7 +157,7 @@
                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                                     clip-rule="evenodd" />
                             </svg>
-                            <strong class="text-text-primary">500+</strong> öğrenciye mentorluk
+                            <strong class="text-text-primary">30+</strong> yıl deneyim
                         </span>
                         <span class="flex items-center gap-2">
                             <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
@@ -346,27 +165,21 @@
                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                                     clip-rule="evenodd" />
                             </svg>
-                            Ortalama <strong class="text-text-primary">+25</strong> puan artışı
+                            <strong class="text-text-primary">7 yıl</strong> Müfettişlik
                         </span>
                     </div>
                 </div>
 
-                <!-- Right: Visual Card -->
+                <!-- Right: Teacher Photo -->
                 <div class="fade-in" style="animation-delay: 0.2s">
-                    <div class="bg-white rounded-3xl p-8 shadow-xl shadow-gray-200/50 border border-gray-100">
-                        <div
-                            class="aspect-video bg-gradient-to-br from-teal-50 to-indigo-50 rounded-2xl flex items-center justify-center relative overflow-hidden">
-                            <!-- Math symbols decoration -->
-                            <div class="absolute inset-0 opacity-10">
-                                <div class="absolute top-4 left-4 text-4xl">∫</div>
-                                <div class="absolute top-8 right-8 text-3xl">π</div>
-                                <div class="absolute bottom-6 left-8 text-3xl">∑</div>
-                                <div class="absolute bottom-4 right-4 text-4xl">√</div>
-                            </div>
-                            <div class="text-center z-10">
-                                <div class="text-6xl mb-4">📐</div>
-                                <p class="text-text-secondary font-medium">Online & Yüz Yüze Dersler</p>
-                                <p class="text-sm text-text-secondary/70 mt-1">Zoom • Google Meet • Yüz Yüze</p>
+                    <div class="bg-white rounded-3xl p-4 sm:p-6 shadow-xl shadow-gray-200/50 border border-gray-100">
+                        <div class="relative">
+                            <img src="/savas-aciker.jpg" alt="Savaş Açıker - Matematik Öğretmeni"
+                                class="w-full rounded-2xl object-cover aspect-[4/3]">
+                            <div
+                                class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm rounded-xl p-3 sm:p-4">
+                                <p class="text-text-primary font-semibold text-sm sm:text-base">Savaş Açıker</p>
+                                <p class="text-text-secondary text-xs sm:text-sm">30 Yıl Deneyim • Eski Müfettiş</p>
                             </div>
                         </div>
                     </div>
@@ -380,9 +193,14 @@
         <div class="max-w-5xl mx-auto px-4 sm:px-6">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                 <div>
-                    <div class="text-3xl sm:text-4xl font-heading font-bold text-primary counter" data-target="26">0
+                    <div class="text-3xl sm:text-4xl font-heading font-bold text-primary counter" data-target="30">0
                     </div>
                     <div class="text-text-secondary text-sm mt-1">Yıl Deneyim</div>
+                </div>
+                <div>
+                    <div class="text-3xl sm:text-4xl font-heading font-bold text-primary counter" data-target="7">0
+                    </div>
+                    <div class="text-text-secondary text-sm mt-1">Yıl Müfettişlik</div>
                 </div>
                 <div>
                     <div class="text-3xl sm:text-4xl font-heading font-bold text-primary counter" data-target="500">0
@@ -390,14 +208,9 @@
                     <div class="text-text-secondary text-sm mt-1">Toplam Öğrenci</div>
                 </div>
                 <div>
-                    <div class="text-3xl sm:text-4xl font-heading font-bold text-primary counter" data-target="95">0
+                    <div class="text-3xl sm:text-4xl font-heading font-bold text-primary">KTÜ
                     </div>
-                    <div class="text-text-secondary text-sm mt-1">Başarı Oranı (%)</div>
-                </div>
-                <div>
-                    <div class="text-3xl sm:text-4xl font-heading font-bold text-primary counter" data-target="25">0
-                    </div>
-                    <div class="text-text-secondary text-sm mt-1">Ort. Puan Artışı</div>
+                    <div class="text-text-secondary text-sm mt-1">1997 Mezunu</div>
                 </div>
             </div>
         </div>
@@ -406,58 +219,163 @@
     <!-- ==================== ABOUT SECTION ==================== -->
     <section id="hakkinda" class="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-background">
         <div class="max-w-7xl mx-auto">
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                <!-- Left: Bio -->
-                <div>
-                    <h2 class="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
-                        Neden <span class="text-primary">Savaş Açıker?</span>
-                    </h2>
-                    <p class="text-text-secondary leading-relaxed mb-6">
-                        26 yılı aşkın deneyimimle, her öğrencinin benzersiz öğrenme stiline uygun kişiselleştirilmiş
-                        matematik eğitimi sunuyorum. Ezber değil, kavrayış odaklı yaklaşımım ile öğrencilerim kalıcı
-                        başarı elde ediyor.
-                    </p>
-                    <p class="text-text-secondary leading-relaxed">
-                        Düzenli ilerleme raporları ile velileri süreçte aktif tutarak, öğrencinin akademik yolculuğunda
-                        birlikte ilerliyoruz. Hedefim sadece sınav başarısı değil, matematiği sevdirmek ve özgüven
-                        kazandırmaktır.
-                    </p>
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
+                    Neden <span class="text-primary">Savaş Açıker?</span>
+                </h2>
+                <p class="text-text-secondary max-w-2xl mx-auto">1997'den beri matematiği sevdirerek öğreten bir
+                    öğretmen</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+                <!-- Left: Personal Story -->
+                <div class="space-y-6">
+                    <!-- Bio Card -->
+                    <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-gray-100">
+                        <div class="flex items-center gap-4 mb-6">
+                            <img src="/savas-aciker.jpg" alt="Savaş Açıker" class="w-16 h-16 rounded-full object-cover">
+                            <div>
+                                <h3 class="font-heading font-bold text-xl text-text-primary">Savaş Açıker</h3>
+                                <p class="text-text-secondary text-sm">Matematik Öğretmeni & Eski Müfettiş • KTÜ 1997
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4 text-text-secondary leading-relaxed">
+                            <p>
+                                <strong class="text-text-primary">1993'te liseyi birincilikle</strong> bitirdikten
+                                sonra, Karadeniz Teknik Üniversitesi Fatih Eğitim Fakültesi'ne kayıt oldum ve <strong
+                                    class="text-text-primary">1997'de</strong> mezun oldum.
+                            </p>
+                            <p>
+                                İlk olarak ilköğretim kurumlarında, 2005'ten sonra ise <strong
+                                    class="text-text-primary">lise matematik öğretmenliği</strong> yaptım. Ardından
+                                <strong class="text-text-primary">7 yıl Millî Eğitim Müfettişliği</strong> görevini
+                                üstlendim (Van ve Kastamonu).
+                            </p>
+                            <p>
+                                2023 yılında emekli olduktan sonra, yılların deneyimini özel derslerle öğrencilerime
+                                aktarmaya devam ediyorum.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Quote Card -->
+                    <div class="bg-gradient-to-r from-primary/5 to-teal-50 rounded-2xl p-6 border border-primary/10">
+                        <div class="text-4xl mb-3">💬</div>
+                        <blockquote class="text-text-primary italic text-lg leading-relaxed mb-4">
+                            "Öğrencilerime sadece matematik öğretmiyorum, kalplerine ve beyinlerine matematiğin
+                            tohumlarını ekiyorum."
+                        </blockquote>
+                        <p class="text-text-secondary text-sm">— Savaş Açıker</p>
+                    </div>
+
+                    <!-- Achievements Card -->
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                        <div class="flex items-start gap-4">
+                            <div class="text-3xl">🏆</div>
+                            <div>
+                                <h4 class="font-semibold text-text-primary mb-2">Başarılar & Ödüller</h4>
+                                <ul class="text-text-secondary text-sm leading-relaxed space-y-1">
+                                    <li>• Öğrencilerim il çapında matematik yarışmalarında <strong
+                                            class="text-text-primary">bronz madalya</strong> aldı</li>
+                                    <li>• Anadolu Lisesi öğretmenlik sınavını kazandım</li>
+                                    <li>• Yurt dışı öğretmenlik sınavlarını <strong class="text-text-primary">2 kez üst
+                                            üste</strong> kazandım</li>
+                                    <li>• İlköğretim müfettiş yardımcılığı sınavını kazandım</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Right: Feature Cards -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition">
-                        <div class="w-12 h-12 bg-teal-50 rounded-xl flex items-center justify-center mb-4">
-                            <span class="text-2xl">🧠</span>
-                        </div>
-                        <h3 class="font-semibold text-text-primary mb-2">Kavramsal Öğrenme</h3>
-                        <p class="text-sm text-text-secondary">Ezber değil, anlayarak ve kalıcı olarak öğrenme</p>
+                <!-- Right: Experience & Features -->
+                <div class="space-y-6">
+                    <!-- Experience Highlights -->
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                        <h3 class="font-heading font-semibold text-lg text-text-primary mb-4">Kariyer & Deneyim</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3">
+                                <span class="text-primary mt-1">✓</span>
+                                <span class="text-text-secondary"><strong class="text-text-primary">7 yıl</strong> Millî
+                                    Eğitim Müfettişi (Van & Kastamonu)</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-primary mt-1">✓</span>
+                                <span class="text-text-secondary">Lise matematik öğretmeni (2005-2023)</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-primary mt-1">✓</span>
+                                <span class="text-text-secondary">Ortaokul matematik öğretmeni (1993-2005)</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-primary mt-1">✓</span>
+                                <span class="text-text-secondary">Etkili İletişim & Diksiyon eğitimleri almış</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-primary mt-1">✓</span>
+                                <span class="text-text-secondary">Coursera: Calculus, Finansal Matematik, Algebra</span>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition">
-                        <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center mb-4">
-                            <span class="text-2xl">🎯</span>
+
+                    <!-- Feature Cards -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div
+                            class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 hover:shadow-md transition">
+                            <div class="w-10 h-10 bg-teal-50 rounded-xl flex items-center justify-center mb-3">
+                                <span class="text-xl">🧠</span>
+                            </div>
+                            <h4 class="font-semibold text-text-primary mb-1 text-sm">Kavramsal Öğrenme</h4>
+                            <p class="text-xs text-text-secondary">Ezber değil, anlayarak öğrenme</p>
                         </div>
-                        <h3 class="font-semibold text-text-primary mb-2">Sınav Stratejileri</h3>
-                        <p class="text-sm text-text-secondary">Soru çözüm teknikleri ve zaman yönetimi</p>
+                        <div
+                            class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 hover:shadow-md transition">
+                            <div class="w-10 h-10 bg-indigo-50 rounded-xl flex items-center justify-center mb-3">
+                                <span class="text-xl">🎯</span>
+                            </div>
+                            <h4 class="font-semibold text-text-primary mb-1 text-sm">Yeni Nesil Sorular</h4>
+                            <p class="text-xs text-text-secondary">Hayatın içinden uygulamalı</p>
+                        </div>
+                        <div
+                            class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 hover:shadow-md transition">
+                            <div class="w-10 h-10 bg-amber-50 rounded-xl flex items-center justify-center mb-3">
+                                <span class="text-xl">📊</span>
+                            </div>
+                            <h4 class="font-semibold text-text-primary mb-1 text-sm">Kişiye Özel Plan</h4>
+                            <p class="text-xs text-text-secondary">Size özel çalışma programı</p>
+                        </div>
+                        <div
+                            class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 hover:shadow-md transition">
+                            <div class="w-10 h-10 bg-rose-50 rounded-xl flex items-center justify-center mb-3">
+                                <span class="text-xl">👨‍👩‍👧</span>
+                            </div>
+                            <h4 class="font-semibold text-text-primary mb-1 text-sm">Veli Takibi</h4>
+                            <p class="text-xs text-text-secondary">Düzenli ilerleme raporları</p>
+                        </div>
                     </div>
-                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition">
-                        <div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center mb-4">
-                            <span class="text-2xl">📊</span>
+
+                    <!-- LGS Advice Banner -->
+                    <div class="bg-gradient-to-r from-primary to-primary-dark rounded-2xl p-6 text-white">
+                        <div class="flex items-start gap-4">
+                            <div class="text-3xl">📢</div>
+                            <div>
+                                <h4 class="font-semibold mb-2">LGS Hazırlık Tavsiyesi</h4>
+                                <p class="text-white/90 text-sm leading-relaxed">
+                                    LGS'ye hazırlanmak istiyorsanız <strong>en geç 7. sınıfın bitiminden
+                                        itibaren</strong> matematik çalışmaya başlamanızı tavsiye ederim. Bu sayede hem
+                                    7. sınıftaki eksik konuların tamamlanması hem de 8. sınıfın ilk konularının
+                                    bitirilmesi sınavda başarı için neredeyse olmazsa olmazdır.
+                                </p>
+                            </div>
                         </div>
-                        <h3 class="font-semibold text-text-primary mb-2">Kişiye Özel Plan</h3>
-                        <p class="text-sm text-text-secondary">Size özel hazırlanmış çalışma programı</p>
-                    </div>
-                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition">
-                        <div class="w-12 h-12 bg-rose-50 rounded-xl flex items-center justify-center mb-4">
-                            <span class="text-2xl">👨‍👩‍👧</span>
-                        </div>
-                        <h3 class="font-semibold text-text-primary mb-2">Veli Takibi</h3>
-                        <p class="text-sm text-text-secondary">Düzenli ilerleme raporları ve geri bildirim</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
 
     <!-- ==================== PROGRAMS SECTION ==================== -->
     <section id="programlar" class="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-white">
@@ -488,6 +406,9 @@
                     class="filter-chip px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-text-secondary hover:bg-primary hover:text-white transition"
                     data-filter="online">Online 1-1</button>
             </div>
+
+            <!-- Program Count Label -->
+            <p id="programCount" class="text-center text-sm text-text-secondary mb-6">4 program listeleniyor</p>
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" id="programCards">
                 <!-- LGS -->
@@ -565,6 +486,23 @@
             <div class="relative">
                 <!-- Desktop View: Grid -->
                 <div class="hidden md:grid md:grid-cols-3 gap-6 mb-12">
+                    <!-- Mert - Calculus 100 -->
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                        <div class="flex gap-1 mb-3 text-yellow-400">★★★★★</div>
+                        <p class="text-text-secondary italic mb-4">"Calculus 2 final sınavından 100 aldım, teşekkürler
+                            hocam!"</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <div class="font-semibold text-text-primary">Mert</div>
+                                <div class="text-xs text-text-secondary">Türk Alman Üniversitesi</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-xs text-text-secondary">Calculus 2</div>
+                                <div class="font-heading font-bold text-primary">100</div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
                         <div class="flex gap-1 mb-3 text-yellow-400">★★★★★</div>
                         <p class="text-text-secondary italic mb-4">"Çok bilgili, kaliteli bir Hoca. Herkese tavsiye
@@ -726,80 +664,94 @@
                 </div>
             </div>
 
-            <!-- Even More Testimonials -->
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
-                <div class="bg-white rounded-xl p-5 border border-gray-100">
-                    <p class="text-text-secondary text-sm italic mb-3">"Kendisi gerçekten çok naif ve eğlenceli
-                        biri.
-                        Derslerde anlatım konusunda gayet başarılı."</p>
-                    <div class="font-semibold text-sm text-text-primary">Serdar</div>
+            <!-- Hidden Testimonials (toggle) -->
+            <div id="moreTestimonials" class="hidden">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
+                    <div class="bg-white rounded-xl p-5 border border-gray-100">
+                        <p class="text-text-secondary text-sm italic mb-3">"Kendisi gerçekten çok naif ve eğlenceli
+                            biri.
+                            Derslerde anlatım konusunda gayet başarılı."</p>
+                        <div class="font-semibold text-sm text-text-primary">Serdar</div>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100">
+                        <p class="text-text-secondary text-sm italic mb-3">"Üstün ilgi ve rehberliği ile sınav
+                            yolculuğunda
+                            oğluma eğitim koçluğu yaparak matematik becerilerinin artmasında yardımcı oldu."</p>
+                        <div class="font-semibold text-sm text-text-primary">Ertuğ <span
+                                class="text-xs text-text-secondary font-normal">• Veli</span></div>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100">
+                        <p class="text-text-secondary text-sm italic mb-3">"Oğlum derslerinize keyifle katılıyor. Çok
+                            memnunuz sizi tanımak ve ders almaktan."</p>
+                        <div class="font-semibold text-sm text-text-primary">Rıfat <span
+                                class="text-xs text-text-secondary font-normal">• Veli</span></div>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100">
+                        <p class="text-text-secondary text-sm italic mb-3">"Dersi anlatma ve öğrenciye yaklaşım
+                            tekniklerine
+                            çok güzel bence süper prof olması gerekir."</p>
+                        <div class="font-semibold text-sm text-text-primary">Alaaddin</div>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100">
+                        <p class="text-text-secondary text-sm italic mb-3">"Öğrencinin sıkılmasına müsaade etmeden
+                            dersini
+                            işliyor. Sevdiği işi yapan bir öğretici."</p>
+                        <div class="font-semibold text-sm text-text-primary">Sümeyra</div>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100">
+                        <p class="text-text-secondary text-sm italic mb-3">"Sınav stresimi yendirip sorulara farklı
+                            bakış
+                            açılarıyla bakmamı sağladı. Soruları ezbere değil mantığımla çözmeyi öğretti."</p>
+                        <div class="font-semibold text-sm text-text-primary">Sawyface</div>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100">
+                        <p class="text-text-secondary text-sm italic mb-3">"Kızım LGS'ye hazırlanırken hem stresini
+                            atmasına
+                            yardımcı oldu hem de matematiğe olan bakış açısını değiştirdi."</p>
+                        <div class="font-semibold text-sm text-text-primary">LGS Velisi <span
+                                class="text-xs text-text-secondary font-normal">• Veli</span></div>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100">
+                        <p class="text-text-secondary text-sm italic mb-3">"Matematikten korkan öğrencilere matematiği
+                            sevdiren, sevdirirken de öğreten bir hocadır."</p>
+                        <div class="font-semibold text-sm text-text-primary">Ahmet Galip</div>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100">
+                        <p class="text-text-secondary text-sm italic mb-3">"Dersi güzel anlatır güzel örnekler sunar
+                            başarılı bir öğretmen. Kendi çocuğumdan biliyorum."</p>
+                        <div class="font-semibold text-sm text-text-primary">Erol <span
+                                class="text-xs text-text-secondary font-normal">• Veli</span></div>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100">
+                        <p class="text-text-secondary text-sm italic mb-3">"Oğlumu tanıdığından beri en iyi arkadaşı
+                            oldu.
+                            Çocuğuma dersi sevdirdi, severek ders saatini bekliyordu."</p>
+                        <div class="font-semibold text-sm text-text-primary">Eymen Efe <span
+                                class="text-xs text-text-secondary font-normal">• Veli</span></div>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100">
+                        <p class="text-text-secondary text-sm italic mb-3">"Bana çok yardımcı oldu sıfırdan başladığım
+                            matematikte ve devam ediyoruz. Tavsiye ederim."</p>
+                        <div class="font-semibold text-sm text-text-primary">Mesut</div>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100">
+                        <p class="text-text-secondary text-sm italic mb-3">"Gerçekten çok iyi bir öğretmen. Çok iyi
+                            anlatıyor, ders programı hazırlıyor. Notlarım yükseldi."</p>
+                        <div class="font-semibold text-sm text-text-primary">Ahmet</div>
+                    </div>
                 </div>
-                <div class="bg-white rounded-xl p-5 border border-gray-100">
-                    <p class="text-text-secondary text-sm italic mb-3">"Üstün ilgi ve rehberliği ile sınav
-                        yolculuğunda
-                        oğluma eğitim koçluğu yaparak matematik becerilerinin artmasında yardımcı oldu."</p>
-                    <div class="font-semibold text-sm text-text-primary">Ertuğ <span
-                            class="text-xs text-text-secondary font-normal">• Veli</span></div>
-                </div>
-                <div class="bg-white rounded-xl p-5 border border-gray-100">
-                    <p class="text-text-secondary text-sm italic mb-3">"Oğlum derslerinize keyifle katılıyor. Çok
-                        memnunuz sizi tanımak ve ders almaktan."</p>
-                    <div class="font-semibold text-sm text-text-primary">Rıfat <span
-                            class="text-xs text-text-secondary font-normal">• Veli</span></div>
-                </div>
-                <div class="bg-white rounded-xl p-5 border border-gray-100">
-                    <p class="text-text-secondary text-sm italic mb-3">"Dersi anlatma ve öğrenciye yaklaşım
-                        tekniklerine
-                        çok güzel bence süper prof olması gerekir."</p>
-                    <div class="font-semibold text-sm text-text-primary">Alaaddin</div>
-                </div>
-                <div class="bg-white rounded-xl p-5 border border-gray-100">
-                    <p class="text-text-secondary text-sm italic mb-3">"Öğrencinin sıkılmasına müsaade etmeden
-                        dersini
-                        işliyor. Sevdiği işi yapan bir öğretici."</p>
-                    <div class="font-semibold text-sm text-text-primary">Sümeyra</div>
-                </div>
-                <div class="bg-white rounded-xl p-5 border border-gray-100">
-                    <p class="text-text-secondary text-sm italic mb-3">"Sınav stresimi yendirip sorulara farklı
-                        bakış
-                        açılarıyla bakmamı sağladı. Soruları ezbere değil mantığımla çözmeyi öğretti."</p>
-                    <div class="font-semibold text-sm text-text-primary">Sawyface</div>
-                </div>
-                <div class="bg-white rounded-xl p-5 border border-gray-100">
-                    <p class="text-text-secondary text-sm italic mb-3">"Kızım LGS'ye hazırlanırken hem stresini
-                        atmasına
-                        yardımcı oldu hem de matematiğe olan bakış açısını değiştirdi."</p>
-                    <div class="font-semibold text-sm text-text-primary">LGS Velisi <span
-                            class="text-xs text-text-secondary font-normal">• Veli</span></div>
-                </div>
-                <div class="bg-white rounded-xl p-5 border border-gray-100">
-                    <p class="text-text-secondary text-sm italic mb-3">"Matematikten korkan öğrencilere matematiği
-                        sevdiren, sevdirirken de öğreten bir hocadır."</p>
-                    <div class="font-semibold text-sm text-text-primary">Ahmet Galip</div>
-                </div>
-                <div class="bg-white rounded-xl p-5 border border-gray-100">
-                    <p class="text-text-secondary text-sm italic mb-3">"Dersi güzel anlatır güzel örnekler sunar
-                        başarılı bir öğretmen. Kendi çocuğumdan biliyorum."</p>
-                    <div class="font-semibold text-sm text-text-primary">Erol <span
-                            class="text-xs text-text-secondary font-normal">• Veli</span></div>
-                </div>
-                <div class="bg-white rounded-xl p-5 border border-gray-100">
-                    <p class="text-text-secondary text-sm italic mb-3">"Oğlumu tanıdığından beri en iyi arkadaşı
-                        oldu.
-                        Çocuğuma dersi sevdirdi, severek ders saatini bekliyordu."</p>
-                    <div class="font-semibold text-sm text-text-primary">Eymen Efe <span
-                            class="text-xs text-text-secondary font-normal">• Veli</span></div>
-                </div>
-                <div class="bg-white rounded-xl p-5 border border-gray-100">
-                    <p class="text-text-secondary text-sm italic mb-3">"Bana çok yardımcı oldu sıfırdan başladığım
-                        matematikte ve devam ediyoruz. Tavsiye ederim."</p>
-                    <div class="font-semibold text-sm text-text-primary">Mesut</div>
-                </div>
-                <div class="bg-white rounded-xl p-5 border border-gray-100">
-                    <p class="text-text-secondary text-sm italic mb-3">"Gerçekten çok iyi bir öğretmen. Çok iyi
-                        anlatıyor, ders programı hazırlıyor. Notlarım yükseldi."</p>
-                    <div class="font-semibold text-sm text-text-primary">Ahmet</div>
-                </div>
+            </div>
+
+            <!-- Toggle Button for More Testimonials -->
+            <div class="text-center mt-6">
+                <button id="toggleTestimonials"
+                    class="inline-flex items-center gap-2 bg-gray-100 hover:bg-gray-200 text-text-primary px-6 py-3 rounded-full text-sm font-medium transition">
+                    <span id="toggleText">Tüm Yorumları Gör</span>
+                    <svg id="toggleIcon" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
             </div>
 
             <!-- Akademisyen Referansları -->
@@ -840,14 +792,94 @@
         </div>
     </section>
 
+    <!-- ==================== HOW WE WORK / STEPS SECTION ==================== -->
+    <!-- "Nasıl Çalışıyoruz?" - 4-step process explanation (moved before FAQ for better flow) -->
+    <section id="nasil-calisiyoruz" class="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
+                    Nasıl <span class="text-primary">Çalışıyoruz?</span>
+                </h2>
+                <p class="text-text-secondary max-w-2xl mx-auto">Sizinle çalışmaya başlamak için sadece 4 adım</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Step 1 -->
+                <div
+                    class="step-card fade-in-up bg-background rounded-2xl p-6 text-center border border-gray-100 relative">
+                    <div
+                        class="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold">
+                        1</div>
+                    <div class="text-4xl mb-4 mt-2">💬</div>
+                    <h3 class="font-heading font-semibold text-lg mb-2 text-text-primary">İhtiyacınızı Paylaşın</h3>
+                    <p class="text-sm text-text-secondary">Form veya WhatsApp üzerinden hedefinizi ve mevcut durumunuzu
+                        anlatın.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div
+                    class="step-card fade-in-up bg-background rounded-2xl p-6 text-center border border-gray-100 relative">
+                    <div
+                        class="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold">
+                        2</div>
+                    <div class="text-4xl mb-4 mt-2">📊</div>
+                    <h3 class="font-heading font-semibold text-lg mb-2 text-text-primary">Seviyenizi Analiz Edelim</h3>
+                    <p class="text-sm text-text-secondary">Ücretsiz deneme dersinde mevcut seviyenizi ve eksiklerinizi
+                        belirleyelim.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div
+                    class="step-card fade-in-up bg-background rounded-2xl p-6 text-center border border-gray-100 relative">
+                    <div
+                        class="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold">
+                        3</div>
+                    <div class="text-4xl mb-4 mt-2">📝</div>
+                    <h3 class="font-heading font-semibold text-lg mb-2 text-text-primary">Size Özel Program</h3>
+                    <p class="text-sm text-text-secondary">Hedeflerinize uygun kişiselleştirilmiş ders planı
+                        oluşturalım.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div
+                    class="step-card fade-in-up bg-background rounded-2xl p-6 text-center border border-gray-100 relative">
+                    <div
+                        class="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold">
+                        4</div>
+                    <div class="text-4xl mb-4 mt-2">🚀</div>
+                    <h3 class="font-heading font-semibold text-lg mb-2 text-text-primary">Düzenli Takip</h3>
+                    <p class="text-sm text-text-secondary">Haftalık ödevler, deneme sınavları ve düzenli veli
+                        bilgilendirmesi ile ilerleme.</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-10">
+                <a href="#iletisim"
+                    class="inline-block bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full font-semibold transition shadow-lg shadow-primary/20">
+                    Hemen Başlayın →
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- ==================== FAQ SECTION ==================== -->
-    <section id="sss" class="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-white">
+    <section id="sss" class="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-background">
         <div class="max-w-3xl mx-auto">
             <div class="text-center mb-16">
                 <h2 class="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
                     Sıkça Sorulan <span class="text-primary">Sorular</span>
                 </h2>
             </div>
+
+            <!-- FAQ Search Input -->
+            <div class="mb-8">
+                <label for="faqSearch" class="sr-only">Sorularda ara</label>
+                <input type="text" id="faqSearch" placeholder="Sorularda ara..."
+                    class="w-full bg-background border border-gray-200 rounded-xl px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition"
+                    aria-label="SSS içinde ara">
+            </div>
+            <p id="faqNoResults" class="hidden text-center text-text-secondary py-4">Aramanıza uygun soru bulunamadı.
+            </p>
 
             <div class="space-y-4" id="faqContainer">
                 <div class="faq-item bg-background rounded-xl border border-gray-100 overflow-hidden">
@@ -902,72 +934,6 @@
         </div>
     </section>
 
-    <!-- ==================== HOW WE WORK / STEPS SECTION ==================== -->
-    <!-- "Nasıl Çalışıyoruz?" - 4-step process explanation -->
-    <section id="nasil-calisiyoruz" class="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-white">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
-                    Nasıl <span class="text-primary">Çalışıyoruz?</span>
-                </h2>
-                <p class="text-text-secondary max-w-2xl mx-auto">Sizinle çalışmaya başlamak için sadece 4 adım</p>
-            </div>
-
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Step 1 -->
-                <div class="bg-background rounded-2xl p-6 text-center border border-gray-100 relative">
-                    <div
-                        class="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold">
-                        1</div>
-                    <div class="text-4xl mb-4 mt-2">💬</div>
-                    <h3 class="font-heading font-semibold text-lg mb-2 text-text-primary">İhtiyacınızı Paylaşın</h3>
-                    <p class="text-sm text-text-secondary">Form veya WhatsApp üzerinden hedefinizi ve mevcut durumunuzu
-                        anlatın.</p>
-                </div>
-
-                <!-- Step 2 -->
-                <div class="bg-background rounded-2xl p-6 text-center border border-gray-100 relative">
-                    <div
-                        class="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold">
-                        2</div>
-                    <div class="text-4xl mb-4 mt-2">📊</div>
-                    <h3 class="font-heading font-semibold text-lg mb-2 text-text-primary">Seviyenizi Analiz Edelim</h3>
-                    <p class="text-sm text-text-secondary">Ücretsiz deneme dersinde mevcut seviyenizi ve eksiklerinizi
-                        belirleyelim.</p>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="bg-background rounded-2xl p-6 text-center border border-gray-100 relative">
-                    <div
-                        class="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold">
-                        3</div>
-                    <div class="text-4xl mb-4 mt-2">📝</div>
-                    <h3 class="font-heading font-semibold text-lg mb-2 text-text-primary">Size Özel Program</h3>
-                    <p class="text-sm text-text-secondary">Hedeflerinize uygun kişiselleştirilmiş ders planı
-                        oluşturalım.</p>
-                </div>
-
-                <!-- Step 4 -->
-                <div class="bg-background rounded-2xl p-6 text-center border border-gray-100 relative">
-                    <div
-                        class="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold">
-                        4</div>
-                    <div class="text-4xl mb-4 mt-2">🚀</div>
-                    <h3 class="font-heading font-semibold text-lg mb-2 text-text-primary">Düzenli Takip</h3>
-                    <p class="text-sm text-text-secondary">Haftalık ödevler, deneme sınavları ve düzenli veli
-                        bilgilendirmesi ile ilerleme.</p>
-                </div>
-            </div>
-
-            <div class="text-center mt-10">
-                <a href="#iletisim"
-                    class="inline-block bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full font-semibold transition shadow-lg shadow-primary/20">
-                    Hemen Başlayın →
-                </a>
-            </div>
-        </div>
-    </section>
-
     <!-- ==================== CONTACT SECTION ==================== -->
     <section id="iletisim" class="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-background">
         <div class="max-w-6xl mx-auto">
@@ -1009,9 +975,15 @@
                         Example: https://formspree.io/f/xyzabcde
                     -->
                     <form id="contactForm" class="space-y-5">
+                        <!-- Honeypot field for bot protection (hidden from users) -->
+                        <div class="hidden" aria-hidden="true">
+                            <label for="website">Website (leave blank)</label>
+                            <input type="text" name="website" id="website" tabindex="-1" autocomplete="off">
+                        </div>
+
                         <div>
-                            <label class="block text-sm text-text-secondary mb-2">Ad Soyad *</label>
-                            <input type="text" name="name" required
+                            <label for="name" class="block text-sm text-text-secondary mb-2">Ad Soyad *</label>
+                            <input type="text" name="name" id="name" required autocomplete="name" minlength="2"
                                 class="w-full bg-background border border-gray-200 rounded-xl px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition">
                         </div>
 
@@ -1046,14 +1018,15 @@
                         </div>
 
                         <div>
-                            <label class="block text-sm text-text-secondary mb-2">Telefon *</label>
-                            <input type="tel" name="phone" required
+                            <label for="phone" class="block text-sm text-text-secondary mb-2">Telefon *</label>
+                            <input type="tel" name="phone" id="phone" required autocomplete="tel" inputmode="tel"
+                                pattern="[0-9\s\-\+\(\)]{10,}" minlength="10" placeholder="05xx xxx xx xx"
                                 class="w-full bg-background border border-gray-200 rounded-xl px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition">
                         </div>
 
                         <div>
-                            <label class="block text-sm text-text-secondary mb-2">E-posta</label>
-                            <input type="email" name="email"
+                            <label for="email" class="block text-sm text-text-secondary mb-2">E-posta</label>
+                            <input type="email" name="email" id="email" autocomplete="email"
                                 class="w-full bg-background border border-gray-200 rounded-xl px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition">
                         </div>
 
@@ -1118,12 +1091,31 @@
     <!-- ==================== SCROLL TO TOP BUTTON ==================== -->
     <!-- Shows after scrolling down 400px, smoothly scrolls to top on click -->
     <button id="scrollToTop"
-        class="fixed bottom-24 right-6 z-50 w-12 h-12 bg-gray-800 hover:bg-gray-700 text-white rounded-full shadow-lg transition-all duration-300 flex items-center justify-center opacity-0 pointer-events-none"
+        class="fixed bottom-24 right-6 z-50 w-12 h-12 bg-gray-800 hover:bg-gray-700 text-white rounded-full shadow-lg transition-all duration-300 flex items-center justify-center opacity-0 pointer-events-none group"
         aria-label="Yukarı çık">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
         </svg>
+        <!-- Tooltip -->
+        <span
+            class="absolute right-14 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+            Yukarı çık
+        </span>
     </button>
+
+    <!-- ==================== MOBILE STICKY CTA ==================== -->
+    <!-- Shows on mobile only, hides when contact section is in view -->
+    <div id="mobileCTA"
+        class="mobile-cta fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-gray-200 px-4 py-3 md:hidden shadow-lg">
+        <div class="flex items-center justify-between gap-3 max-w-lg mx-auto">
+            <span class="text-sm text-text-secondary leading-tight">Deneme dersi için hemen iletişime geçin</span>
+            <a href="#iletisim"
+                class="bg-primary hover:bg-primary-dark text-white px-4 py-2.5 rounded-full text-sm font-semibold transition whitespace-nowrap flex-shrink-0">
+                Formu Aç
+            </a>
+        </div>
+    </div>
+
 
     <!-- ==================== FOOTER ==================== -->
     <footer class="py-8 px-4 sm:px-6 bg-white border-t border-gray-100">
@@ -1138,406 +1130,6 @@
         </div>
     </footer>
 
-    <!-- ==================== JAVASCRIPT ==================== -->
-    <script>
-        // ===== Mobile Menu Toggle with Accessibility =====
-        const menuBtn = document.getElementById('menuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-
-        menuBtn.addEventListener('click', () => {
-            const isOpen = mobileMenu.classList.toggle('open');
-            menuBtn.setAttribute('aria-expanded', isOpen);
-            mobileMenu.setAttribute('aria-hidden', !isOpen);
-        });
-
-        // Close mobile menu when clicking a link
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('open');
-                menuBtn.setAttribute('aria-expanded', 'false');
-                mobileMenu.setAttribute('aria-hidden', 'true');
-            });
-        });
-
-        // ===== Navbar Shadow on Scroll =====
-        const navbar = document.getElementById('navbar');
-        let lastScrollY = 0;
-        let ticking = false;
-
-        const updateNavbar = () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('shadow-md');
-            } else {
-                navbar.classList.remove('shadow-md');
-            }
-            ticking = false;
-        };
-
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                requestAnimationFrame(updateNavbar);
-                ticking = true;
-            }
-        });
-
-        // ===== Program Filter Chips =====
-        // Filters program cards based on category
-        const filterChips = document.querySelectorAll('.filter-chip');
-        const programCards = document.querySelectorAll('.program-card');
-
-        filterChips.forEach(chip => {
-            chip.addEventListener('click', () => {
-                // Update active state
-                filterChips.forEach(c => {
-                    c.classList.remove('active', 'bg-primary', 'text-white');
-                    c.classList.add('bg-gray-100', 'text-text-secondary');
-                });
-                chip.classList.add('active', 'bg-primary', 'text-white');
-                chip.classList.remove('bg-gray-100', 'text-text-secondary');
-
-                // Filter cards
-                const filter = chip.dataset.filter;
-                programCards.forEach(card => {
-                    if (filter === 'all' || card.dataset.category === filter) {
-                        card.style.display = '';
-                        card.classList.add('fade-in');
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        // ===== FAQ Accordion with Accessibility =====
-        const faqItems = document.querySelectorAll('.faq-item');
-
-        faqItems.forEach(item => {
-            const btn = item.querySelector('.faq-btn');
-            const content = item.querySelector('.faq-content');
-            const icon = item.querySelector('.faq-icon');
-
-            btn.setAttribute('aria-expanded', 'false');
-
-            btn.addEventListener('click', () => {
-                const isOpen = content.classList.contains('open');
-
-                // Close all other items
-                faqItems.forEach(otherItem => {
-                    const otherContent = otherItem.querySelector('.faq-content');
-                    const otherIcon = otherItem.querySelector('.faq-icon');
-                    const otherBtn = otherItem.querySelector('.faq-btn');
-
-                    otherContent.classList.remove('open');
-                    otherIcon.textContent = '+';
-                    otherIcon.style.transform = 'rotate(0deg)';
-                    otherBtn.setAttribute('aria-expanded', 'false');
-                });
-
-                // Toggle current item
-                if (!isOpen) {
-                    content.classList.add('open');
-                    icon.textContent = '−';
-                    icon.style.transform = 'rotate(180deg)';
-                    btn.setAttribute('aria-expanded', 'true');
-                }
-            });
-        });
-
-        // ===== Animated Counters with IntersectionObserver (disconnects after first run) =====
-        const counters = document.querySelectorAll('.counter');
-        let countersAnimated = false;
-
-        const animateCounters = () => {
-            if (countersAnimated) return;
-            countersAnimated = true;
-
-            counters.forEach(counter => {
-                const target = parseInt(counter.getAttribute('data-target'));
-                const duration = 2000;
-                const step = target / (duration / 16);
-                let current = 0;
-
-                const updateCounter = () => {
-                    current += step;
-                    if (current < target) {
-                        counter.textContent = Math.floor(current);
-                        requestAnimationFrame(updateCounter);
-                    } else {
-                        // Format based on target value
-                        if (target === 26) {
-                            counter.textContent = target + '+';
-                        } else if (target === 500) {
-                            counter.textContent = target + '+';
-                        } else if (target === 95) {
-                            counter.textContent = target + '%';
-                        } else {
-                            counter.textContent = target + '+';
-                        }
-                    }
-                };
-
-                updateCounter();
-            });
-        };
-
-        const statsObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateCounters();
-                    // Disconnect after first run to avoid re-triggering
-                    observer.disconnect();
-                }
-            });
-        }, { threshold: 0.5 });
-
-        const statsSection = document.getElementById('stats');
-        if (statsSection) {
-            statsObserver.observe(statsSection);
-        }
-
-        // ===== Scroll to Top Button =====
-        // Shows after scrolling down 400px
-        const scrollToTopBtn = document.getElementById('scrollToTop');
-        let scrollTicking = false;
-
-        const updateScrollButton = () => {
-            if (window.scrollY > 400) {
-                scrollToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
-                scrollToTopBtn.classList.add('opacity-100');
-            } else {
-                scrollToTopBtn.classList.add('opacity-0', 'pointer-events-none');
-                scrollToTopBtn.classList.remove('opacity-100');
-            }
-            scrollTicking = false;
-        };
-
-        window.addEventListener('scroll', () => {
-            if (!scrollTicking) {
-                requestAnimationFrame(updateScrollButton);
-                scrollTicking = true;
-            }
-        });
-
-        scrollToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // ===== Contact Form Submission =====
-        const contactForm = document.getElementById('contactForm');
-        const submitBtn = document.getElementById('submitBtn');
-        const formSuccess = document.getElementById('formSuccess');
-        const formError = document.getElementById('formError');
-
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            // Hide previous messages
-            formSuccess.classList.add('hidden');
-            formError.classList.add('hidden');
-
-            // Disable button
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Gönderiliyor...';
-
-            // Collect form data
-            const formData = new FormData(contactForm);
-
-            try {
-                /*
-                    FORMSPREE INTEGRATION:
-                    Replace 'https://formspree.io/f/XXXXYYYY' with your actual Formspree endpoint.
-                    1. Go to https://formspree.io
-                    2. Create a new form and get your endpoint URL
-                    3. Replace the URL below
-                */
-                const response = await fetch('https://formspree.io/f/XXXXYYYY', {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-
-                if (response.ok) {
-                    formSuccess.classList.remove('hidden');
-                    contactForm.reset();
-                } else {
-                    throw new Error('Form submission failed');
-                }
-            } catch (error) {
-                formError.classList.remove('hidden');
-                console.error('Form error:', error);
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Gönder ve Dönüş Al';
-            }
-        });
-
-        // ===== Smooth Scroll for Anchor Links =====
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#') {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                }
-            });
-        });
-
-        // ===== SCROLLSPY - Active Nav Link Highlighting =====
-        // Uses IntersectionObserver to highlight nav links based on visible section
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('nav a[href^="#"]');
-        const mobileNavLinks = document.querySelectorAll('#mobileMenu a[href^="#"]');
-
-        const scrollSpyObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const sectionId = entry.target.id;
-
-                    // Update desktop nav
-                    navLinks.forEach(link => {
-                        const href = link.getAttribute('href');
-                        if (href === `#${sectionId}`) {
-                            link.classList.add('text-primary', 'font-semibold');
-                            link.classList.remove('text-text-secondary');
-                        } else if (!link.classList.contains('bg-primary')) {
-                            link.classList.remove('text-primary', 'font-semibold');
-                            link.classList.add('text-text-secondary');
-                        }
-                    });
-
-                    // Update mobile nav
-                    mobileNavLinks.forEach(link => {
-                        const href = link.getAttribute('href');
-                        if (href === `#${sectionId}`) {
-                            link.classList.add('text-primary', 'font-semibold');
-                        } else if (!link.classList.contains('bg-primary')) {
-                            link.classList.remove('text-primary', 'font-semibold');
-                        }
-                    });
-                }
-            });
-        }, {
-            threshold: 0.3,
-            rootMargin: '-80px 0px -50% 0px'
-        });
-
-        sections.forEach(section => {
-            scrollSpyObserver.observe(section);
-        });
-
-        // ===== Mobile Testimonial Slider =====
-        // Simple slider for featured testimonials on mobile
-        const testimonialSlides = document.querySelectorAll('.testimonial-slide');
-        const sliderDots = document.querySelectorAll('#sliderDots span');
-        const prevBtn = document.getElementById('prevTestimonial');
-        const nextBtn = document.getElementById('nextTestimonial');
-        let currentSlide = 0;
-        const totalSlides = testimonialSlides.length;
-
-        const showSlide = (index) => {
-            // Hide all slides
-            testimonialSlides.forEach((slide, i) => {
-                slide.classList.add('hidden');
-                slide.classList.remove('active');
-                if (sliderDots[i]) {
-                    sliderDots[i].classList.remove('bg-primary');
-                    sliderDots[i].classList.add('bg-gray-300');
-                }
-            });
-
-            // Show target slide
-            if (testimonialSlides[index]) {
-                testimonialSlides[index].classList.remove('hidden');
-                testimonialSlides[index].classList.add('active');
-            }
-            if (sliderDots[index]) {
-                sliderDots[index].classList.add('bg-primary');
-                sliderDots[index].classList.remove('bg-gray-300');
-            }
-        };
-
-        if (prevBtn && nextBtn) {
-            prevBtn.addEventListener('click', () => {
-                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-                showSlide(currentSlide);
-            });
-
-            nextBtn.addEventListener('click', () => {
-                currentSlide = (currentSlide + 1) % totalSlides;
-                showSlide(currentSlide);
-            });
-
-            // Auto-slide every 5 seconds (optional)
-            let autoSlide = setInterval(() => {
-                currentSlide = (currentSlide + 1) % totalSlides;
-                showSlide(currentSlide);
-            }, 5000);
-
-            // Pause auto-slide on user interaction
-            [prevBtn, nextBtn].forEach(btn => {
-                btn.addEventListener('click', () => {
-                    clearInterval(autoSlide);
-                    // Restart after 10 seconds of inactivity
-                    autoSlide = setInterval(() => {
-                        currentSlide = (currentSlide + 1) % totalSlides;
-                        showSlide(currentSlide);
-                    }, 5000);
-                });
-            });
-        }
-
-        // ===== Form Draft Auto-Save to localStorage =====
-        // Saves form data as user types, restores on page load
-        const formInputs = contactForm.querySelectorAll('input, textarea, select');
-        const DRAFT_KEY = 'contactFormDraft';
-
-        // Restore saved draft
-        const savedDraft = localStorage.getItem(DRAFT_KEY);
-        if (savedDraft) {
-            try {
-                const draft = JSON.parse(savedDraft);
-                formInputs.forEach(input => {
-                    if (draft[input.name]) {
-                        input.value = draft[input.name];
-                    }
-                });
-            } catch (e) {
-                console.log('Could not restore form draft');
-            }
-        }
-
-        // Save draft on input
-        formInputs.forEach(input => {
-            input.addEventListener('input', () => {
-                const draft = {};
-                formInputs.forEach(inp => {
-                    if (inp.name && inp.value) {
-                        draft[inp.name] = inp.value;
-                    }
-                });
-                localStorage.setItem(DRAFT_KEY, JSON.stringify(draft));
-            });
-        });
-
-        // Clear draft on successful submit
-        const originalSubmitHandler = contactForm.onsubmit;
-        contactForm.addEventListener('submit', function () {
-            // Will be cleared after successful submission
-            setTimeout(() => {
-                if (formSuccess && !formSuccess.classList.contains('hidden')) {
-                    localStorage.removeItem(DRAFT_KEY);
-                }
-            }, 1000);
-        });
-    </script>
 </body>
 
 </html>
