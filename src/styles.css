@@ -3,8 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Google Fonts - Warmer, Friendlier Typography */
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Nunito+Sans:wght@400;500;600;700&display=swap');
+/* Note: Fonts loaded in index.html via Google Fonts link */
 
 /* Base Styles */
 html {
@@ -90,18 +89,7 @@ body {
 
 /* ===== DARK MODE - COMPREHENSIVE THEME ===== */
 
-/* Base dark mode variables */
-.dark {
-  --bg-primary: #0f172a;
-  --bg-secondary: #1e293b;
-  --bg-surface: #334155;
-  --text-primary: #f1f5f9;
-  --text-secondary: #94a3b8;
-  --border-color: #334155;
-  --border-subtle: #475569;
-}
-
-/* Body and background */
+/* --- Core backgrounds --- */
 .dark body,
 body.dark {
   background-color: #0f172a;
@@ -110,22 +98,31 @@ body.dark {
 
 .dark .bg-background,
 body.dark .bg-background {
-  background-color: #0f172a;
+  background-color: #0f172a !important;
 }
 
-/* White backgrounds become dark */
 .dark .bg-white,
 body.dark .bg-white {
-  background-color: #1e293b;
+  background-color: #1e293b !important;
 }
 
-/* Light gradient backgrounds in Hero */
+/* --- Navbar (fixed at top) --- */
+.dark nav,
+body.dark nav,
+.dark #navbar,
+body.dark #navbar {
+  background-color: rgba(15, 23, 42, 0.95) !important;
+  backdrop-filter: blur(12px);
+  border-color: #334155 !important;
+}
+
+/* --- Hero gradient --- */
 .dark .bg-gradient-to-br.from-background,
 body.dark .bg-gradient-to-br.from-background {
-  background: linear-gradient(to bottom right, #0f172a, #1e293b);
+  background: linear-gradient(to bottom right, #0f172a, #1e293b) !important;
 }
 
-/* All teal/indigo/amber/rose tinted backgrounds become dark surface */
+/* --- Tinted backgrounds become dark surface --- */
 .dark .bg-teal-50,
 .dark .bg-indigo-50,
 .dark .bg-amber-50,
@@ -139,10 +136,44 @@ body.dark .bg-green-50 {
   background-color: #334155 !important;
 }
 
-/* Green gradient cards (featured testimonial) */
+/* --- Form success/error messages --- */
+.dark #formSuccess,
+body.dark #formSuccess {
+  background-color: rgba(34, 197, 94, 0.15) !important;
+  color: #86efac !important;
+}
+
+.dark #formError,
+body.dark #formError {
+  background-color: rgba(239, 68, 68, 0.15) !important;
+  color: #fca5a5 !important;
+}
+
+/* --- Form success/error via class selectors --- */
+.dark .bg-green-50,
+body.dark .bg-green-50 {
+  background-color: rgba(34, 197, 94, 0.15) !important;
+}
+
+.dark .text-green-700,
+body.dark .text-green-700 {
+  color: #86efac !important;
+}
+
+.dark .bg-red-50,
+body.dark .bg-red-50 {
+  background-color: rgba(239, 68, 68, 0.15) !important;
+}
+
+.dark .text-red-700,
+body.dark .text-red-700 {
+  color: #fca5a5 !important;
+}
+
+/* --- Green gradient cards --- */
 .dark .bg-gradient-to-r.from-green-50,
 body.dark .bg-gradient-to-r.from-green-50 {
-  background: linear-gradient(to right, #1e293b, #1e293b) !important;
+  background: #1e293b !important;
   border-color: #334155 !important;
 }
 
@@ -151,102 +182,83 @@ body.dark .from-green-50.to-teal-50 {
   background: #1e293b !important;
 }
 
-/* Primary gradient backgrounds */
-.dark .bg-gradient-to-r.from-primary,
-body.dark .bg-gradient-to-r.from-primary {
-  /* Keep primary gradients as they provide good contrast */
-}
-
-/* Primary/5 tinted backgrounds */
+/* --- Primary/5 tinted backgrounds --- */
 .dark .from-primary\/5,
 body.dark .from-primary\/5 {
   --tw-gradient-from: rgba(13, 148, 136, 0.15);
 }
 
-/* Text colors */
+/* --- Text colors --- */
 .dark .text-text-primary,
 body.dark .text-text-primary {
-  color: #f1f5f9;
+  color: #f1f5f9 !important;
 }
 
 .dark .text-text-secondary,
 body.dark .text-text-secondary {
-  color: #94a3b8;
+  color: #94a3b8 !important;
 }
 
-/* Muted text colors */
-.dark .text-text-secondary\/70,
-body.dark .text-text-secondary\/70 {
-  color: rgba(148, 163, 184, 0.7);
-}
-
-/* Border colors */
+/* --- Border colors --- */
 .dark .border-gray-100,
 body.dark .border-gray-100 {
-  border-color: #334155;
+  border-color: #334155 !important;
 }
 
 .dark .border-gray-200,
 body.dark .border-gray-200 {
-  border-color: #475569;
+  border-color: #475569 !important;
 }
 
 .dark .border-green-200,
 body.dark .border-green-200 {
-  border-color: #334155;
+  border-color: #334155 !important;
 }
 
 .dark .border-primary\/10,
 body.dark .border-primary\/10 {
-  border-color: rgba(13, 148, 136, 0.2);
+  border-color: rgba(13, 148, 136, 0.2) !important;
 }
 
 .dark .border-primary\/20,
 body.dark .border-primary\/20 {
-  border-color: rgba(13, 148, 136, 0.3);
+  border-color: rgba(13, 148, 136, 0.3) !important;
 }
 
-/* Navbar */
-.dark nav,
-body.dark nav {
-  background-color: rgba(15, 23, 42, 0.95);
-  backdrop-filter: blur(12px);
-  border-color: #334155;
-}
-
-.dark nav .bg-white\/80,
-body.dark nav .bg-white\/80 {
-  background-color: rgba(15, 23, 42, 0.95);
-}
-
-/* Hover states for links */
+/* --- Hover states --- */
 .dark .hover\:bg-gray-100:hover,
 body.dark .hover\:bg-gray-100:hover {
-  background-color: #334155;
+  background-color: #334155 !important;
 }
 
 .dark .hover\:bg-gray-50:hover,
 body.dark .hover\:bg-gray-50:hover {
-  background-color: #1e293b;
+  background-color: #1e293b !important;
 }
 
-/* Input fields */
+/* FAQ button hover state */
+.dark .faq-btn:hover,
+body.dark .faq-btn:hover {
+  background-color: #334155 !important;
+}
+
+/* --- Input fields --- */
 .dark input,
 .dark textarea,
 .dark select,
 body.dark input,
 body.dark textarea,
 body.dark select {
-  background-color: #1e293b;
-  border-color: #475569;
-  color: #f1f5f9;
+  background-color: #1e293b !important;
+  border-color: #475569 !important;
+  color: #f1f5f9 !important;
 }
 
 .dark input::placeholder,
 .dark textarea::placeholder,
 body.dark input::placeholder,
 body.dark textarea::placeholder {
-  color: #64748b;
+  color: #64748b !important;
 }
 
 .dark input:focus,
@@ -255,18 +267,27 @@ body.dark textarea::placeholder {
 body.dark input:focus,
 body.dark textarea:focus,
 body.dark select:focus {
-  border-color: #14b8a6;
-  outline-color: #14b8a6;
+  border-color: #14b8a6 !important;
+  outline-color: #14b8a6 !important;
 }
 
-/* Footer */
+/* --- Footer --- */
 .dark footer,
 body.dark footer {
-  background-color: #1e293b;
-  border-color: #334155;
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
 }
 
-/* Shadow adjustments for dark mode */
+/* --- Mobile Sticky CTA --- */
+.dark #mobileCTA,
+body.dark #mobileCTA,
+.dark .mobile-cta,
+body.dark .mobile-cta {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+}
+
+/* --- Shadow adjustments --- */
 .dark .shadow-sm,
 .dark .shadow-md,
 .dark .shadow-lg,
@@ -275,7 +296,7 @@ body.dark .shadow-sm,
 body.dark .shadow-md,
 body.dark .shadow-lg,
 body.dark .shadow-xl {
-  --tw-shadow-color: rgba(0, 0, 0, 0.3);
+  --tw-shadow-color: rgba(0, 0, 0, 0.4);
 }
 
 .dark .shadow-primary\/20,
@@ -283,62 +304,63 @@ body.dark .shadow-primary\/20 {
   --tw-shadow-color: rgba(13, 148, 136, 0.15);
 }
 
-/* Gray backgrounds */
+/* --- Gray backgrounds --- */
 .dark .bg-gray-100,
 body.dark .bg-gray-100 {
-  background-color: #334155;
+  background-color: #334155 !important;
 }
 
 .dark .bg-gray-50,
 body.dark .bg-gray-50 {
-  background-color: #1e293b;
+  background-color: #1e293b !important;
 }
 
-/* Slider dots */
 .dark .bg-gray-300,
 body.dark .bg-gray-300 {
-  background-color: #475569;
+  background-color: #475569 !important;
 }
 
-/* White/90 overlay (photo badges) */
+/* --- White overlays --- */
 .dark .bg-white\/90,
 body.dark .bg-white\/90 {
-  background-color: rgba(30, 41, 59, 0.95);
+  background-color: rgba(30, 41, 59, 0.95) !important;
 }
 
-/* Hover states for cards */
+.dark .bg-white\/80,
+body.dark .bg-white\/80 {
+  background-color: rgba(30, 41, 59, 0.95) !important;
+}
+
+/* --- Card hover states --- */
 .dark .hover\:shadow-lg:hover,
 body.dark .hover\:shadow-lg:hover {
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -4px rgba(0, 0, 0, 0.4) !important;
 }
 
 .dark .hover\:shadow-md:hover,
 body.dark .hover\:shadow-md:hover {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.4) !important;
 }
 
-/* Border hover states */
 .dark .hover\:border-primary\/30:hover,
 body.dark .hover\:border-primary\/30:hover {
-  border-color: rgba(13, 148, 136, 0.4);
+  border-color: rgba(13, 148, 136, 0.4) !important;
 }
 
-/* Step cards number badge - keep primary color */
-.dark .step-card .bg-primary,
-body.dark .step-card .bg-primary {
-  background-color: #0d9488;
-}
-
-/* Yellow stars remain visible */
+/* --- Specific elements that should keep their colors --- */
 .dark .text-yellow-400,
 body.dark .text-yellow-400 {
-  color: #facc15;
+  color: #facc15 !important;
 }
 
-/* Green success badge */
 .dark .bg-green-500,
 body.dark .bg-green-500 {
-  background-color: #22c55e;
+  background-color: #22c55e !important;
+}
+
+.dark .text-green-600,
+body.dark .text-green-600 {
+  color: #4ade80 !important;
 }
 
 /* ===== MOBILE STICKY CTA ===== */
@@ -361,6 +383,11 @@ body.dark .bg-green-500 {
 .step-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.dark .step-card:hover,
+body.dark .step-card:hover {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
 }
 
 /* Fade in animation for steps */
