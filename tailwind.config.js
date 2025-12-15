@@ -16,8 +16,11 @@ export default {
                 'text': '#1a1a1a',
                 'text-secondary': '#6b6b6b',
                 'text-muted': '#9a9a9a',
+                // Primary button color
+                'primary': '#2c3e50',        // Deep blue-gray
+                'primary-dark': '#1a252f',   // Darker for hover
                 // Accent - used sparingly
-                'accent': '#2c3e50',        // Deep blue-gray (light mode)
+                'accent': '#2c3e50',        // Same as primary (light mode)
                 'accent-hover': '#1a252f',
                 'accent-gold': '#c9b896',   // Muted gold (dark mode)
             },

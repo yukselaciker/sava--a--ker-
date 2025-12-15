@@ -188,11 +188,50 @@ body {
   background-color: var(--color-accent-hover);
 }
 
+/* Dark mode CTA - high contrast gold on dark */
 .dark .btn-primary,
-html.dark .btn-primary {
-  color: #000000;
-  background-color: var(--color-accent);
+html.dark .btn-primary,
+.dark a.btn-primary,
+html.dark a.btn-primary,
+.dark a.btn-primary:visited,
+html.dark a.btn-primary:visited {
+  color: #0d0d0d !important;
+  background-color: #c9b896 !important;
   font-weight: 600;
+  border: none;
+}
+
+.dark .btn-primary:hover,
+html.dark .btn-primary:hover,
+.dark a.btn-primary:hover,
+html.dark a.btn-primary:hover {
+  background-color: #b8a77f !important;
+  color: #0d0d0d !important;
+}
+
+.dark .btn-primary:focus-visible,
+html.dark .btn-primary:focus-visible,
+.dark a.btn-primary:focus-visible,
+html.dark a.btn-primary:focus-visible {
+  outline: 2px solid #c9b896 !important;
+  outline-offset: 2px;
+  background-color: #c9b896 !important;
+  color: #0d0d0d !important;
+}
+
+.dark .btn-primary:active,
+html.dark .btn-primary:active,
+.dark a.btn-primary:active,
+html.dark a.btn-primary:active {
+  background-color: #a89870 !important;
+  color: #0d0d0d !important;
+}
+
+.dark .btn-primary:disabled,
+html.dark .btn-primary:disabled {
+  background-color: #4a4a4a !important;
+  color: #808080 !important;
+  cursor: not-allowed;
 }
 
 /* Secondary Button - Text only */
@@ -311,6 +350,12 @@ html.dark .btn-primary {
   max-height: 500px;
 }
 
+/* FAQ Button Dark Mode Hover Fix */
+.dark .faq-btn:hover,
+html.dark .faq-btn:hover {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
 /* ═══════════════════════════════════════════
    10. MOBILE MENU
    ═══════════════════════════════════════════ */
@@ -348,18 +393,15 @@ html.dark .btn-primary {
   position: fixed;
   inset: 0;
   z-index: 100;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.9);
-  opacity: 0;
-  visibility: hidden;
   transition: all 0.3s ease;
 }
 
 .certificate-modal.active {
-  opacity: 1;
-  visibility: visible;
+  display: flex;
 }
 
 .certificate-modal img {
@@ -536,6 +578,13 @@ input,
 textarea,
 select {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
+}
+
+/* Smooth transitions ONLY during theme toggle - controlled by JavaScript */
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease !important;
 }
 
 /* Button overrides */

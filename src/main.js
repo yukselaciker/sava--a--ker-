@@ -6,6 +6,9 @@
 // Import styles (Vite will process this)
 import './styles.css';
 
+// Mark CSS as loaded to show page (FOUC prevention)
+document.documentElement.classList.add('css-ready');
+
 // ===== ENVIRONMENT DETECTION (Vite) =====
 const isDev = import.meta.env.DEV;
 
@@ -598,10 +601,18 @@ function initDarkMode() {
     };
 
     const toggleDarkMode = () => {
+        // Add transitioning class
+        document.documentElement.classList.add('theme-transitioning');
+
         const isDark = document.documentElement.classList.toggle('dark');
         document.body.classList.toggle('dark', isDark);
         localStorage.setItem(DARK_MODE_KEY, isDark ? 'true' : 'false');
         updateDarkModeIcons(isDark);
+
+        // Remove transitioning class after transition completes
+        setTimeout(() => {
+            document.documentElement.classList.remove('theme-transitioning');
+        }, 300);
     };
 
     // Initialize dark mode from localStorage

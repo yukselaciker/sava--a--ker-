@@ -38,6 +38,91 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap"
         rel="stylesheet">
 
+    <!-- Theme Bootstrap - MUST run before any CSS to prevent FOUC -->
+    <script>
+        (function () {
+            const DARK_MODE_KEY = 'darkMode';
+            const savedDarkMode = localStorage.getItem(DARK_MODE_KEY);
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const shouldBeDark = savedDarkMode === 'true' || (savedDarkMode === null && prefersDark);
+
+            if (shouldBeDark) {
+                document.documentElement.classList.add('dark');
+            }
+
+            // Mark as theme-ready (for potential guards)
+            document.documentElement.classList.add('theme-ready');
+        })();
+    </script>
+
+    <!-- Critical CSS to prevent FOUC - inline to load before external CSS -->
+    <style>
+        /*
+           CRITICAL FIX: 
+           Keep HTML visible so the background color (dark) covers the screen immediately.
+           Only fade in the BODY content.
+        */
+        html {
+            opacity: 1;
+        }
+
+        /* Hide content until ready, then fade in */
+        body {
+            opacity: 0;
+            transition: opacity 0.3s ease-out;
+        }
+
+        html.css-ready body {
+            opacity: 1;
+        }
+
+        /* Fallback: show body after 3s if JS fails */
+        html:not(.css-ready) body {
+            animation: showFallback 0s 3s forwards;
+        }
+
+        @keyframes showFallback {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Define theme colors inline for correct first paint */
+        :root {
+            --color-bg: #faf9f7;
+            --color-text: #1a1a1a;
+            --color-surface: #ffffff;
+        }
+
+        html.dark {
+            --color-bg: #0d0d0d;
+            --color-text: #fafafa;
+            --color-surface: #1a1a1a;
+        }
+
+        html,
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+        }
+
+        /* Prevent component flash in dark mode - COMPREHENSIVE LIST */
+        html.dark .bg-white {
+            background-color: var(--color-surface) !important;
+        }
+
+        html.dark .bg-background {
+            background-color: var(--color-bg) !important;
+        }
+
+        html.dark .bg-gray-50,
+        html.dark .bg-gray-100,
+        html.dark .bg-stone-50,
+        html.dark .bg-gray-200 {
+            background-color: var(--color-surface) !important;
+        }
+    </style>
+
     <!-- Vite Entry Point -->
     <script type="module" src="/src/main.js"></script>
 </head>
@@ -254,7 +339,7 @@
     </section>
 
     <!-- Certificate Modal -->
-    <div id="certificateModal" class="certificate-modal" onclick="closeCertificateModal()">
+    <div id="certificateModal" class="certificate-modal hidden" onclick="closeCertificateModal()">
         <button class="certificate-modal-close" aria-label="Kapat">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -309,13 +394,14 @@
                     </div>
 
                     <!-- Quote Card -->
-                    <div class="bg-gradient-to-r from-primary/5 to-teal-50 rounded-2xl p-6 border border-primary/10">
+                    <div class="rounded-2xl p-6 border"
+                        style="background: var(--color-bg-alt); border-color: var(--color-border);">
                         <div class="text-4xl mb-3">💬</div>
-                        <blockquote class="text-text-primary italic text-lg leading-relaxed mb-4">
+                        <blockquote class="italic text-lg leading-relaxed mb-4" style="color: var(--color-text);">
                             "Öğrencilerime sadece matematik öğretmiyorum, kalplerine ve beyinlerine matematiğin
                             tohumlarını ekiyorum."
                         </blockquote>
-                        <p class="text-text-secondary text-sm">— Savaş Açıker</p>
+                        <p class="text-sm" style="color: var(--color-text-secondary);">— Savaş Açıker</p>
                     </div>
 
                     <!-- Achievements Card -->
