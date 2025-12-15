@@ -4,93 +4,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Savaş Açıker - Premium Matematik Eğitimi</title>
+    <title>Savaş Açıker – Özel Matematik Öğretmeni</title>
     <meta name="description"
-        content="LGS, TYT, AYT ve okul desteği için bireysel matematik dersleri. Kavramsal öğrenme, kişiye özel program ve düzenli takip.">
+        content="30+ yıl deneyimli özel matematik öğretmeni. LGS, TYT, AYT ve üniversite matematiği için birebir dersler.">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
-    <!-- Security: Referrer policy for safer link navigation -->
+    <!-- Security -->
     <meta name="referrer" content="strict-origin-when-cross-origin">
 
-
-
-    <!-- Open Graph (OG) Meta - URL ve görseli yayına alırken kendine göre güncelle -->
-    <meta property="og:title" content="Savaş Açıker - Premium Matematik Eğitimi">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Savaş Açıker – Özel Matematik Öğretmeni">
     <meta property="og:description"
-        content="LGS, TYT, AYT ve okul desteği için bireysel matematik dersleri. Kavramsal öğrenme ve kişiye özel program.">
+        content="30+ yıl deneyimli özel matematik öğretmeni. LGS, TYT, AYT ve üniversite matematiği.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://savasaciker.com">
-    <meta property="og:image" content="https://savasaciker.com/og-image.jpg">
 
-    <!-- JSON-LD Schema.org (Person + Service) – URL'leri yayına alırken düzenleyebilirsin -->
+    <!-- Schema.org -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
-      "@id": "#savas-aciker",
       "name": "Savaş Açıker",
       "jobTitle": "Matematik Öğretmeni",
-      "description": "LGS, TYT, AYT ve okul desteği için bireysel matematik dersleri.",
-      "url": "https://savasaciker.com",
-      "knowsAbout": ["Matematik", "LGS", "TYT", "AYT", "Özel ders"],
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "TR"
-      }
+      "description": "30+ yıllık deneyimli matematik öğretmeni, eski MEB müfettişi.",
+      "knowsAbout": ["Matematik", "LGS", "TYT", "AYT"]
     }
     </script>
 
-    <!-- Google Fonts -->
+    <!-- Fonts: Playfair Display + Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap"
         rel="stylesheet">
 
-    <!-- Vite Entry Point - Loads CSS and initializes JS -->
+    <!-- Vite Entry Point -->
     <script type="module" src="/src/main.js"></script>
 </head>
 
-<body class="bg-background text-text-primary">
-
-    <!-- Scroll Progress Bar -->
+<body>
+    <!-- Scroll Progress -->
     <div id="scrollProgress" class="scroll-progress"></div>
 
     <!-- ==================== NAVBAR ==================== -->
     <nav id="navbar"
-        class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 transition-shadow">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        class="fixed top-0 w-full z-50 bg-[var(--color-bg)]/90 backdrop-blur-md border-b border-[var(--color-border)]">
+        <div class="container-wide">
             <div class="flex items-center justify-between h-16">
-                <!-- Logo (text only, no icon) -->
-                <a href="#hero" class="font-heading text-xl sm:text-2xl font-bold text-primary">
+                <!-- Logo -->
+                <a href="#" class="font-heading text-xl font-semibold" style="color: var(--color-text);">
                     Savaş Açıker
                 </a>
 
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center gap-8">
-                    <a href="#hakkinda"
-                        class="text-text-secondary hover:text-primary transition text-sm font-medium">Hakkında</a>
-                    <a href="#programlar"
-                        class="text-text-secondary hover:text-primary transition text-sm font-medium">Programlar</a>
-                    <a href="#sonuclar"
-                        class="text-text-secondary hover:text-primary transition text-sm font-medium">Sonuçlar</a>
-                    <a href="#sss" class="text-text-secondary hover:text-primary transition text-sm font-medium">SSS</a>
-                    <a href="#iletisim"
-                        class="bg-primary hover:bg-primary-dark text-white px-5 py-2.5 rounded-full text-sm font-semibold transition shadow-sm">
-                        Deneme Dersi Al
-                    </a>
+                    <a href="#neden" class="text-caption" style="color: var(--color-text-secondary);">Neden</a>
+                    <a href="#programlar" class="text-caption"
+                        style="color: var(--color-text-secondary);">Programlar</a>
+                    <a href="#sertifikalar" class="text-caption"
+                        style="color: var(--color-text-secondary);">Yetkinlikler</a>
+                    <a href="#sss" class="text-caption" style="color: var(--color-text-secondary);">SSS</a>
+                    <a href="#iletisim" class="btn-primary text-sm py-2.5 px-5">İletişime Geç</a>
                     <!-- Dark Mode Toggle -->
-                    <button id="darkModeToggle"
-                        class="p-2 text-text-secondary hover:text-primary transition rounded-lg hover:bg-gray-100"
-                        aria-label="Karanlık mod aç/kapat">
-                        <span id="darkModeIcon" class="text-lg">🌙</span>
+                    <button id="darkModeToggle" class="p-2 rounded-md" style="color: var(--color-text-muted);"
+                        aria-label="Tema değiştir">
+                        <span id="darkModeIcon" class="text-base">🌙</span>
                     </button>
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button id="menuBtn" class="md:hidden p-2 text-text-secondary hover:text-primary"
-                    aria-label="Menüyü aç/kapat" aria-expanded="false">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <button id="menuBtn" class="md:hidden p-2" style="color: var(--color-text-secondary);" aria-label="Menü"
+                    aria-expanded="false">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
@@ -99,88 +84,68 @@
 
             <!-- Mobile Menu -->
             <div id="mobileMenu" class="mobile-menu md:hidden" aria-hidden="true">
-                <div class="py-4 space-y-3 border-t border-gray-100">
-                    <a href="#hakkinda" class="block text-text-secondary hover:text-primary py-2">Hakkında</a>
-                    <a href="#programlar" class="block text-text-secondary hover:text-primary py-2">Programlar</a>
-                    <a href="#sonuclar" class="block text-text-secondary hover:text-primary py-2">Sonuçlar</a>
-                    <a href="#sss" class="block text-text-secondary hover:text-primary py-2">SSS</a>
-                    <!-- Mobile Dark Mode Toggle -->
-                    <button id="darkModeToggleMobile"
-                        class="w-full text-left py-2 text-text-secondary hover:text-primary flex items-center gap-2"
-                        aria-label="Karanlık mod aç/kapat">
-                        <span id="darkModeIconMobile" class="text-lg">🌙</span>
-                        <span>Karanlık Mod</span>
+                <div class="py-4 space-y-3 border-t" style="border-color: var(--color-border);">
+                    <a href="#neden" class="block py-2" style="color: var(--color-text-secondary);">Neden</a>
+                    <a href="#programlar" class="block py-2" style="color: var(--color-text-secondary);">Programlar</a>
+                    <a href="#sertifikalar" class="block py-2"
+                        style="color: var(--color-text-secondary);">Yetkinlikler</a>
+                    <a href="#sss" class="block py-2" style="color: var(--color-text-secondary);">SSS</a>
+                    <button id="darkModeToggleMobile" class="w-full text-left py-2 flex items-center gap-2"
+                        style="color: var(--color-text-secondary);">
+                        <span id="darkModeIconMobile">🌙</span>
+                        <span>Tema</span>
                     </button>
-                    <a href="#iletisim"
-                        class="block bg-primary text-white px-4 py-3 rounded-xl text-center font-semibold mt-4">
-                        Deneme Dersi Al
-                    </a>
+                    <a href="#iletisim" class="btn-primary block text-center mt-4">İletişime Geç</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- ==================== HERO SECTION ==================== -->
-    <section id="hero"
-        class="pt-28 pb-16 lg:pt-36 lg:pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-background via-white to-teal-50/30">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                <!-- Left: Content -->
-                <div class="fade-in">
-                    <h1
-                        class="font-heading text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-text-primary mb-6">
-                        Savaş Açıker ile<br>
-                        <span class="text-primary">Premium Matematik</span> Eğitimi
+    <!-- ==================== FRAME 1: HERO ==================== -->
+    <!-- Apple Education-inspired: Large headline, calm CTAs, minimal -->
+    <section id="hero" class="section-lg pt-32 lg:pt-40">
+        <div class="container-wide">
+            <div class="grid lg:grid-cols-12 gap-16 items-center">
+                <!-- Content: 7 columns -->
+                <div class="lg:col-span-7 fade-in">
+                    <h1 class="text-display text-balance" style="color: var(--color-text);">
+                        Matematik öğrenmek,<br>
+                        doğru rehberle<br>
+                        mümkün.
                     </h1>
-                    <p class="text-lg text-text-secondary mb-8 max-w-xl leading-relaxed">
-                        30 yıllık öğretmenlik ve 7 yıl Millî Eğitim Müfettişliği deneyimi. LGS, TYT, AYT ve üniversite
-                        matematiği için birebir dersler.
+
+                    <p class="text-body-lg mt-8 max-w-xl" style="color: var(--color-text-secondary);">
+                        30 yılı aşkın deneyim ve MEB müfettişliği tecrübesiyle,
+                        öğrencilerin matematiği gerçekten anlamasını sağlıyorum.
                     </p>
 
-                    <!-- CTA Buttons -->
-                    <div class="flex flex-col sm:flex-row gap-4 mb-8">
-                        <a href="#iletisim"
-                            class="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full font-semibold text-center transition shadow-lg shadow-primary/20">
-                            Ücretsiz 60 Dk Deneme Dersi
+                    <!-- CTAs -->
+                    <div class="flex flex-col sm:flex-row items-start gap-4 mt-10">
+                        <a href="#iletisim" class="btn-primary">
+                            Ücretsiz Görüşme Talep Et
                         </a>
-                        <a href="#programlar"
-                            class="border-2 border-gray-200 hover:border-primary text-text-primary hover:text-primary px-8 py-4 rounded-full font-semibold text-center transition">
-                            Programları İncele
+                        <a href="#neden" class="btn-secondary">
+                            Daha fazla bilgi
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
                         </a>
-                    </div>
-
-                    <!-- Trust Badges -->
-                    <div class="flex flex-wrap gap-6 text-sm text-text-secondary">
-                        <span class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                            <strong class="text-text-primary">30+</strong> yıl deneyim
-                        </span>
-                        <span class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                            <strong class="text-text-primary">7 yıl</strong> Müfettişlik
-                        </span>
                     </div>
                 </div>
 
-                <!-- Right: Teacher Photo -->
-                <div class="fade-in" style="animation-delay: 0.2s">
-                    <div class="bg-white rounded-3xl p-4 sm:p-6 shadow-xl shadow-gray-200/50 border border-gray-100">
-                        <div class="relative">
-                            <img src="/savas-aciker.jpg" alt="Savaş Açıker - Matematik Öğretmeni"
-                                class="w-full rounded-2xl object-cover aspect-[4/3]">
-                            <div
-                                class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm rounded-xl p-3 sm:p-4">
-                                <p class="text-text-primary font-semibold text-sm sm:text-base">Savaş Açıker</p>
-                                <p class="text-text-secondary text-xs sm:text-sm">30 Yıl Deneyim • Eski Müfettiş</p>
-                            </div>
+                <!-- Portrait: 5 columns -->
+                <div class="lg:col-span-5 fade-in" style="animation-delay: 0.15s">
+                    <div class="relative">
+                        <img src="/savas-aciker.jpg" alt="Savaş Açıker"
+                            class="w-full rounded-card object-cover aspect-[3/4]"
+                            style="box-shadow: 0 20px 40px rgba(0,0,0,0.08);">
+                        <!-- Caption below image -->
+                        <div class="mt-4 text-center">
+                            <p class="font-heading text-lg font-medium" style="color: var(--color-text);">Savaş Açıker
+                            </p>
+                            <p class="text-caption mt-1" style="color: var(--color-text-muted);">Matematik Öğretmeni ·
+                                30+ Yıl Deneyim</p>
                         </div>
                     </div>
                 </div>
@@ -188,33 +153,115 @@
         </div>
     </section>
 
-    <!-- ==================== STATS STRIP ==================== -->
-    <section id="stats" class="py-12 bg-white border-y border-gray-100">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+    <!-- ==================== FRAME 2: WHY SAVAŞ AÇIKER ==================== -->
+    <!-- Trust & credibility with editorial two-column layout -->
+    <section id="neden" class="section" style="background: var(--color-bg-alt);">
+        <div class="container-wide">
+            <div class="grid lg:grid-cols-2 gap-16 lg:gap-24">
+                <!-- Left: Narrative -->
                 <div>
-                    <div class="text-3xl sm:text-4xl font-heading font-bold text-primary counter" data-target="30">0
-                    </div>
-                    <div class="text-text-secondary text-sm mt-1">Yıl Deneyim</div>
+                    <h2 class="text-section" style="color: var(--color-text);">
+                        Neden Savaş Açıker?
+                    </h2>
+                    <div class="divider"></div>
+                    <p class="text-body-lg" style="color: var(--color-text-secondary);">
+                        Matematik öğretmek, sadece formül ezberletmek değildir.
+                        Kavramları anlamak, problem çözme becerisini geliştirmek
+                        ve öğrencinin özgüvenini kazanmasını sağlamaktır.
+                    </p>
+                    <p class="text-body mt-6" style="color: var(--color-text-secondary);">
+                        30 yılı aşkın öğretmenlik ve 7 yıl MEB müfettişliği deneyimimle,
+                        her öğrencinin matematiğe farklı bir yerden başladığını biliyorum.
+                        Kişiye özel yaklaşımım, öğrencinin ihtiyacına göre şekillenir.
+                    </p>
                 </div>
-                <div>
-                    <div class="text-3xl sm:text-4xl font-heading font-bold text-primary counter" data-target="7">0
+
+                <!-- Right: Experience highlights -->
+                <div class="space-y-8">
+                    <div>
+                        <div class="text-subheading font-heading" style="color: var(--color-text);">30+</div>
+                        <p class="text-body mt-2" style="color: var(--color-text-secondary);">
+                            Yıllık öğretmenlik deneyimi
+                        </p>
                     </div>
-                    <div class="text-text-secondary text-sm mt-1">Yıl Müfettişlik</div>
-                </div>
-                <div>
-                    <div class="text-3xl sm:text-4xl font-heading font-bold text-primary counter" data-target="500">0
+                    <div class="divider"></div>
+                    <div>
+                        <div class="text-subheading font-heading" style="color: var(--color-text);">7 Yıl</div>
+                        <p class="text-body mt-2" style="color: var(--color-text-secondary);">
+                            MEB Müfettişliği tecrübesi
+                        </p>
                     </div>
-                    <div class="text-text-secondary text-sm mt-1">Toplam Öğrenci</div>
-                </div>
-                <div>
-                    <div class="text-3xl sm:text-4xl font-heading font-bold text-primary">KTÜ
+                    <div class="divider"></div>
+                    <div>
+                        <div class="text-subheading font-heading" style="color: var(--color-text);">KTÜ 1997</div>
+                        <p class="text-body mt-2" style="color: var(--color-text-secondary);">
+                            Matematik Bölümü mezunu
+                        </p>
                     </div>
-                    <div class="text-text-secondary text-sm mt-1">1997 Mezunu</div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- ==================== FRAME 7: CREDENTIALS ==================== -->
+    <!-- Academic authority, institution-first -->
+    <section id="sertifikalar" class="section">
+        <div class="container-wide">
+            <h2 class="text-section text-center mb-4" style="color: var(--color-text);">
+                Akademik Yetkinlikler
+            </h2>
+            <p class="text-body text-center max-w-xl mx-auto mb-12" style="color: var(--color-text-secondary);">
+                Sürekli öğrenme ve mesleki gelişim için tamamlanan uluslararası sertifikalar
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Credential 1 -->
+                <div class="card cursor-pointer overflow-hidden"
+                    onclick="openCertificateModal('/cert-sydney-calculus.jpg')"
+                    style="background: var(--color-surface); border: 1px solid var(--color-border); padding: 0;">
+                    <div class="aspect-[16/11]" style="background: var(--color-bg-alt);">
+                        <img src="/cert-sydney-calculus.jpg" alt="University of Sydney Certificate"
+                            class="w-full h-full object-contain">
+                    </div>
+                    <div class="p-5">
+                        <p class="text-caption uppercase tracking-wider mb-2" style="color: var(--color-text-muted);">
+                            The University of Sydney</p>
+                        <h3 class="font-heading text-lg font-medium" style="color: var(--color-text);">Introduction to
+                            Calculus</h3>
+                        <p class="text-caption mt-3" style="color: var(--color-text-muted);">Coursera · 2022</p>
+                    </div>
+                </div>
+
+                <!-- Credential 2 -->
+                <div class="card cursor-pointer overflow-hidden"
+                    onclick="openCertificateModal('/cert-hopkins-algebra.jpg')"
+                    style="background: var(--color-surface); border: 1px solid var(--color-border); padding: 0;">
+                    <div class="aspect-[16/11]" style="background: var(--color-bg-alt);">
+                        <img src="/cert-hopkins-algebra.jpg" alt="Johns Hopkins Certificate"
+                            class="w-full h-full object-contain">
+                    </div>
+                    <div class="p-5">
+                        <p class="text-caption uppercase tracking-wider mb-2" style="color: var(--color-text-muted);">
+                            Johns Hopkins University</p>
+                        <h3 class="font-heading text-lg font-medium" style="color: var(--color-text);">Algebra:
+                            Elementary to Advanced</h3>
+                        <p class="text-caption mt-3" style="color: var(--color-text-muted);">Coursera · 3 Kurs Serisi ·
+                            2022</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificate Modal -->
+    <div id="certificateModal" class="certificate-modal" onclick="closeCertificateModal()">
+        <button class="certificate-modal-close" aria-label="Kapat">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <img id="certificateModalImg" src="" alt="Sertifika" onclick="event.stopPropagation()">
+    </div>
 
     <!-- ==================== ABOUT SECTION ==================== -->
     <section id="hakkinda" class="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-background">

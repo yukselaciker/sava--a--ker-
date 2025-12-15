@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initDarkMode();
     initMobileCTA();
     initStepsAnimation();
+    initCertificateModal();
     initDevBadge();
 });
 
@@ -667,3 +668,36 @@ function initDevBadge() {
     // Badge removed for production
 }
 
+// ===== CERTIFICATE MODAL =====
+function initCertificateModal() {
+    const modal = document.getElementById('certificateModal');
+    if (!modal) return;
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeCertificateModal();
+        }
+    });
+}
+
+// Global functions for certificate modal (called from onclick in HTML)
+window.openCertificateModal = function (imageSrc) {
+    const modal = document.getElementById('certificateModal');
+    const modalImg = document.getElementById('certificateModalImg');
+
+    if (modal && modalImg) {
+        modalImg.src = imageSrc;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+};
+
+window.closeCertificateModal = function () {
+    const modal = document.getElementById('certificateModal');
+
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+};

@@ -8,19 +8,40 @@ export default {
     theme: {
         extend: {
             colors: {
-                'primary': '#0d9488',
-                'primary-light': '#14b8a6',
-                'primary-dark': '#0f766e',
-                'secondary': '#6366f1',
+                // Minimal palette - light mode
+                'bg': '#faf9f7',
+                'bg-alt': '#f5f4f2',
                 'surface': '#ffffff',
-                'background': '#f8fafc',
-                'background-alt': '#f1f5f9',
-                'text-primary': '#1e293b',
-                'text-secondary': '#64748b',
+                // Minimal palette - dark mode (via CSS)
+                'text': '#1a1a1a',
+                'text-secondary': '#6b6b6b',
+                'text-muted': '#9a9a9a',
+                // Accent - used sparingly
+                'accent': '#2c3e50',        // Deep blue-gray (light mode)
+                'accent-hover': '#1a252f',
+                'accent-gold': '#c9b896',   // Muted gold (dark mode)
             },
             fontFamily: {
-                'heading': ['Nunito', 'system-ui', 'sans-serif'],
-                'body': ['Nunito Sans', 'Nunito', 'system-ui', 'sans-serif'],
+                'heading': ['Playfair Display', 'Georgia', 'serif'],
+                'body': ['Inter', 'system-ui', 'sans-serif'],
+            },
+            fontSize: {
+                'hero': ['4rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+                'hero-lg': ['5rem', { lineHeight: '1.05', letterSpacing: '-0.02em' }],
+                'section': ['2.5rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
+                'subsection': ['1.5rem', { lineHeight: '1.3' }],
+            },
+            spacing: {
+                'section': '6rem',
+                'section-lg': '8rem',
+            },
+            boxShadow: {
+                'soft': '0 2px 8px rgba(0, 0, 0, 0.04)',
+                'card': '0 4px 12px rgba(0, 0, 0, 0.03)',
+            },
+            borderRadius: {
+                'btn': '0.5rem',
+                'card': '0.75rem',
             },
         },
     },
