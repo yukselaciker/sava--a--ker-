@@ -8,24 +8,27 @@ export default {
     theme: {
         extend: {
             colors: {
-                // Minimal palette - light mode
-                'bg': '#faf9f7',
-                'bg-alt': '#f5f4f2',
+                // Academic Palette (Stone & Slate)
+                'bg': '#fafaf9',      // Stone 50
+                'bg-alt': '#f5f5f4',  // Stone 100
                 'surface': '#ffffff',
-                // Minimal palette - dark mode (via CSS)
-                'text': '#1a1a1a',
-                'text-secondary': '#6b6b6b',
-                'text-muted': '#9a9a9a',
-                // Primary button color
-                'primary': '#2c3e50',        // Deep blue-gray
-                'primary-dark': '#1a252f',   // Darker for hover
-                // Accent - used sparingly
-                'accent': '#2c3e50',        // Same as primary (light mode)
-                'accent-hover': '#1a252f',
-                'accent-gold': '#c9b896',   // Muted gold (dark mode)
+
+                // Typography
+                'text': '#0f172a',           // Slate 900
+                'text-secondary': '#475569', // Slate 600
+                'text-muted': '#94a3b8',     // Slate 400
+
+                // Primary Action
+                'primary': '#0f172a',        // Slate 900
+                'primary-dark': '#1e293b',   // Slate 800
+
+                // Accent (Gold/Bronze)
+                'accent': '#0f172a',         // Keep dark for light mode text
+                'accent-hover': '#1e293b',
+                'accent-gold': '#d97706',    // Amber 600 (Dark mode accent)
             },
             fontFamily: {
-                'heading': ['Playfair Display', 'Georgia', 'serif'],
+                'heading': ['Crimson Text', 'Georgia', 'serif'],
                 'body': ['Inter', 'system-ui', 'sans-serif'],
             },
             fontSize: {
@@ -43,8 +46,8 @@ export default {
                 'card': '0 4px 12px rgba(0, 0, 0, 0.03)',
             },
             borderRadius: {
-                'btn': '0.5rem',
-                'card': '0.75rem',
+                'btn': '0.375rem',  // 6px (Sharper)
+                'card': '0.5rem',   // 8px (Sharper)
             },
         },
     },
