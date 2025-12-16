@@ -1,13 +1,12 @@
-// Testimonial Slider (CSS Scroll-Snap + Auto-Scroll)
+// Testimonial Slider - Continuous Smooth Auto-Scroll (Marquee Effect)
 class TestimonialSlider {
     constructor(element) {
         this.slider = element;
         this.cards = [...element.querySelectorAll('.testimonial-card')];
         this.dots = [...document.querySelectorAll('.testimonial-nav .dot')];
         this.currentIndex = 0;
-        this.autoScrollInterval = null;
         this.isUserInteracting = false;
-        this.scrollTimeout = null;
+        this.scrollAnimation = null;
 
         if (this.cards.length === 0) return;
 
@@ -15,45 +14,51 @@ class TestimonialSlider {
     }
 
     init() {
+        this.duplicateCards(); // For seamless infinite scroll
         this.initSwipe();
         this.initDots();
         this.initKeyboard();
         this.initScrollObserver();
-        this.initAutoScroll();
+        this.initContinuousScroll();
         this.initPauseOnInteraction();
+    }
+
+    duplicateCards() {
+        // Duplicate all cards for seamless infinite scroll
+        const fragment = document.createDocumentFragment();
+        this.cards.forEach(card => {
+            const clone = card.cloneNode(true);
+            fragment.appendChild(clone);
+        });
+        this.slider.appendChild(fragment);
     }
 
     initSwipe() {
         let startX = 0;
-        let startTime = 0;
 
         this.slider.addEventListener('touchstart', (e) => {
             startX = e.touches[0].clientX;
-            startTime = Date.now();
-            this.pauseAutoScroll();
+            this.pauseScroll();
         }, { passive: true });
 
         this.slider.addEventListener('touchend', (e) => {
             const endX = e.changedTouches[0].clientX;
             const diff = startX - endX;
-            const duration = Date.now() - startTime;
-            const velocity = Math.abs(diff) / duration;
 
-            // Swipe threshold: 50px or fast swipe
-            if (Math.abs(diff) > 50 || velocity > 0.3) {
+            if (Math.abs(diff) > 50) {
                 diff > 0 ? this.next() : this.prev();
             }
 
-            this.resumeAutoScroll();
+            setTimeout(() => this.resumeScroll(), 2000);
         }, { passive: true });
     }
 
     initDots() {
         this.dots.forEach((dot, index) => {
             dot.addEventListener('click', () => {
-                this.pauseAutoScroll();
+                this.pauseScroll();
                 this.goTo(index);
-                this.resumeAutoScroll();
+                setTimeout(() => this.resumeScroll(), 3000);
             });
         });
     }
@@ -61,20 +66,19 @@ class TestimonialSlider {
     initKeyboard() {
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowLeft') {
-                this.pauseAutoScroll();
+                this.pauseScroll();
                 this.prev();
-                this.resumeAutoScroll();
+                setTimeout(() => this.resumeScroll(), 2000);
             }
             if (e.key === 'ArrowRight') {
-                this.pauseAutoScroll();
+                this.pauseScroll();
                 this.next();
-                this.resumeAutoScroll();
+                setTimeout(() => this.resumeScroll(), 2000);
             }
         });
     }
 
     initScrollObserver() {
-        // Update dots based on scroll position
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -93,72 +97,76 @@ class TestimonialSlider {
         this.cards.forEach((card) => observer.observe(card));
     }
 
-    initAutoScroll() {
-        // Start auto-scroll (5 seconds per testimonial - calm, readable pacing)
-        this.autoScrollInterval = setInterval(() => {
+    initContinuousScroll() {
+        // Smooth, continuous auto-scroll
+        const scroll = () => {
             if (!this.isUserInteracting) {
-                this.next();
+                // Scroll 1 pixel at a time for ultra-smooth effect
+                this.slider.scrollLeft += 1;
+
+                // Reset to beginning when reaching halfway (seamless loop)
+                const maxScroll = this.slider.scrollWidth / 2;
+                if (this.slider.scrollLeft >= maxScroll) {
+                    this.slider.scrollLeft = 0;
+                }
             }
-        }, 5000);
+
+            this.scrollAnimation = requestAnimationFrame(scroll);
+        };
+
+        scroll();
     }
 
     initPauseOnInteraction() {
         // Pause on hover (desktop)
         this.slider.addEventListener('mouseenter', () => {
-            this.pauseAutoScroll();
+            this.pauseScroll();
         });
 
         this.slider.addEventListener('mouseleave', () => {
-            this.resumeAutoScroll();
+            this.resumeScroll();
         });
 
         // Pause on manual scroll
+        let scrollTimeout;
         this.slider.addEventListener('scroll', () => {
-            this.pauseAutoScroll();
-            clearTimeout(this.scrollTimeout);
-            this.scrollTimeout = setTimeout(() => {
-                this.resumeAutoScroll();
+            this.pauseScroll();
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                this.resumeScroll();
             }, 2000);
         }, { passive: true });
     }
 
-    pauseAutoScroll() {
+    pauseScroll() {
         this.isUserInteracting = true;
-        if (this.autoScrollInterval) {
-            clearInterval(this.autoScrollInterval);
-            this.autoScrollInterval = null;
-        }
     }
 
-    resumeAutoScroll() {
+    resumeScroll() {
         this.isUserInteracting = false;
-        if (!this.autoScrollInterval) {
-            this.autoScrollInterval = setInterval(() => {
-                if (!this.isUserInteracting) {
-                    this.next();
-                }
-            }, 5000);
-        }
     }
 
     next() {
-        // Infinite loop: go back to first when reaching the end
-        this.currentIndex = (this.currentIndex + 1) % this.cards.length;
-        this.goTo(this.currentIndex);
+        const cardWidth = this.cards[0].offsetWidth + 16; // card width + gap
+        this.slider.scrollBy({
+            left: cardWidth,
+            behavior: 'smooth'
+        });
     }
 
     prev() {
-        // Infinite loop: go to last when going before first
-        this.currentIndex = (this.currentIndex - 1 + this.cards.length) % this.cards.length;
-        this.goTo(this.currentIndex);
+        const cardWidth = this.cards[0].offsetWidth + 16;
+        this.slider.scrollBy({
+            left: -cardWidth,
+            behavior: 'smooth'
+        });
     }
 
     goTo(index) {
-        this.currentIndex = index;
-        this.cards[index].scrollIntoView({
-            behavior: 'smooth',
-            block: 'nearest',
-            inline: 'center'
+        const cardWidth = this.cards[0].offsetWidth + 16;
+        this.slider.scrollTo({
+            left: cardWidth * index,
+            behavior: 'smooth'
         });
         this.updateDots(index);
     }
