@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initFAQAccordion();
     initFAQSearch();
     initCounters();
-    initScrollToTop();
+
     initScrollProgress();
     initContactForm();
     initSmoothScroll();
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initTestimonialToggle();
     initFormDraft();
     initDarkMode();
-    initMobileCTA();
+
     initStepsAnimation();
     initCertificateModal();
     initDevBadge();
@@ -270,35 +270,7 @@ function initCounters() {
     statsObserver.observe(statsSection);
 }
 
-// ===== SCROLL TO TOP =====
-function initScrollToTop() {
-    const scrollToTopBtn = document.getElementById('scrollToTop');
-    if (!scrollToTopBtn) return;
 
-    let scrollTicking = false;
-
-    const updateScrollButton = () => {
-        if (window.scrollY > 400) {
-            scrollToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
-            scrollToTopBtn.classList.add('opacity-100');
-        } else {
-            scrollToTopBtn.classList.add('opacity-0', 'pointer-events-none');
-            scrollToTopBtn.classList.remove('opacity-100');
-        }
-        scrollTicking = false;
-    };
-
-    window.addEventListener('scroll', () => {
-        if (!scrollTicking) {
-            requestAnimationFrame(updateScrollButton);
-            scrollTicking = true;
-        }
-    });
-
-    scrollToTopBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-}
 
 // ===== SCROLL PROGRESS BAR =====
 function initScrollProgress() {
@@ -627,32 +599,7 @@ function initDarkMode() {
     if (darkModeToggleMobile) darkModeToggleMobile.addEventListener('click', toggleDarkMode);
 }
 
-// ===== MOBILE STICKY CTA =====
-function initMobileCTA() {
-    const mobileCTA = document.getElementById('mobileCTA');
-    const contactSection = document.getElementById('iletisim');
 
-    if (!mobileCTA || !contactSection) return;
-
-    const ctaObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                mobileCTA.classList.remove('visible');
-            } else {
-                mobileCTA.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.1 });
-
-    ctaObserver.observe(contactSection);
-
-    // Show CTA after initial page load
-    setTimeout(() => {
-        if (window.scrollY > 100) {
-            mobileCTA.classList.add('visible');
-        }
-    }, 500);
-}
 
 // ===== STEPS SECTION ANIMATION =====
 function initStepsAnimation() {
