@@ -847,3 +847,80 @@ html.dark .shadow-premium {
     transition: none;
   }
 }
+
+/* 
+   EDITORIAL TESTIMONIAL BAND (Marquee)
+   Premium, continuous, calm motion
+    */
+
+/* Marquee Animation */
+@keyframes testimonial-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Band Container */
+.testimonial-band {
+  width: 100%;
+  overflow: hidden;
+  padding: 2rem 0;
+}
+
+/* Track (animated) */
+.testimonial-track {
+  display: flex;
+  gap: 3rem;
+  animation: testimonial-scroll 60s linear infinite;
+  width: max-content;
+}
+
+/* Pause on hover */
+.testimonial-band:hover .testimonial-track {
+  animation-play-state: paused;
+}
+
+/* Testimonial Item (Minimal, Flat) */
+.testimonial-item {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.25rem 1.5rem;
+  border-left: 2px solid var(--color-border);
+  min-width: 280px;
+  max-width: 360px;
+}
+
+/* Quote Text */
+.testimonial-text {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  font-style: italic;
+  color: var(--color-text);
+  margin: 0;
+}
+
+/* Author */
+.testimonial-item .testimonial-author {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  font-style: normal;
+}
+
+/* Dark Mode Adjustments */
+.dark .testimonial-item,
+html.dark .testimonial-item {
+  border-left-color: var(--color-border);
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-track {
+    animation: none;
+  }
+}
