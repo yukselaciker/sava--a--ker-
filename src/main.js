@@ -5,6 +5,8 @@
 
 // Import styles (Vite will process this)
 import './styles.css';
+import './testimonials.js';
+
 
 // Mark CSS as loaded to show page (FOUC prevention)
 document.documentElement.classList.add('css-ready');

@@ -605,155 +605,103 @@
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
                 <h2 class="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
-                    Öğrenci <span class="text-primary">Başarıları</span>
+                    Öğrenci <span class="text-primary">Görüşleri</span>
                 </h2>
                 <p class="text-text-secondary">Gerçek sonuçlar, gerçek başarılar</p>
             </div>
 
-            <!-- Featured Testimonials - Desktop grid, Mobile slider -->
-            <div class="relative">
-                <!-- Desktop View: Grid -->
-                <div class="hidden md:grid md:grid-cols-3 gap-6 mb-12">
-                    <!-- Mert - Calculus 100 -->
-                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                        <div class="font-heading text-primary text-xl mb-3 font-bold">100 Puan</div>
-                        <p class="text-text-secondary italic mb-4">"Calculus 2 final sınavından 100 aldım, teşekkürler
-                            hocam!"</p>
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <div class="font-semibold text-text-primary">Mert</div>
-                                <div class="text-xs text-text-secondary">Türk Alman Üniversitesi</div>
-                            </div>
-                            <div class="text-right">
-                                <div class="text-xs text-text-secondary">Calculus 2</div>
-                                <div class="font-heading font-bold text-primary">100</div>
-                            </div>
-                        </div>
+            <!-- Testimonial Slider (CSS Scroll-Snap) -->
+            <div class="testimonial-slider-container relative mb-12">
+                <div class="testimonial-slider" role="region" aria-label="Öğrenci görüşleri">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card">
+                        <blockquote>
+                            <p class="testimonial-quote">
+                                "Calculus 2 final sınavından 100 aldım, teşekkürler hocam!"
+                            </p>
+                            <footer>
+                                <cite class="testimonial-author">Mert</cite>
+                                <span class="testimonial-meta">Türk Alman Üniversitesi · Calculus 2</span>
+                            </footer>
+                        </blockquote>
                     </div>
 
-                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                        <div class="font-heading text-primary text-xl mb-3 font-bold">100 Puan</div>
-                        <p class="text-text-secondary italic mb-4">"Çok bilgili, kaliteli bir Hoca. Herkese tavsiye
-                            ediyorum. Calculus sınavımdan 100 aldım."</p>
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <div class="font-semibold text-text-primary">Berat K.</div>
-                                <div class="text-xs text-text-secondary">Üniversite Öğrencisi</div>
-                            </div>
-                            <div class="text-right">
-                                <div class="text-xs text-text-secondary">Calculus</div>
-                                <div class="font-heading font-bold text-primary">100</div>
-                            </div>
-                        </div>
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card">
+                        <blockquote>
+                            <p class="testimonial-quote">
+                                "Çok bilgili, kaliteli bir Hoca. Herkese tavsiye ediyorum. Calculus sınavımdan 100
+                                aldım."
+                            </p>
+                            <footer>
+                                <cite class="testimonial-author">Berat K.</cite>
+                                <span class="testimonial-meta">Üniversite Öğrencisi · Calculus</span>
+                            </footer>
+                        </blockquote>
                     </div>
 
-                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                        <div class="font-heading text-primary text-xl mb-3 font-bold">Başarı</div>
-                        <p class="text-text-secondary italic mb-4">"Sınavıma çok kısa bir süre kala özel ders aldım.
-                            Çalıştığım en iyi hocaydı."</p>
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <div class="font-semibold text-text-primary">Dilara A.</div>
-                                <div class="text-xs text-text-secondary">Öğrenci</div>
-                            </div>
-                            <div class="text-right">
-                                <div class="text-xs text-text-secondary">4. Kez Başarı</div>
-                                <div class="font-heading font-bold text-primary">✓</div>
-                            </div>
-                        </div>
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card">
+                        <blockquote>
+                            <p class="testimonial-quote">
+                                "Sınavıma çok kısa bir süre kala özel ders aldım. Çalıştığım en iyi hocaydı."
+                            </p>
+                            <footer>
+                                <cite class="testimonial-author">Dilara A.</cite>
+                                <span class="testimonial-meta">Öğrenci</span>
+                            </footer>
+                        </blockquote>
                     </div>
 
-                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                        <div class="font-heading text-primary text-xl mb-3 font-bold">Memnuniyet</div>
-                        <p class="text-text-secondary italic mb-4">"Aldığım hizmetten çok memnun kaldım. Hocamız çok
-                            ilgili
-                            ve çok fazla örnek sunuyor."</p>
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <div class="font-semibold text-text-primary">Mehmet Kerem E.</div>
-                                <div class="text-xs text-text-secondary">Öğrenci</div>
-                            </div>
-                        </div>
+                    <!-- Testimonial 4 -->
+                    <div class="testimonial-card">
+                        <blockquote>
+                            <p class="testimonial-quote">
+                                "Aldığım hizmetten çok memnun kaldım. Hocamız çok ilgili ve çok fazla örnek sunuyor."
+                            </p>
+                            <footer>
+                                <cite class="testimonial-author">Mehmet Kerem E.</cite>
+                                <span class="testimonial-meta">Öğrenci</span>
+                            </footer>
+                        </blockquote>
                     </div>
-                </div>
 
-                <!-- Mobile View: Slider -->
-                <div class="md:hidden mb-12" id="mobileTestimonialSlider">
-                    <div class="relative overflow-hidden">
-                        <!-- Slider Container -->
-                        <div class="testimonial-slides">
-                            <div
-                                class="testimonial-slide active bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                                <div class="flex gap-1 mb-3 text-yellow-400">★★★★★</div>
-                                <p class="text-text-secondary italic mb-4">"Çok bilgili, kaliteli bir Hoca. Herkese
-                                    tavsiye ediyorum. Calculus sınavımdan 100 aldım."</p>
-                                <div class="flex items-center justify-between">
-                                    <div>
-                                        <div class="font-semibold text-text-primary">Berat K.</div>
-                                        <div class="text-xs text-text-secondary">Üniversite Öğrencisi</div>
-                                    </div>
-                                    <div class="text-right">
-                                        <div class="text-xs text-text-secondary">Calculus</div>
-                                        <div class="font-heading font-bold text-primary">100</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div
-                                class="testimonial-slide hidden bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                                <div class="flex gap-1 mb-3 text-yellow-400">★★★★★</div>
-                                <p class="text-text-secondary italic mb-4">"Sınavıma çok kısa bir süre kala özel ders
-                                    aldım. Çalıştığım en iyi hocaydı."</p>
-                                <div class="flex items-center justify-between">
-                                    <div>
-                                        <div class="font-semibold text-text-primary">Dilara A.</div>
-                                        <div class="text-xs text-text-secondary">Öğrenci</div>
-                                    </div>
-                                    <div class="text-right">
-                                        <div class="text-xs text-text-secondary">4. Kez Başarı</div>
-                                        <div class="font-heading font-bold text-primary">✓</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div
-                                class="testimonial-slide hidden bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                                <div class="flex gap-1 mb-3 text-yellow-400">★★★★★</div>
-                                <p class="text-text-secondary italic mb-4">"Aldığım hizmetten çok memnun kaldım. Hocamız
-                                    çok ilgili ve çok fazla örnek sunuyor."</p>
-                                <div class="flex items-center justify-between">
-                                    <div>
-                                        <div class="font-semibold text-text-primary">Mehmet Kerem E.</div>
-                                        <div class="text-xs text-text-secondary">Öğrenci</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <!-- Testimonial 5 -->
+                    <div class="testimonial-card">
+                        <blockquote>
+                            <p class="testimonial-quote">
+                                "Gönüllere girmeden kafalara giremezsiniz sözünün özeti bir öğretmen."
+                            </p>
+                            <footer>
+                                <cite class="testimonial-author">Efe</cite>
+                                <span class="testimonial-meta">Öğrenci</span>
+                            </footer>
+                        </blockquote>
+                    </div>
 
-                        <!-- Slider Controls -->
-                        <div class="flex justify-center items-center gap-4 mt-6">
-                            <button id="prevTestimonial"
-                                class="w-10 h-10 rounded-full bg-gray-100 hover:bg-primary hover:text-white transition flex items-center justify-center"
-                                aria-label="Önceki yorum">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M15 19l-7-7 7-7" />
-                                </svg>
-                            </button>
-                            <div class="flex gap-2" id="sliderDots">
-                                <span class="w-2 h-2 rounded-full bg-primary"></span>
-                                <span class="w-2 h-2 rounded-full bg-gray-300"></span>
-                                <span class="w-2 h-2 rounded-full bg-gray-300"></span>
-                            </div>
-                            <button id="nextTestimonial"
-                                class="w-10 h-10 rounded-full bg-gray-100 hover:bg-primary hover:text-white transition flex items-center justify-center"
-                                aria-label="Sonraki yorum">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 5l7 7-7 7" />
-                                </svg>
-                            </button>
-                        </div>
+                    <!-- Testimonial 6 -->
+                    <div class="testimonial-card">
+                        <blockquote>
+                            <p class="testimonial-quote">
+                                "İşinin uzmanı... Kızıma matematiği sevdiren.. Kırıkkale'de ender öğretmenlerden."
+                            </p>
+                            <footer>
+                                <cite class="testimonial-author">Mustafa</cite>
+                                <span class="testimonial-meta">Veli</span>
+                            </footer>
+                        </blockquote>
                     </div>
                 </div>
+
+                <!-- Navigation Dots -->
+                <nav class="testimonial-nav" aria-label="Görüş navigasyonu">
+                    <button class="dot active" aria-label="Görüş 1" aria-current="true" data-index="0"></button>
+                    <button class="dot" aria-label="Görüş 2" data-index="1"></button>
+                    <button class="dot" aria-label="Görüş 3" data-index="2"></button>
+                    <button class="dot" aria-label="Görüş 4" data-index="3"></button>
+                    <button class="dot" aria-label="Görüş 5" data-index="4"></button>
+                    <button class="dot" aria-label="Görüş 6" data-index="5"></button>
+                </nav>
             </div>
 
             <!-- More Testimonials Grid -->

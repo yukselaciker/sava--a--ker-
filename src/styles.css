@@ -725,3 +725,125 @@ html.dark .shadow-premium {
     -webkit-tap-highlight-color: rgba(139, 69, 19, 0.1);
   }
 }
+
+/* 
+   TESTIMONIAL SLIDER (CSS Scroll-Snap)
+    */
+
+.testimonial-slider-container {
+  position: relative;
+  max-width: 100%;
+}
+
+.testimonial-slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  gap: 1rem;
+  padding: 1rem 0;
+  
+  /* Hide scrollbar */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.testimonial-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.testimonial-card {
+  flex: 0 0 100%; /* Full width on mobile */
+  scroll-snap-align: center;
+  background: var(--color-surface-alt);
+  border-radius: 0.5rem;
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+  .testimonial-card {
+    flex: 0 0 calc(50% - 0.5rem); /* 2 per view on tablet */
+  }
+}
+
+@media (min-width: 1024px) {
+  .testimonial-card {
+    flex: 0 0 calc(33.333% - 0.67rem); /* 3 per view on desktop */
+  }
+}
+
+/* Typography */
+.testimonial-quote {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  font-style: italic;
+  color: var(--color-text);
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-author {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 0.25rem;
+  font-style: normal;
+}
+
+.testimonial-meta {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  font-weight: 400;
+}
+
+/* Navigation Dots */
+.testimonial-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: var(--color-border);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.dot:hover {
+  background: var(--color-text-muted);
+}
+
+.dot.active,
+.dot[aria-current=\"true\"] {
+  background: var(--color-accent);
+  width: 2rem; /* Elongated active dot */
+}
+
+/* Tap Highlight */
+.testimonial-card,
+.dot {
+  -webkit-tap-highlight-color: rgba(139, 69, 19, 0.1);
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-slider {
+    scroll-behavior: auto;
+  }
+  
+  .dot {
+    transition: none;
+  }
+}
