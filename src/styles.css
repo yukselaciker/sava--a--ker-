@@ -658,3 +658,70 @@ html.dark .shadow-lg,
 html.dark .shadow-premium {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
 }
+/* 
+   MOBILE OPTIMIZATIONS (UX Research-Backed)
+    */
+
+@media (max-width: 768px) {
+  /* Reduce section padding for better rhythm */
+  .section, .py-20, .py-28 {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+  }
+
+  /* Increase paragraph spacing (reading ease) */
+  p + p {
+    margin-top: 1.25rem;
+  }
+
+  /* Ensure body text uses container width */
+  .text-body, .text-body-lg {
+    max-width: 100%;
+  }
+}
+
+/* Card Hover Depth (Gestalt: Figure-Ground) */
+.card:hover, .credential-card:hover, .bg-white:hover {
+  box-shadow: var(--shadow-md);
+  transition: box-shadow 0.2s ease;
+}
+
+/* 
+   MOBILE UX: SCROLL RHYTHM & VISUAL SEPARATION
+    */
+
+@media (max-width: 768px) {
+  /* Variable Section Padding (Narrative Pacing) */
+  #hero {
+    padding-top: 6rem !important;
+    padding-bottom: 4rem !important;
+  }
+
+  /* Compact sections (visual breaks) */
+  #sertifikalar,
+  #sonuclar {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  /* Section Visual Separation (Hairline Borders) */
+  #neden,
+  #programlar,
+  #sss {
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  /* Full-Width Hero CTA */
+  #hero .btn-primary {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  /* Tap Highlight Feedback */
+  .btn-primary,
+  .card,
+  a {
+    -webkit-tap-highlight-color: rgba(139, 69, 19, 0.1);
+  }
+}
