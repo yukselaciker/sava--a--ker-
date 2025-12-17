@@ -879,32 +879,10 @@ html.dark .shadow-premium {
 /* Band Container */
 .testimonial-band {
   width: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow: hidden;
   padding: 2rem 0;
   cursor: grab;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  /* Custom scrollbar for better UX */
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-border) transparent;
-}
-
-.testimonial-band::-webkit-scrollbar {
-  height: 6px;
-}
-
-.testimonial-band::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.testimonial-band::-webkit-scrollbar-thumb {
-  background: var(--color-border);
-  border-radius: 3px;
-}
-
-.testimonial-band::-webkit-scrollbar-thumb:hover {
-  background: var(--color-text-muted);
+  position: relative;
 }
 
 .testimonial-band:active {
@@ -913,7 +891,6 @@ html.dark .shadow-premium {
 
 .testimonial-band.dragging {
   cursor: grabbing;
-  scroll-behavior: auto;
 }
 
 /* Track (animated) */
