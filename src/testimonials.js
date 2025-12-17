@@ -1,11 +1,11 @@
-// Draggable Testimonial Band - Seamless marquee with drag support
+// Draggable Testimonial Band - Seamless marquee with momentum scrolling
 document.addEventListener('DOMContentLoaded', () => {
     const band = document.querySelector('.testimonial-band');
     const track = document.querySelector('.testimonial-track');
 
     if (!band || !track) return;
 
-    // Drag state
+    // State
     let isDragging = false;
     let startX = 0;
     let currentTranslate = 0;
@@ -13,14 +13,44 @@ document.addEventListener('DOMContentLoaded', () => {
     let animationPaused = false;
     let resumeTimeout;
 
+    // Momentum scrolling state
+    let velocity = 0;
+    let lastX = 0;
+    let lastTime = 0;
+    let momentumId = null;
+    const friction = 0.95; // Smooth deceleration
+    const minVelocity = 0.5;
+
     // Get current animation translate value
     function getCurrentTranslate() {
         const style = window.getComputedStyle(track);
         const matrix = new DOMMatrix(style.transform);
-        return matrix.m41; // translateX value
+        return matrix.m41;
     }
 
-    // Pause animation and switch to manual control
+    // Get track width for wrapping
+    function getTrackWidth() {
+        return track.scrollWidth / 2;
+    }
+
+    // Wrap translate value for seamless loop
+    function wrapTranslate(value) {
+        const trackWidth = getTrackWidth();
+        if (value > 0) {
+            return value - trackWidth;
+        } else if (value < -trackWidth) {
+            return value + trackWidth;
+        }
+        return value;
+    }
+
+    // Apply transform
+    function setTransform(value) {
+        currentTranslate = wrapTranslate(value);
+        track.style.transform = `translateX(${currentTranslate}px)`;
+    }
+
+    // Pause CSS animation
     function pauseAnimation() {
         if (animationPaused) return;
 
@@ -31,53 +61,93 @@ document.addEventListener('DOMContentLoaded', () => {
         band.classList.add('paused');
     }
 
-    // Resume CSS animation
+    // Resume CSS animation after delay
     function resumeAnimation() {
         clearTimeout(resumeTimeout);
         resumeTimeout = setTimeout(() => {
-            if (!isDragging) {
-                // Reset to CSS animation
+            if (!isDragging && Math.abs(velocity) < minVelocity) {
                 track.style.animation = '';
                 track.style.transform = '';
                 animationPaused = false;
                 band.classList.remove('paused');
             }
-        }, 2000); // Resume after 2 seconds of no interaction
+        }, 3000);
+    }
+
+    // Momentum animation loop
+    function momentumLoop() {
+        if (Math.abs(velocity) < minVelocity) {
+            cancelAnimationFrame(momentumId);
+            momentumId = null;
+            resumeAnimation();
+            return;
+        }
+
+        currentTranslate += velocity;
+        setTransform(currentTranslate);
+        velocity *= friction;
+
+        momentumId = requestAnimationFrame(momentumLoop);
+    }
+
+    // Start momentum scrolling
+    function startMomentum() {
+        if (momentumId) {
+            cancelAnimationFrame(momentumId);
+        }
+        momentumId = requestAnimationFrame(momentumLoop);
+    }
+
+    // Stop momentum
+    function stopMomentum() {
+        if (momentumId) {
+            cancelAnimationFrame(momentumId);
+            momentumId = null;
+        }
+        velocity = 0;
     }
 
     // Mouse Events - Desktop
     band.addEventListener('mousedown', (e) => {
         isDragging = true;
+        stopMomentum();
         band.classList.add('dragging');
         pauseAnimation();
         startX = e.pageX;
+        lastX = e.pageX;
+        lastTime = Date.now();
         prevTranslate = currentTranslate;
     });
 
     document.addEventListener('mousemove', (e) => {
         if (!isDragging) return;
         e.preventDefault();
-        const diff = e.pageX - startX;
-        currentTranslate = prevTranslate + diff;
 
-        // Get track width for wrapping
-        const trackWidth = track.scrollWidth / 2; // Half because content is duplicated
+        const now = Date.now();
+        const dt = now - lastTime;
 
-        // Wrap around seamlessly
-        if (currentTranslate > 0) {
-            currentTranslate = -trackWidth + currentTranslate;
-        } else if (currentTranslate < -trackWidth) {
-            currentTranslate = currentTranslate + trackWidth;
+        if (dt > 0) {
+            velocity = (e.pageX - lastX) / dt * 16; // Normalize to ~60fps
         }
 
-        track.style.transform = `translateX(${currentTranslate}px)`;
+        lastX = e.pageX;
+        lastTime = now;
+
+        const diff = e.pageX - startX;
+        setTransform(prevTranslate + diff);
     });
 
     document.addEventListener('mouseup', () => {
         if (isDragging) {
             isDragging = false;
             band.classList.remove('dragging');
-            resumeAnimation();
+
+            // Start momentum if velocity is significant
+            if (Math.abs(velocity) > minVelocity) {
+                startMomentum();
+            } else {
+                resumeAnimation();
+            }
         }
     });
 
@@ -87,59 +157,71 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Touch Events - Mobile
+    // Touch Events - Mobile (with momentum)
     band.addEventListener('touchstart', (e) => {
         isDragging = true;
+        stopMomentum();
         band.classList.add('dragging');
         pauseAnimation();
         startX = e.touches[0].pageX;
+        lastX = e.touches[0].pageX;
+        lastTime = Date.now();
         prevTranslate = currentTranslate;
     }, { passive: true });
 
     band.addEventListener('touchmove', (e) => {
         if (!isDragging) return;
-        const diff = e.touches[0].pageX - startX;
-        currentTranslate = prevTranslate + diff;
 
-        const trackWidth = track.scrollWidth / 2;
+        const now = Date.now();
+        const dt = now - lastTime;
+        const touchX = e.touches[0].pageX;
 
-        if (currentTranslate > 0) {
-            currentTranslate = -trackWidth + currentTranslate;
-        } else if (currentTranslate < -trackWidth) {
-            currentTranslate = currentTranslate + trackWidth;
+        if (dt > 0) {
+            velocity = (touchX - lastX) / dt * 16;
         }
 
-        track.style.transform = `translateX(${currentTranslate}px)`;
+        lastX = touchX;
+        lastTime = now;
+
+        const diff = touchX - startX;
+        setTransform(prevTranslate + diff);
     }, { passive: true });
 
     band.addEventListener('touchend', () => {
         isDragging = false;
         band.classList.remove('dragging');
-        resumeAnimation();
+
+        // Start momentum with smooth deceleration
+        if (Math.abs(velocity) > minVelocity) {
+            startMomentum();
+        } else {
+            resumeAnimation();
+        }
     }, { passive: true });
 
-    // Wheel scroll support
+    // Wheel scroll with momentum
+    let wheelTimeout;
     band.addEventListener('wheel', (e) => {
         if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
             e.preventDefault();
             pauseAnimation();
+            stopMomentum();
 
-            currentTranslate -= e.deltaY;
-            const trackWidth = track.scrollWidth / 2;
+            // Add wheel delta to velocity for accumulation
+            velocity += -e.deltaY * 0.3;
+            velocity = Math.max(-50, Math.min(50, velocity)); // Clamp velocity
 
-            if (currentTranslate > 0) {
-                currentTranslate = -trackWidth + currentTranslate;
-            } else if (currentTranslate < -trackWidth) {
-                currentTranslate = currentTranslate + trackWidth;
-            }
-
-            track.style.transform = `translateX(${currentTranslate}px)`;
-            resumeAnimation();
+            clearTimeout(wheelTimeout);
+            wheelTimeout = setTimeout(() => {
+                startMomentum();
+            }, 50);
         }
     }, { passive: false });
 
-    // Pause on hover (optional - for reading)
+    // Pause on hover (for reading)
     band.addEventListener('mouseenter', () => {
-        pauseAnimation();
+        if (!isDragging) {
+            pauseAnimation();
+        }
     });
 });

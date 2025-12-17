@@ -63,7 +63,28 @@ document.addEventListener('DOMContentLoaded', () => {
     initCertificateModal();
     initDevBadge();
     initMathTest();
+
+    // Auto-open Learning Profile Test on first visit
+    autoOpenMathTest();
 });
+
+// ===== AUTO-OPEN MATH TEST ON FIRST VISIT =====
+function autoOpenMathTest() {
+    const TEST_SHOWN_KEY = 'mathTestShownThisSession';
+
+    // Check if test was already shown in this session
+    if (sessionStorage.getItem(TEST_SHOWN_KEY)) {
+        return;
+    }
+
+    // Wait 1.5 seconds after page load, then show the test
+    setTimeout(() => {
+        if (window.mathTest && typeof window.mathTest.open === 'function') {
+            window.mathTest.open();
+            sessionStorage.setItem(TEST_SHOWN_KEY, 'true');
+        }
+    }, 1500);
+}
 
 // ===== MOBILE MENU =====
 function initMobileMenu() {
