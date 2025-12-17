@@ -879,8 +879,41 @@ html.dark .shadow-premium {
 /* Band Container */
 .testimonial-band {
   width: 100%;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
   padding: 2rem 0;
+  cursor: grab;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  /* Custom scrollbar for better UX */
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
+}
+
+.testimonial-band::-webkit-scrollbar {
+  height: 6px;
+}
+
+.testimonial-band::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.testimonial-band::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+
+.testimonial-band::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
+
+.testimonial-band:active {
+  cursor: grabbing;
+}
+
+.testimonial-band.dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
 }
 
 /* Track (animated) */
@@ -889,10 +922,13 @@ html.dark .shadow-premium {
   gap: 3rem;
   animation: testimonial-scroll 60s linear infinite;
   width: max-content;
+  user-select: none;
 }
 
-/* Pause on hover */
-.testimonial-band:hover .testimonial-track {
+/* Pause on hover or when user is interacting */
+.testimonial-band:hover .testimonial-track,
+.testimonial-band.dragging .testimonial-track,
+.testimonial-band.paused .testimonial-track {
   animation-play-state: paused;
 }
 
