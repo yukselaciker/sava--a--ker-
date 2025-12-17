@@ -6,6 +6,7 @@
 // Import styles (Vite will process this)
 import './styles.css';
 import './testimonials.js';
+import { initMathTest } from './math-test.js';
 
 
 // Mark CSS as loaded to show page (FOUC prevention)
@@ -61,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initStepsAnimation();
     initCertificateModal();
     initDevBadge();
+    initMathTest();
 });
 
 // ===== MOBILE MENU =====
