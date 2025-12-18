@@ -95,16 +95,28 @@ let testState = {
 
 // Test başlatma
 export function initMathTest() {
-    createTestModal();
-    attachEventListeners();
+    try {
+        createTestModal();
+        attachEventListeners();
+    } catch (error) {
+        console.error('Failed to initialize math test:', error);
+        // Fail gracefully - don't break the page
+    }
 }
 
 // Modal oluşturma
 function createTestModal() {
-    const modal = document.createElement('div');
-    modal.id = 'mathTestModal';
-    modal.className = 'math-test-modal';
-    modal.innerHTML = `
+    try {
+        // Remove existing modal if any
+        const existing = document.getElementById('mathTestModal');
+        if (existing) {
+            existing.remove();
+        }
+
+        const modal = document.createElement('div');
+        modal.id = 'mathTestModal';
+        modal.className = 'math-test-modal';
+        modal.innerHTML = `
         <div class="math-test-container">
             <!-- Giriş Ekranı -->
             <div id="testIntro" class="test-screen active">
@@ -212,7 +224,14 @@ function createTestModal() {
         </div>
     `;
 
-    document.body.appendChild(modal);
+        if (!document.body) {
+            throw new Error('Document body not available');
+        }
+        document.body.appendChild(modal);
+    } catch (error) {
+        console.error('Failed to create test modal:', error);
+        throw error; // Re-throw to be caught by initMathTest
+    }
 }
 
 // Event listener'ları bağlama
@@ -225,11 +244,50 @@ function attachEventListeners() {
         }
     });
 
-    // Modal içi butonlar
-    document.getElementById('startTestBtn')?.addEventListener('click', startTest);
-    document.getElementById('nextBtn')?.addEventListener('click', nextQuestion);
-    document.getElementById('prevBtn')?.addEventListener('click', prevQuestion);
-    document.getElementById('closeTestModal')?.addEventListener('click', closeTest);
+    // Modal içi butonlar - with error handling
+    const startBtn = document.getElementById('startTestBtn');
+    if (startBtn) {
+        startBtn.addEventListener('click', () => {
+            try {
+                startTest();
+            } catch (e) {
+                console.error('Failed to start test:', e);
+            }
+        });
+    }
+
+    const nextBtn = document.getElementById('nextBtn');
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            try {
+                nextQuestion();
+            } catch (e) {
+                console.error('Failed to go to next question:', e);
+            }
+        });
+    }
+
+    const prevBtn = document.getElementById('prevBtn');
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            try {
+                prevQuestion();
+            } catch (e) {
+                console.error('Failed to go to previous question:', e);
+            }
+        });
+    }
+
+    const closeBtn = document.getElementById('closeTestModal');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            try {
+                closeTest();
+            } catch (e) {
+                console.error('Failed to close test:', e);
+            }
+        });
+    }
 
     // ESC tuşu ile kapatma
     document.addEventListener('keydown', (e) => {
@@ -241,67 +299,108 @@ function attachEventListeners() {
 
 // Test açma
 function openTest() {
-    const modal = document.getElementById('mathTestModal');
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-    resetTest();
+    try {
+        const modal = document.getElementById('mathTestModal');
+        if (!modal) {
+            console.error('Math test modal not found');
+            return;
+        }
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        resetTest();
+    } catch (error) {
+        console.error('Failed to open test:', error);
+    }
 }
 
 // Test kapatma
 function closeTest() {
-    const modal = document.getElementById('mathTestModal');
-    modal.classList.remove('active');
-    document.body.style.overflow = '';
+    try {
+        const modal = document.getElementById('mathTestModal');
+        if (!modal) {
+            console.warn('Math test modal not found when closing');
+            return;
+        }
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    } catch (error) {
+        console.error('Failed to close test:', error);
+    }
 }
 
 // Test sıfırlama
 function resetTest() {
-    testState = {
-        currentQuestion: 0,
-        answers: {},
-        scores: {},
-        startTime: null,
-        studentInfo: {}
-    };
+    try {
+        testState = {
+            currentQuestion: 0,
+            answers: {},
+            scores: {},
+            startTime: null,
+            studentInfo: {}
+        };
 
-    // Ekranları sıfırla
-    document.querySelectorAll('.test-screen').forEach(s => s.classList.remove('active'));
-    document.getElementById('testIntro').classList.add('active');
+        // Ekranları sıfırla
+        document.querySelectorAll('.test-screen').forEach(s => s.classList.remove('active'));
+        const intro = document.getElementById('testIntro');
+        if (intro) {
+            intro.classList.add('active');
+        }
 
-    // Form sıfırla
-    document.getElementById('studentName').value = '';
-    document.getElementById('studentGrade').value = '';
+        // Form sıfırla
+        const nameInput = document.getElementById('studentName');
+        const gradeInput = document.getElementById('studentGrade');
+        if (nameInput) nameInput.value = '';
+        if (gradeInput) gradeInput.value = '';
+    } catch (error) {
+        console.error('Failed to reset test:', error);
+    }
 }
 
 // Testi başlat
 function startTest() {
-    testState.studentInfo = {
-        name: document.getElementById('studentName').value.trim() || 'Öğrenci',
-        grade: document.getElementById('studentGrade').value
-    };
-    testState.startTime = Date.now();
+    try {
+        const nameInput = document.getElementById('studentName');
+        const gradeInput = document.getElementById('studentGrade');
 
-    // Ekran geçişi
-    document.getElementById('testIntro').classList.remove('active');
-    document.getElementById('testQuestions').classList.add('active');
+        testState.studentInfo = {
+            name: (nameInput?.value.trim()) || 'Öğrenci',
+            grade: gradeInput?.value || ''
+        };
+        testState.startTime = Date.now();
 
-    // İlk soruyu göster
-    showQuestion(0);
+        // Ekran geçişi
+        const intro = document.getElementById('testIntro');
+        const questions = document.getElementById('testQuestions');
+
+        if (intro) intro.classList.remove('active');
+        if (questions) questions.classList.add('active');
+
+        // İlk soruyu göster
+        showQuestion(0);
+    } catch (error) {
+        console.error('Failed to start test:', error);
+    }
 }
 
 // Soru gösterme
 function showQuestion(index) {
-    const question = questions[index];
-    const container = document.getElementById('questionContainer');
+    try {
+        const question = questions[index];
+        const container = document.getElementById('questionContainer');
 
-    // İlerleme güncelle
-    document.getElementById('questionNumber').textContent = index + 1;
-    document.getElementById('progressFill').style.width = `${((index + 1) / questions.length) * 100}%`;
+        if (!container) {
+            console.error('Question container not found');
+            return;
+        }
 
-    // Seçili cevapları al
-    const selectedAnswers = testState.answers[question.id] || [];
+        // İlerleme güncelle
+        document.getElementById('questionNumber').textContent = index + 1;
+        document.getElementById('progressFill').style.width = `${((index + 1) / questions.length) * 100}%`;
 
-    container.innerHTML = `
+        // Seçili cevapları al
+        const selectedAnswers = testState.answers[question.id] || [];
+
+        container.innerHTML = `
         <div class="question-card">
             <div class="question-image">
                 <img src="/test-images/${question.image}" alt="${question.imageAlt}" 
@@ -327,47 +426,50 @@ function showQuestion(index) {
         </div>
     `;
 
-    // Seçenek eventleri
-    container.querySelectorAll('.option-item').forEach(item => {
-        // Handle click on the entire option item
-        const handleSelection = (e) => {
-            e.preventDefault();
-            e.stopPropagation();
+        // Seçenek eventleri
+        container.querySelectorAll('.option-item').forEach(item => {
+            // Handle click on the entire option item
+            const handleSelection = (e) => {
+                e.preventDefault();
+                e.stopPropagation();
 
-            const input = item.querySelector('input');
-            const optionId = item.dataset.optionId;
+                const input = item.querySelector('input');
+                const optionId = item.dataset.optionId;
 
-            if (question.multipleChoice) {
-                // Toggle selection for multiple choice
-                const isSelected = item.classList.contains('selected');
-                item.classList.toggle('selected');
-                input.checked = !isSelected;
-            } else {
-                // Single selection - deselect others first
-                container.querySelectorAll('.option-item').forEach(i => {
-                    i.classList.remove('selected');
-                    const inp = i.querySelector('input');
-                    if (inp) inp.checked = false;
-                });
-                item.classList.add('selected');
-                input.checked = true;
-            }
+                if (question.multipleChoice) {
+                    // Toggle selection for multiple choice
+                    const isSelected = item.classList.contains('selected');
+                    item.classList.toggle('selected');
+                    input.checked = !isSelected;
+                } else {
+                    // Single selection - deselect others first
+                    container.querySelectorAll('.option-item').forEach(i => {
+                        i.classList.remove('selected');
+                        const inp = i.querySelector('input');
+                        if (inp) inp.checked = false;
+                    });
+                    item.classList.add('selected');
+                    input.checked = true;
+                }
 
-            saveAnswer(question.id, question.multipleChoice);
-            updateNavButtons();
-        };
+                saveAnswer(question.id, question.multipleChoice);
+                updateNavButtons();
+            };
 
-        item.addEventListener('click', handleSelection);
+            item.addEventListener('click', handleSelection);
 
-        // Also handle touch events for mobile
-        item.addEventListener('touchend', (e) => {
-            e.preventDefault();
-            handleSelection(e);
-        }, { passive: false });
-    });
+            // Also handle touch events for mobile
+            item.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                handleSelection(e);
+            }, { passive: false });
+        });
 
-    // Navigasyon butonları
-    updateNavButtons();
+        // Navigasyon butonları
+        updateNavButtons();
+    } catch (error) {
+        console.error('Failed to show question:', error);
+    }
 }
 
 // Cevap kaydetme
