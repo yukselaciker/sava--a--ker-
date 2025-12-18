@@ -391,54 +391,66 @@ function initContactForm() {
         formSuccess.classList.add('hidden');
         formError.classList.add('hidden');
 
-        // Disable button
+        // Disable button temporarily
         submitBtn.disabled = true;
-        submitBtn.textContent = 'Gönderiliyor...';
+        submitBtn.textContent = 'WhatsApp açılıyor...';
 
         // Collect form data
         const formData = new FormData(contactForm);
+        const name = formData.get('name') || 'İsimsiz';
+        const email = formData.get('email') || 'E-posta belirtilmedi';
+        const phone = formData.get('phone') || 'Telefon belirtilmedi';
+        const message = formData.get('message') || '';
+
+        // Create WhatsApp message
+        const whatsappMessage = `🎓 *Matematik Dersi Talebi*
+
+👤 *Ad Soyad:* ${name}
+📧 *E-posta:* ${email}
+📱 *Telefon:* ${phone}
+
+💬 *Mesaj:*
+${message}
+
+---
+savasaciker.vercel.app üzerinden gönderildi`;
+
+        // Encode for URL
+        const encodedMessage = encodeURIComponent(whatsappMessage);
+
+        // WhatsApp number - replace with your actual number
+        // Format: country code + number (no + or spaces)
+        // Example: 905551234567 for Turkish number
+        const whatsappNumber = '905444769418'; // Savaş Açıker WhatsApp
+
+        // WhatsApp URL
+        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
 
         try {
-            if (isDev) {
-                // DEV MODE: Simulate successful submission
-                console.log('DEV MODE: Simulated form submission');
-                await new Promise(resolve => setTimeout(resolve, 800));
-                formSuccess.classList.remove('hidden');
-                contactForm.reset();
-                // Clear draft
-                localStorage.removeItem('contactFormDraft');
-            } else {
-                // PRODUCTION MODE: Send real request to Formspree
-                if (!FORMSPREE_ENDPOINT) {
-                    throw new Error('Formspree endpoint not configured');
-                }
-                const response = await fetch(FORMSPREE_ENDPOINT, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
+            // Open WhatsApp
+            window.open(whatsappUrl, '_blank');
 
-                if (response.ok) {
-                    formSuccess.classList.remove('hidden');
-                    contactForm.reset();
-                    localStorage.removeItem('contactFormDraft');
-                } else {
-                    throw new Error('Form submission failed');
-                }
-            }
+            // Show success message
+            setTimeout(() => {
+                formSuccess.textContent = '✅ WhatsApp açıldı! Mesajınızı oradan gönderebilirsiniz.';
+                formSuccess.classList.remove('hidden');
+
+                // Clear form
+                contactForm.reset();
+                localStorage.removeItem('contactFormDraft');
+            }, 500);
+
         } catch (error) {
+            formError.textContent = 'WhatsApp açılamadı. Lütfen manuel olarak iletişime geçin.';
             formError.classList.remove('hidden');
-            if (!isDev) {
-                console.error('Form error:', error);
-            }
+            console.error('WhatsApp error:', error);
         } finally {
             submitBtn.disabled = false;
-            submitBtn.textContent = 'Gönder ve Dönüş Al';
+            submitBtn.textContent = 'WhatsApp ile Gönder';
         }
     });
 }
+
 
 // ===== SMOOTH SCROLL =====
 function initSmoothScroll() {
