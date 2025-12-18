@@ -62,26 +62,38 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    // ===== CRITICAL COMPONENTS (Immediate Load) =====
+    // These are essential for Device B on mobile data - load first
     safeInit(initMobileMenu, 'mobile menu');
     safeInit(initNavbarScroll, 'navbar scroll');
-    safeInit(initProgramFilters, 'program filters');
-    safeInit(initFAQAccordion, 'FAQ accordion');
-    safeInit(initFAQSearch, 'FAQ search');
-    safeInit(initCounters, 'counters');
-
-    safeInit(initScrollProgress, 'scroll progress');
     safeInit(initContactForm, 'contact form');
     safeInit(initSmoothScroll, 'smooth scroll');
-    safeInit(initScrollspy, 'scrollspy');
-    safeInit(initTestimonialSlider, 'testimonial slider');
-    safeInit(initTestimonialToggle, 'testimonial toggle');
-    safeInit(initFormDraft, 'form draft');
     safeInit(initDarkMode, 'dark mode');
+    safeInit(initFAQAccordion, 'FAQ accordion');
 
-    safeInit(initStepsAnimation, 'steps animation');
-    safeInit(initCertificateModal, 'certificate modal');
-    safeInit(initDevBadge, 'dev badge');
-    safeInit(initMathTest, 'math test');
+    // ===== SECONDARY COMPONENTS (Delayed 5s) =====
+    // Delay non-essential features to prioritize connection for Device B
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            try {
+                safeInit(initProgramFilters, 'program filters');
+                safeInit(initFAQSearch, 'FAQ search');
+                safeInit(initCounters, 'counters');
+                safeInit(initScrollProgress, 'scroll progress');
+                safeInit(initScrollspy, 'scrollspy');
+                safeInit(initTestimonialSlider, 'testimonial slider');
+                safeInit(initTestimonialToggle, 'testimonial toggle');
+                safeInit(initFormDraft, 'form draft');
+                safeInit(initStepsAnimation, 'steps animation');
+                safeInit(initCertificateModal, 'certificate modal');
+                safeInit(initDevBadge, 'dev badge');
+                safeInit(initMathTest, 'math test');
+            } catch (e) {
+                console.error('Failed to initialize secondary components:', e);
+                // Device B still has core functionality even if this fails
+            }
+        }, 5000); // 5-second delay for network stabilization
+    });
 });
 
 // ===== AUTO-OPEN MATH TEST ON FIRST VISIT =====
