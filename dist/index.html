@@ -111,7 +111,20 @@
         }
     </style>
 
+    <!-- Emergency Legacy Support for Older Chrome/Mobile Browsers -->
+    <script>
+        // Detect if browser supports ES modules
+        var supportsModules = 'noModule' in HTMLScriptElement.prototype;
+        if (!supportsModules) {
+            // Force page to be visible even if scripts fail
+            document.documentElement.style.opacity = '1';
+            document.body.style.opacity = '1';
+            console.warn('Legacy browser detected - limited functionality');
+        }
+    </script>
+
     <!-- Vite Entry Point -->
+
   <script type="module" crossorigin src="/assets/index-DbmyWkhB.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/vendor-DxM4QJAZ.js">
   <link rel="modulepreload" crossorigin href="/assets/test-DXNP8_cJ.js">
