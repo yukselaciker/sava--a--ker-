@@ -359,7 +359,7 @@ function initScrollProgress() {
 // ===== CONTACT FORM =====
 function initContactForm() {
     const contactForm = document.getElementById('contactForm');
-    const submitBtn = document.getElementById('submitBtn');
+    const submitBtn = document.getElementById('contactSubmit'); // Fixed: was submitBtn
     const formSuccess = document.getElementById('formSuccess');
     const formError = document.getElementById('formError');
 
