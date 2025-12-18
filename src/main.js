@@ -102,7 +102,7 @@ function autoOpenMathTest() {
         return;
     }
 
-    // Wait 1.5 seconds after window load, then show the test
+    // Wait 4 seconds after window load to prioritize main page, then show the test
     setTimeout(() => {
         // Robust checking for window.mathTest
         if (window.mathTest && typeof window.mathTest.open === 'function') {
@@ -115,7 +115,7 @@ function autoOpenMathTest() {
         } else {
             console.warn('Math test component not ready or not available');
         }
-    }, 1500);
+    }, 4000);
 }
 
 // ===== MOBILE MENU =====

@@ -68,13 +68,8 @@
             font-family: 'Crimson Text', Georgia, serif;
         }
 
-        /* Smooth fade-in when ready - non-blocking */
+        /* Body immediately visible - no fade-in delay */
         body {
-            opacity: 0;
-            transition: opacity 0.3s ease-out;
-        }
-
-        html.css-ready body {
             opacity: 1;
         }
 
@@ -219,8 +214,7 @@
                 <!-- Portrait: 5 columns -->
                 <div class="lg:col-span-5 fade-in" style="animation-delay: 0.15s">
                     <div class="relative">
-                        <img src="/savas-aciker.jpg" alt="Savaş Açıker"
-                            fetchpriority="high"
+                        <img src="/savas-aciker.jpg" alt="Savaş Açıker" fetchpriority="high"
                             class="w-full rounded-card object-cover aspect-[3/4]"
                             style="box-shadow: 0 20px 40px rgba(0,0,0,0.08);">
                         <!-- Caption below image -->
