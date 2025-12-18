@@ -10,14 +10,24 @@ import { initMathTest } from './math-test.js';
 
 
 // Mark CSS as loaded to show page (FOUC prevention)
-document.documentElement.classList.add('css-ready');
+try {
+    document.documentElement.classList.add('css-ready');
+} catch (e) {
+    console.error('Failed to mark CSS ready:', e);
+}
 
 // ===== ENVIRONMENT DETECTION (Vite) =====
 const isDev = import.meta.env.DEV;
 
 // ===== FORMSPREE CONFIGURATION =====
 // Replace XXXXYYYY with your actual Formspree form ID
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/XXXXYYYY';
+let FORMSPREE_ENDPOINT;
+try {
+    FORMSPREE_ENDPOINT = 'https://formspree.io/f/XXXXYYYY';
+} catch (e) {
+    console.error('Failed to set Formspree endpoint:', e);
+    FORMSPREE_ENDPOINT = null;
+}
 
 // ===== UTILITY FUNCTIONS =====
 // Throttle: limits function calls to at most once per 'limit' ms
@@ -43,32 +53,47 @@ const debounce = (func, wait) => {
 
 // ===== INITIALIZATION =====
 document.addEventListener('DOMContentLoaded', () => {
-    initMobileMenu();
-    initNavbarScroll();
-    initProgramFilters();
-    initFAQAccordion();
-    initFAQSearch();
-    initCounters();
+    // Wrap each initialization in try-catch for robustness
+    const safeInit = (fn, name) => {
+        try {
+            fn();
+        } catch (e) {
+            console.error(`Failed to initialize ${name}:`, e);
+        }
+    };
 
-    initScrollProgress();
-    initContactForm();
-    initSmoothScroll();
-    initScrollspy();
-    initTestimonialSlider();
-    initTestimonialToggle();
-    initFormDraft();
-    initDarkMode();
+    safeInit(initMobileMenu, 'mobile menu');
+    safeInit(initNavbarScroll, 'navbar scroll');
+    safeInit(initProgramFilters, 'program filters');
+    safeInit(initFAQAccordion, 'FAQ accordion');
+    safeInit(initFAQSearch, 'FAQ search');
+    safeInit(initCounters, 'counters');
 
-    initStepsAnimation();
-    initCertificateModal();
-    initDevBadge();
-    initMathTest();
+    safeInit(initScrollProgress, 'scroll progress');
+    safeInit(initContactForm, 'contact form');
+    safeInit(initSmoothScroll, 'smooth scroll');
+    safeInit(initScrollspy, 'scrollspy');
+    safeInit(initTestimonialSlider, 'testimonial slider');
+    safeInit(initTestimonialToggle, 'testimonial toggle');
+    safeInit(initFormDraft, 'form draft');
+    safeInit(initDarkMode, 'dark mode');
 
-    // Auto-open Learning Profile Test on first visit
-    autoOpenMathTest();
+    safeInit(initStepsAnimation, 'steps animation');
+    safeInit(initCertificateModal, 'certificate modal');
+    safeInit(initDevBadge, 'dev badge');
+    safeInit(initMathTest, 'math test');
 });
 
 // ===== AUTO-OPEN MATH TEST ON FIRST VISIT =====
+// Use window.load to ensure all components are ready (prevents race conditions)
+window.addEventListener('load', () => {
+    try {
+        autoOpenMathTest();
+    } catch (e) {
+        console.error('Failed to auto-open math test:', e);
+    }
+});
+
 function autoOpenMathTest() {
     const TEST_SHOWN_KEY = 'mathTestShownThisSession';
 
@@ -77,11 +102,18 @@ function autoOpenMathTest() {
         return;
     }
 
-    // Wait 1.5 seconds after page load, then show the test
+    // Wait 1.5 seconds after window load, then show the test
     setTimeout(() => {
+        // Robust checking for window.mathTest
         if (window.mathTest && typeof window.mathTest.open === 'function') {
-            window.mathTest.open();
-            sessionStorage.setItem(TEST_SHOWN_KEY, 'true');
+            try {
+                window.mathTest.open();
+                sessionStorage.setItem(TEST_SHOWN_KEY, 'true');
+            } catch (e) {
+                console.error('Failed to open math test:', e);
+            }
+        } else {
+            console.warn('Math test component not ready or not available');
         }
     }, 1500);
 }
@@ -365,6 +397,9 @@ function initContactForm() {
                 localStorage.removeItem('contactFormDraft');
             } else {
                 // PRODUCTION MODE: Send real request to Formspree
+                if (!FORMSPREE_ENDPOINT) {
+                    throw new Error('Formspree endpoint not configured');
+                }
                 const response = await fetch(FORMSPREE_ENDPOINT, {
                     method: 'POST',
                     body: formData,

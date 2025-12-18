@@ -31,11 +31,11 @@
     }
     </script>
 
-    <!-- Fonts: Crimson Text + Inter (display=block to prevent FOUT) -->
+    <!-- Fonts: Crimson Text + Inter (display=swap for progressive rendering) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Inter:wght@400;500;600&display=block"
+        href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Inter:wght@400;500;600&display=swap"
         rel="stylesheet">
 
     <!-- Theme Bootstrap - MUST run before any CSS to prevent FOUC -->
@@ -58,30 +58,20 @@
     <!-- Critical CSS to prevent FOUC - inline to load before external CSS -->
     <style>
         /*
-           PRODUCTION FOUC FIX:
-           1. HTML always visible (paints background immediately)
-           2. Body hidden until CSS loads
-           3. Strict visibility guard (no fallback animation needed)
-        */
+           PROGRESSIVE RENDERING FIX:
+           1. HTML and body always visible (no blocking)
+           2. Critical skeleton (background, navbar) shows immediately
+           3. Smooth fade-in using opacity for enhanced content
+         */
         html {
             opacity: 1;
             font-family: 'Crimson Text', Georgia, serif;
         }
 
-        /* Hide content until CSS ready */
-        html:not(.css-ready) {
-            visibility: hidden !important;
-        }
-
-        html:not(.css-ready) body {
-            visibility: hidden !important;
-            opacity: 0 !important;
-        }
-
-        /* Smooth fade-in when ready */
+        /* Smooth fade-in when ready - non-blocking */
         body {
             opacity: 0;
-            transition: opacity 0.2s ease-out;
+            transition: opacity 0.3s ease-out;
         }
 
         html.css-ready body {
@@ -230,6 +220,7 @@
                 <div class="lg:col-span-5 fade-in" style="animation-delay: 0.15s">
                     <div class="relative">
                         <img src="/savas-aciker.jpg" alt="Savaş Açıker"
+                            fetchpriority="high"
                             class="w-full rounded-card object-cover aspect-[3/4]"
                             style="box-shadow: 0 20px 40px rgba(0,0,0,0.08);">
                         <!-- Caption below image -->
